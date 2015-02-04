@@ -1,0 +1,74 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:background="@android:color/background_dark">
+
+
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:id="@+id/imageView"
+        android:elevation="0dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="false"
+        android:baselineAlignBottom="false"
+        android:cropToPadding="false"
+        android:scaleType="centerCrop"
+        android:adjustViewBounds="false"
+        android:layout_centerInParent="true"
+        android:src="@drawable/background_1" />
+    <FrameLayout
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_centerVertical="true"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/layout_bg"
+        android:elevation="1dp"
+        android:touchscreenBlocksFocus="false">
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/login_button_text"
+            android:onClick="onLoginButtonPress"
+            android:id="@+id/loginButton"
+            android:layout_centerVertical="true"
+            android:layout_centerHorizontal="true"
+            android:layout_gravity="center_horizontal|bottom"
+            android:layout_margin="10dp"
+            android:elevation="2dp" />
+
+        <EditText android:id="@+id/login_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ems="12"
+            android:hint="@string/login_username_hint"
+            android:singleLine = "true"
+            android:layout_above="@+id/login_password"
+            android:layout_alignStart="@+id/login_password"
+            android:gravity="center"
+            android:layout_gravity="center_horizontal|top"
+            android:layout_margin="10dp"
+            android:elevation="2dp" />
+
+        <EditText android:id="@+id/login_password"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:inputType="textPassword"
+            android:ems="12"
+            android:hint="@string/login_password_hint"
+            android:singleLine = "true"
+            android:layout_above="@+id/loginButton"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:elevation="2dp" />
+
+    </FrameLayout>
+
+
+</RelativeLayout>
