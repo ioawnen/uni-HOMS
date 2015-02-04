@@ -72,8 +72,8 @@ public class HomeActivity extends ActionBarActivity {
             case R.id.action_settings:
                 //Settings Case
                 System.out.println("SETTINGS PRESSED");
-                Intent intent = new Intent(this, SettingsActivity.class);
-                startActivity(intent);
+                //Intent intent = new Intent(this, SettingsActivity.class);
+                //startActivity(intent);
                 return true;
 
             case R.id.action_logout:

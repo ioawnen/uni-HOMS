@@ -28,5 +28,11 @@
 
     /////////Settings Activity
     <string name="title_activity_settings_activity2">SettingsActivity2</string>
+    
+    
+    /////////Home Activity
+    <string name="home_button_new_order">New Order</string>
+    <string name="home_button_add_items">Add Items</string>
+    <string name="home_button_get_bill">Get Bills</string>
 
 </resources>

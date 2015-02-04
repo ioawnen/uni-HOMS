@@ -19,7 +19,7 @@
         android:scaleType="centerCrop"
         android:adjustViewBounds="false"
         android:layout_centerInParent="true"
-        android:src="@drawable/background_1" />
+        android:src="@drawable/background_3" />
     <FrameLayout
         android:layout_width="wrap_content"
         android:layout_height="200dp"
