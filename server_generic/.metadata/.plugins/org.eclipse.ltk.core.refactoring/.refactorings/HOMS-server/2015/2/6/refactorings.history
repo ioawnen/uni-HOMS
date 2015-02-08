@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;server&apos; to &apos;MainClass&apos;&#x0D;&#x0A;- Original project: &apos;HOMS-server&apos;&#x0D;&#x0A;- Original element: &apos;server&apos;&#x0D;&#x0A;- Renamed element: &apos;MainClass&apos;&#x0D;&#x0A;- Update references to refactored element&#x0D;&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;server&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src&lt;{server.java[server" matchStrategy="1" name="MainClass" qualified="false" references="true" similarDeclarations="false" stamp="1423147366377" textual="false" version="1.0"/>
+</session>

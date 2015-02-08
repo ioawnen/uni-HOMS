@@ -1,0 +1,37 @@
+/**
+ * SERVER APPLICATION START POINT
+ */
+
+/**
+ * @author Ian
+ *
+ */
+public class MainClass {
+
+	public void initServer() {
+		
+		int portNumber = 5000
+
+		try ( 
+		    ServerSocket serverSocket = new ServerSocket(portNumber);
+		    Socket clientSocket = serverSocket.accept();
+		    PrintWriter out =
+		        new PrintWriter(clientSocket.getOutputStream(), true);
+		    BufferedReader in = new BufferedReader(
+		        new InputStreamReader(clientSocket.getInputStream()));
+		) {
+	}
+	
+	
+	
+	
+	/**
+	 * @param args
+	 */
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		System.out.println("BUM");
+		
+	}
+
+}
