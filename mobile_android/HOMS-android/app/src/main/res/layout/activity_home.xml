@@ -8,7 +8,7 @@
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:text="@string/home_button_new_order"
         android:id="@+id/newOrderButton"
         android:layout_row="0"
@@ -18,7 +18,7 @@
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:text="@string/home_button_add_items"
         android:id="@+id/addItemsButton"
         android:layout_row="1"
@@ -28,12 +28,12 @@
 
     <Button
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="200dp"
         android:text="@string/home_button_get_bill"
         android:id="@+id/viewBillsButton"
         android:layout_row="2"
         android:layout_column="0"
         android:layout_columnWeight="1"
         android:layout_rowWeight="1"
-        android:layout_gravity="bottom" />
+        android:layout_gravity="center_horizontal|bottom" />
 </FrameLayout>

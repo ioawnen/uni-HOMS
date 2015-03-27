@@ -1,16 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <section name="Workbench">
+	<section name="WorkbenchPreferenceDialogSettings">
+		<item value="651" key="DIALOG_X_ORIGIN"/>
+		<item value="163" key="DIALOG_Y_ORIGIN"/>
+	</section>
 	<section name="org.eclipse.ui.internal.QuickAccess">
-		<item value="767" key="dialogHeight"/>
-		<item value="1440" key="dialogWidth"/>
+		<item value="1050" key="dialogHeight"/>
+		<item value="788" key="dialogWidth"/>
 		<list key="textEntries">
+			<item value="1"/>
 		</list>
 		<list key="orderedElements">
+			<item value="org.eclipse.equinox.internal.p2.ui.sdk.ProvisioningPreferencePage"/>
 		</list>
 		<list key="orderedProviders">
+			<item value="org.eclipse.ui.preferences"/>
 		</list>
 		<list key="textArray">
+			<item value="upd"/>
 		</list>
+	</section>
+	<section name="NewWizardAction">
 	</section>
 	<section name="ImportExportAction">
 		<item value="org.eclipse.ui.wizards.import.ExternalProject" key="ImportExportPage.STORE_SELECTED_IMPORT_WIZARD_ID"/>
