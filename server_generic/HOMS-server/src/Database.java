@@ -11,7 +11,6 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.ResultSet;
-import java.sql.*;
 
 public class Database {
 
@@ -49,41 +48,47 @@ public class Database {
         }
     }
 
-    public void login(String username, String password){
+    //TODO: CREATE A UNIFIED AUTHENTICATION METHOD (TAKES USERNAME/PASSWORD, RETURNS TRUE/FALSE OR -2,-1,0,1 ETC.)
+
+    //region AUTHENTICATION
+
+    public void login(String username, String password) {
 
         try {
             stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT * FROM users WHERE username='"+username+"' AND password='"+password+"'"); //DO THE QUERY
-        }
-        catch(SQLException ex) {
+            rs = stmt.executeQuery("SELECT * FROM users WHERE username='" + username + "' AND password='" + password + "'"); //DO THE QUERY
+        } catch (SQLException ex) {
             System.out.println("SQLException: " + ex.getMessage());
             System.out.println("SQLState: " + ex.getSQLState());
             System.out.println("VendorError: " + ex.getErrorCode());
-        }
-
-        finally {
+        } finally {
             if (rs != null) { //This is bad.
                 try {
                     System.err.println("BOO");
                     rs.close();
-                } catch (SQLException sqlEx) { } // ignore
+                } catch (SQLException sqlEx) {
+                } // ignore
 
                 rs = null;
-            }
-            else { //This is good!
+            } else { //This is good!
                 try {
 
                     System.err.println("YAY");
                     stmt.close();
                 } catch (SQLException sqlEx) {
 
-                stmt = null;
+                    stmt = null;
+                }
             }
+
         }
+    }//What the hell do you think it does?
 
-    } //What the hell do you think it does?
+    //endregion
 
-    public void addUser(String username, String password, int isActive, int isAdmin, int EmployeeNumber, String FirstName, String LastName) { // TODO Make the query!
+    //region USER
+
+    public void addUser(String username, String password, int isActive, int isAdmin, int EmployeeNumber, String FirstName, String LastName) { // TODO: Validation!
 
         try {
             stmt = conn.createStatement();
@@ -115,8 +120,65 @@ public class Database {
                 stmt = null;
             }
         }
-
     }
 
+    public void modifyUser(int U_Id, String username, String password, int isActive, int isAdmin, int EmployeeNumber, String FirstName, String LastName) {
+        //TODO: IMPLEMENT THIS! (modify user based on ID)
+        System.err.println("NOT IMPLEMENTED!");
+    }
+    //endregion
+
+    //region ORDERS
+
+    public void addOrder() {
+        //TODO: IMPLEMENT THIS! (add new order)
+    }
+    public void modifyOrder() {
+        //TODO: IMPLEMENT THIS! (modify order based on ID)
+    }
+
+    public void removeOrder() {
+        //TODO: IMPLEMENT THIS! (LOW PRIORITY)
+    }
+    public void getOrder() {
+        //TODO: IMPLEMENT THIS! (gets specific order based on ID)
+    }
+    public void getNOrders(int nOrders) {
+        //TODO: IMPLEMENT THIS! (gets large amounts of previous orders)
+    }
+    public void getInProgressOrders() {
+        //TODO: IMPLEMENT THIS! (WHEN NEEDED)
+    }
+
+    public void addOrderItem() {
+        //TODO: IMPLEMENT THIS! (Adds item to order)
+    }
+    public void modifyOrderItem() {
+        //TODO: IMPLEMENT THIS! (modifies item on order)
+    }
+    public void removeOrderItem() {
+        //TODO: IMPLEMENT THIS! (removes item on order)
+    }
+    public void getOrderItems() {
+        //TODO: IMPLEMENT THIS! (gets items on order)
+    }
+    //endregion
+
+    //region ITEMS (FOOD AND DRINK ITEMS, NOT ORDER ITEMS)
+     public void addItem() {
+         //TODO: IMPLEMENT THIS! (adds an item)
+     }
+    public void modifyItem() {
+        //TODO: IMPLEMENT THIS! (modifies item based on ID)
+    }
+    public void removeItem() {
+        //TODO: IMPLEMENT THIS! (removes item based on ID)
+    }
+    public void getItem() {
+        //TODO: IMPLEMENT THIS! (gets item info based on ID)
+    }
+    public void getItems() {
+        //TODO: IMPLEMENT THIS! (returns all items)
+    }
 
 }

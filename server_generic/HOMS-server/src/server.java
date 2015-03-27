@@ -22,6 +22,8 @@ public class Server {
 
     public void initialise(int port) {
 
+
+        //Initialise the database connection!
         try {
             database_conn = new Database();
             database_conn.initialise();
@@ -30,9 +32,9 @@ public class Server {
             System.err.println(ex);
         }
 
-        //TESTS!
+        //DATABASE TESTS!
         database_conn.login("chungus", "beep");
-        database_conn.addUser("ian", "password", 1, 1, 1234567890, "Ian", "Owen");
+        //database_conn.addUser("ian", "password", 1, 1, 1234567890, "Ian", "Owen");
 
 
 
