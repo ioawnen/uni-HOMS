@@ -52,7 +52,7 @@ public class Database {
 
     //region AUTHENTICATION
 
-    public void login(String username, String password) {
+    public DbGenericReturn login(String username, String password) {
 
         try {
             stmt = conn.createStatement();
@@ -64,8 +64,9 @@ public class Database {
         } finally {
             if (rs != null) { //This is bad.
                 try {
-                    System.err.println("BOO");
+                    System.err.println("login attempt failed!");
                     rs.close();
+                    return new DbGenericReturn(-1, "Login Failed");
                 } catch (SQLException sqlEx) {
                 } // ignore
 
@@ -73,66 +74,122 @@ public class Database {
             } else { //This is good!
                 try {
 
-                    System.err.println("YAY");
+                    System.err.println("login attempt passed!");
                     stmt.close();
+                    return new DbGenericReturn(-1, "Login Confirmed");
                 } catch (SQLException sqlEx) {
-
                     stmt = null;
                 }
             }
 
+            return new DbGenericReturn(-2, "Something very bad happened");
         }
-    }//What the hell do you think it does?
+    }
 
     //endregion
 
     //region USER
 
-    public void addUser(String username, String password, int isActive, int isAdmin, int EmployeeNumber, String FirstName, String LastName) { // TODO: Validation!
+    public DbGenericReturn addUser(String username, String password, int isActive, int isAdmin, int EmployeeNumber, String FirstName, String LastName) { // TODO: More Validation Maybe!
 
         try {
             stmt = conn.createStatement();
 
             stmt.executeUpdate("INSERT INTO users (Username, Password, Is_Active, Is_Admin, Employee_Number, First_Name, Last_Name) " +
-                    "VALUES ('"+username+"', '"+password+"', '"+isActive+"', '"+isAdmin+"', '"+EmployeeNumber+"', '"+FirstName+"', '"+LastName+"')"); //DO THE QUERY
+                    "VALUES ('" + username + "', '" + password + "', '" + isActive + "', '" + isAdmin + "', '" + EmployeeNumber + "', '" + FirstName + "', '" + LastName + "')"); //DO THE QUERY
+
+            stmt.close();
+            return new DbGenericReturn(1, "");
         }
         catch(SQLException ex) {
             System.out.println("SQLException: " + ex.getMessage());
             System.out.println("SQLState: " + ex.getSQLState());
             System.out.println("VendorError: " + ex.getErrorCode());
-        }
 
-        finally {
-            if (stmt != null) { //This is bad.
-                try {
-                    stmt.close();
-                } catch (SQLException sqlEx) { } // ignore
-
-                rs = null;
+            if(ex.getMessage().startsWith("Duplicate entry") && ex.getMessage().endsWith("for key 'Username'")) {
+                //This is what happens when there is a user with the same username
+                return new DbGenericReturn(-2, ex.getMessage());
             }
-            else { //This is good!
-                try {
-
-                    stmt.close();
-                } catch (SQLException sqlEx) {
-                } // ignore
-
-                stmt = null;
+            else if(ex.getMessage().startsWith("Duplicate entry") && ex.getMessage().endsWith("for key 'Employee_Number'")) {
+                //This is what happens when there is a user with the same employee number
+                return new DbGenericReturn(-2, ex.getMessage());
+            }
+            else {
+                //This is what happens when anything else happens. Handle the other stray errors better than this.
+                return new DbGenericReturn(-1, ex.getMessage());
             }
         }
     }
 
-    public void modifyUser(int U_Id, String username, String password, int isActive, int isAdmin, int EmployeeNumber, String FirstName, String LastName) {
-        //TODO: IMPLEMENT THIS! (modify user based on ID)
-        System.err.println("NOT IMPLEMENTED!");
+    public DbGenericReturn modifyUser(int U_Id, String username, String password, int isActive, int isAdmin, int EmployeeNumber, String firstName, String lastName) { //TODO: CHECK IF USER EXISTS BEFORE ACTION
+
+        try {
+            stmt = conn.createStatement();
+            stmt.executeUpdate("UPDATE users SET " +
+                    "Username='" +          username + "', " +
+                    "Password='" +          password + "', " +
+                    "Is_Active=" +          isActive + ", " +
+                    "Is_Admin=" +           isAdmin + ", " +
+                    "Employee_Number=" +    EmployeeNumber + ", " +
+                    "First_Name='" +         firstName + "', " +
+                    "Last_Name='" +          lastName + "' " +
+                    "WHERE U_Id=" +         U_Id + ";");
+
+            stmt.close();
+            return new DbGenericReturn(1, "");
+        }
+        catch(SQLException ex) {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+
+            return new DbGenericReturn(-1, ex.getMessage() + " " + ex.getSQLState() + " " + ex.getErrorCode());
+        }
     }
+
+    public DbGenericReturn removeUser(int U_Id) { //TODO: VERY BASIC! NEEDS VALIDATION!
+
+        try {
+            stmt = conn.createStatement();
+
+            stmt.executeUpdate("DELETE FROM users WHERE U_Id="+U_Id+" LIMIT 1"); //DO THE QUERY
+
+            stmt.close();
+            return new DbGenericReturn(1, "");
+        }
+        catch(SQLException ex) {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+
+            return new DbGenericReturn(-1, ex.getMessage() + " " + ex.getSQLState() + " " + ex.getErrorCode());
+        }
+    }
+
     //endregion
 
     //region ORDERS
 
-    public void addOrder() {
+    public DbGenericReturn addOrder(int U_Id, int  T_Id) { //TODO: VERY BASIC! NEEDS VALIDATION!
         //TODO: IMPLEMENT THIS! (add new order)
+        try {
+            stmt = conn.createStatement();
+
+            stmt.executeUpdate("INSERT INTO orders (U_Id, T_Id) " +
+                    "VALUES (" + U_Id + ", " + T_Id +")"); //DO THE QUERY
+
+            stmt.close();
+            return new DbGenericReturn(1, "");
+        }
+        catch(SQLException ex) {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+
+            return new DbGenericReturn(-1, ex.getMessage() + " " + ex.getSQLState() + " " + ex.getErrorCode());
+        }
     }
+
     public void modifyOrder() {
         //TODO: IMPLEMENT THIS! (modify order based on ID)
     }
@@ -140,12 +197,15 @@ public class Database {
     public void removeOrder() {
         //TODO: IMPLEMENT THIS! (LOW PRIORITY)
     }
-    public void getOrder() {
+    public void getOrder(int O_Id) {
         //TODO: IMPLEMENT THIS! (gets specific order based on ID)
     }
     public void getNOrders(int nOrders) {
         //TODO: IMPLEMENT THIS! (gets large amounts of previous orders)
     }
+    public void getUserOrders(int U_Id) {
+        //TODO: IMPLEMENT THIS! (gets large amounts of previous orders)
+        }
     public void getInProgressOrders() {
         //TODO: IMPLEMENT THIS! (WHEN NEEDED)
     }

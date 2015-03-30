@@ -13,8 +13,13 @@ public class MainClass {
      * @param args
      */
     public static void main(String[] args) {
-        // TODO Auto-generated method stub
-        System.out.println("BUM");
+
+        System.out.println("HOMS SERVER - v0.1a\n\n" +
+                (char)27 + "[31m" +
+                "--------------------------------------------\n" +
+                "IN DEVELOPMENT. NOT FOR GENERAL CONSUMPTION.\n" +
+                "--------------------------------------------\n\n" +
+                (char)27 + "[0m");
 
         //Make Server!
         Server server = new Server();

@@ -33,8 +33,10 @@ public class Server {
         }
 
         //DATABASE TESTS!
-        database_conn.login("chungus", "beep");
-        //database_conn.addUser("ian", "password", 1, 1, 1234567890, "Ian", "Owen");
+        //database_conn.login("chungus", "beep");
+        //database_conn.login("ian", "password");
+        //database_conn.addUser("nai", "password", 1, 0, 12453390, "Nai", "Owen");
+        database_conn.modifyUser(55, "nai", "password", 1, 0, 72453390, "Nai", "Owen");
 
 
 
