@@ -2,7 +2,6 @@
  * SERVER APPLICATION START POINT
  */
 
-
 import org.apache.xmlrpc.WebServer;
 
 /**
@@ -12,9 +11,6 @@ public class MainClass {
 
     public static WebServer webserver = null;
 
-    /**
-     * @param args
-     */
     public static void main(String[] args) {
 
         System.out.println("HOMS SERVER (generic) - v0.1b\n\n" +
@@ -26,19 +22,17 @@ public class MainClass {
 
         //Make Server!
         Server server = new Server();
-        server.initialise(0);
+        server.initialise();
 
         try {
             webserver = new WebServer(38575);
-            webserver.addHandler("server", server);
+            webserver.addHandler("server", server); //Make your client-side calls using 'server.method'
             webserver.start();
-
+            System.out.println("Server Started!");
 
         }
         catch (Exception ex) {
             System.err.println(ex.getMessage());
         }
-
     }
-
 }

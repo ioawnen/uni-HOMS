@@ -18,7 +18,7 @@ public class Server {
 
     private static Database database_conn;
 
-    public void initialise(int port) {
+    public void initialise() {
 
 
         //Initialise the database connection!
@@ -31,11 +31,20 @@ public class Server {
         }
 
         //DATABASE TESTS!
-        //database_conn.login("chungus", "beep");
-        //database_conn.login("ian", "password");
-        //database_conn.addUser("nai", "password", 1, 0, 12453390, "Nai", "Owen");
-        database_conn.modifyUser(55, "nai", "password", 1, 0, 72453390, "Nai", "Owen");
+        DbGenericReturn returnVal;
 
+        returnVal = database_conn.authenticate(new String[]{"ianeg", "passwesgseord"});
+        System.out.println(returnVal.getReturn_code() + " " + returnVal.getReturn_string());
+        returnVal = database_conn.authenticate(new String[]{"ian", "password"});
+        System.out.println(returnVal.getReturn_code() + " " + returnVal.getReturn_string());
+
+        //database_conn.addUser(new String[] {"ian", "password"}, "nai", "password", 1, 0, 12453390, "Nai", "Owen");
+        //database_conn.modifyUser(new String[] {"ian", "password"}, 55, "nai", "password", 1, 0, 72453390, "Nai", "Owen");
+
+    }
+
+    public String[] echo(String testString) {
+        return new String[] {"1", "ECHO: "+testString};
     }
 
     public String[] authenticate(String username, String password) {
@@ -43,7 +52,7 @@ public class Server {
         //DO CHECK HERE
         System.out.println("Authentication Request");
 
-        DbGenericReturn authResult = database_conn.authenticate(username, password);
+        DbGenericReturn authResult = database_conn.authenticate(new String[] {username, password});
 
         String[] result = {authResult.getReturn_code(), authResult.getReturn_string()};
 
@@ -51,15 +60,38 @@ public class Server {
 
     }
 
-    public String logout(String username, String password) {
-        //DO CHECK HERE
-        return "-1";
+    public String[] addUser(String[] creds, String username, String password, int isActive, int isAdmin, int EmployeeNumber, String FirstName, String LastName) {
+
+        DbGenericReturn dbResult = database_conn.addUser(creds, username, password, isActive, isAdmin, EmployeeNumber, FirstName, LastName);
+        return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
     }
 
-    public String addOrder(String username, String password, String[] order) {
-        //DO STUFF HERE
-        return "-1";
+    public String[] modifyUser(String[] creds, int U_Id, String username, String password, int isActive, int isAdmin, int EmployeeNumber, String firstName, String lastName) { //TODO: CHECK IF USER EXISTS BEFORE ACTION
+
+        DbGenericReturn dbResult = database_conn.modifyUser(creds, U_Id, username, password, isActive, isAdmin, EmployeeNumber, firstName, lastName);
+        return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
     }
+
+    public String[] removeUser(String[] creds, int U_Id) {
+
+        DbGenericReturn dbResult = database_conn.removeUser(creds, U_Id);
+        return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
+    }
+
+    public String[] addOrder(String[] creds, int  T_Id) {
+
+        DbGenericReturn dbResult = database_conn.addOrder(creds, T_Id);
+        return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
+    }
+
+    public String[] modifyOrder(String[] creds, int O_Id, int T_Id) {
+
+        DbGenericReturn dbResult = database_conn.modifyOrder(creds, O_Id, T_Id);
+        return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
+    }
+
+
+
 
 
 }
