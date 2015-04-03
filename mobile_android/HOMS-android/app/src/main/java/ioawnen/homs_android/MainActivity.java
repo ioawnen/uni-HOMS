@@ -68,7 +68,19 @@ public class MainActivity extends ActionBarActivity {
         //Check if empty
         if (!sUsername.matches("") && !sPassword.matches("")) {
 
-            return true;
+            Client client = new Client();
+            boolean result = client.authenticate(new String[] {sUsername, sPassword});
+            System.out.println("SERVER RESPONSE = "+result);
+
+            if(result==true){
+                return true;
+            }
+            else {
+                makeToast("Server says no......");
+                return false;
+            }
+
+
         }
         else if (sUsername.matches("")) {
             makeToast(getString(R.string.login_no_username));

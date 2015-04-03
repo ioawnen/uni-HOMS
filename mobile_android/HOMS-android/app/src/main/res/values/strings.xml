@@ -10,6 +10,12 @@
     <string name="title_section3">Section 3</string>
 
 
+
+
+    ////////Client Settings
+    <string name="server_url">http://localhost:38575/RPC2</string>
+
+
     ////////Login Activity
     // Toasts
     <string name="login_incorrect">Incorrect Login Credentials</string>
