@@ -13,12 +13,16 @@ import java.sql.Statement;
 import java.sql.ResultSet;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 public class Database {
 
     Connection conn = null;
     Statement stmt = null;
     ResultSet rs = null;
+
+    private static ResourceBundle R = ResourceBundle.getBundle("strings", Locale.ENGLISH);
 
     //THIS IS BAD. VERY BAD. THE WORST.
     String dbUsername = "root";
@@ -79,7 +83,18 @@ public class Database {
 
         return new User(uid, username, null, isActive, isAdmin, employeeNumber, firstName, lastName);
     }
-
+    private boolean isAdmin(String username) {
+        if (getUserData(username).getIs_Admin() == 1) {
+            return true;
+        }
+        else return false;
+    }
+    private boolean isActive(String username) {
+        if (getUserData(username).getIs_Active() == 1) {
+            return true;
+        }
+        else return false;
+    }
 
     //endregion
 
@@ -87,39 +102,6 @@ public class Database {
     //TODO: CREATE A UNIFIED AUTHENTICATION METHOD (TAKES USERNAME/PASSWORD, RETURNS TRUE/FALSE OR -2,-1,0,1 ETC.)
 
     //region AUTHENTICATION
-
-    public DbGenericReturn authenticate_old(String[] creds) {
-
-        String username = creds[0];
-        String password = creds[1];
-        try {
-            stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT * FROM users WHERE username='" + username + "' AND password='" + password + "';"); //DO THE QUERY
-        } catch (SQLException ex) {
-            System.out.println("SQLException: " + ex.getMessage());
-            System.out.println("SQLState: " + ex.getSQLState());
-            System.out.println("VendorError: " + ex.getErrorCode());
-        } finally {
-            if (rs != null) { //This is bad.
-                try {
-                    rs.close();
-                    return new DbGenericReturn("0", "Login Failed");
-                } catch (SQLException sqlEx) {
-                } // ignore
-
-                rs = null;
-            } else { //This is good!
-                try {
-                    stmt.close();
-                    return new DbGenericReturn("1", "Login Confirmed");
-                } catch (SQLException sqlEx) {
-                    stmt = null;
-                }
-            }
-
-            return new DbGenericReturn("-1", "Error when attempting to authenticate. Report this to your administrator.");
-        }
-    }
 
     public DbGenericReturn authenticate(String [] creds) { //MAYBE THIS WILL WORK BETTER!
         String username = creds[0];
@@ -129,17 +111,14 @@ public class Database {
             stmt = conn.createStatement();
             rs = stmt.executeQuery("SELECT * FROM users WHERE username='" + username + "' AND password='" + password + "';"); //DO THE QUERY
 
-            String q_username = rs.getString("username");
-            String q_password = rs.getString("password");
+            if (rs.next()) {
+                rs.first();
+                String q_username = rs.getString("username");
+                String q_password = rs.getString("password");
 
-            if(q_username.equals(username) && q_password.equals(password)) {
-                return new DbGenericReturn("1", "Login Successful");
-            }
-            else if (!q_username.equals(username) && q_password.equals(password)) {
-                return new DbGenericReturn("0", "Invalid Username");
-            }
-            else if (q_username.equals(username) && !q_password.equals(password)) {
-                return new DbGenericReturn("0", "Incorrect Password!");
+                if (q_username.equals(username) && q_password.equals(password)) {
+                    return new DbGenericReturn("1", "Login Successful");
+                }
             }
             else {
                 return new DbGenericReturn("0", "Incorrect login credentials. Please try again.");
@@ -162,7 +141,7 @@ public class Database {
 
         //Authenticate user
         DbGenericReturn auth = authenticate(creds);
-        if (auth.getReturn_code().equals("1")) {
+        if (auth.getReturn_code().equals("1") && isAdmin(creds[0]) && isActive(creds[0])) {
 
             try {
                 stmt = conn.createStatement();
@@ -191,6 +170,8 @@ public class Database {
         }
         else if (auth.getReturn_code().equals("0")){ return new DbGenericReturn("-50", auth.getReturn_string()); }
         else if (auth.getReturn_code().equals("-1")) { return new DbGenericReturn("-51", auth.getReturn_string()); }
+        else if (isAdmin(creds[0])) { return new DbGenericReturn("-52", R.getString("err-52") ); }
+        else if (isActive(creds[0])) { return new DbGenericReturn("-53", R.getString("err-53") ); }
         else { return new DbGenericReturn("-99", "Server Error!"); }
     }
 
@@ -198,7 +179,7 @@ public class Database {
 
         //Authenticate user
         DbGenericReturn auth = authenticate(creds);
-        if (auth.getReturn_code().equals("1")) {
+        if (auth.getReturn_code().equals("1") && isAdmin(creds[0]) && isActive(creds[0])) {
             try {
                 stmt = conn.createStatement();
                 stmt.executeUpdate("UPDATE users SET " +
@@ -224,13 +205,15 @@ public class Database {
         }
         else if (auth.getReturn_code().equals("0")){ return new DbGenericReturn("-50", auth.getReturn_string()); }
         else if (auth.getReturn_code().equals("-1")) { return new DbGenericReturn("-51", auth.getReturn_string()); }
+        else if (isAdmin(creds[0])) { return new DbGenericReturn("-52", R.getString("err-52") ); }
+        else if (isActive(creds[0])) { return new DbGenericReturn("-53", R.getString("err-53") ); }
         else { return new DbGenericReturn("-99", "Server Error!"); }
     }
 
     public DbGenericReturn removeUser(String[] creds, int U_Id) { //TODO: VERY BASIC! NEEDS VALIDATION!
 
         DbGenericReturn auth = authenticate(creds);
-        if (auth.getReturn_code().equals("1")) {
+        if (auth.getReturn_code().equals("1") && isAdmin(creds[0]) && isActive(creds[0])) {
             try {
                 stmt = conn.createStatement();
 
@@ -249,6 +232,8 @@ public class Database {
         }
         else if (auth.getReturn_code().equals("0")){ return new DbGenericReturn("-50", auth.getReturn_string()); }
         else if (auth.getReturn_code().equals("-1")) { return new DbGenericReturn("-51", auth.getReturn_string()); }
+        else if (isAdmin(creds[0])) { return new DbGenericReturn("-52", R.getString("err-52") ); }
+        else if (isActive(creds[0])) { return new DbGenericReturn("-53", R.getString("err-53") ); }
         else { return new DbGenericReturn("-99", "Server Error!"); }
     }
 

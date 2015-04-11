@@ -14,7 +14,8 @@ public class MainClass {
 
 		Client client = new Client();
 		//client.connect("http://localhost:38574/RPC2");
-		client.authenticate(new String[] {"ian", "password"});
-		client.echo("beep");
+		System.out.println(client.authenticate(new String[]{"ian", "password"})[1]);
+		//client.echo("beep");
+		System.out.println(client.drop_table_users()[1]);
 	}
 }

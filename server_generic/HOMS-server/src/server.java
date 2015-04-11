@@ -8,6 +8,9 @@ import java.net.Socket;
 import org.apache.xmlrpc.WebServer;
 
 import javax.xml.crypto.Data;
+import java.util.Enumeration;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 /**
  * This is a simple server application. This server receive a string message
@@ -30,6 +33,7 @@ import javax.xml.crypto.Data;
 public class Server {
 
     private static Database database_conn;
+    private static ResourceBundle resourceBundle = ResourceBundle.getBundle("strings", Locale.ENGLISH);
 
     public void initialise() {
 
@@ -44,15 +48,20 @@ public class Server {
         }
 
         //DATABASE TESTS!
+        System.err.println("BEGINNING TESTS");
         DbGenericReturn returnVal;
-
+        System.out.println("Testing incorrect login....");
         returnVal = database_conn.authenticate(new String[]{"ianeg", "passwesgseord"});
         System.out.println(returnVal.getReturn_code() + " " + returnVal.getReturn_string());
+        System.out.println("Testing correct login....");
         returnVal = database_conn.authenticate(new String[]{"ian", "password"});
         System.out.println(returnVal.getReturn_code() + " " + returnVal.getReturn_string());
 
         //database_conn.addUser(new String[] {"ian", "password"}, "nai", "password", 1, 0, 12453390, "Nai", "Owen");
         //database_conn.modifyUser(new String[] {"ian", "password"}, 55, "nai", "password", 1, 0, 72453390, "Nai", "Owen");
+
+
+        System.err.println("TESTS OVER\n");
 
     }
 
@@ -63,14 +72,13 @@ public class Server {
     public String[] authenticate(String username, String password) {
 
         //DO CHECK HERE
-        System.out.println("Authentication Request");
+        System.out.println("Client Authentication Request");
 
         DbGenericReturn authResult = database_conn.authenticate(new String[] {username, password});
 
         String[] result = {authResult.getReturn_code(), authResult.getReturn_string()};
 
         return result;
-
     }
 
     public String[] addUser(String[] creds, String username, String password, int isActive, int isAdmin, int EmployeeNumber, String FirstName, String LastName) {
@@ -175,6 +183,10 @@ public class Server {
     public String[] getItems(String[] creds) {
 
         return new String[] {"-98", "Not yet implemented."};
+    }
+
+    public String[] drop_table_users() {
+        return new String[] {"1", resourceBundle.getString("drop_table_users_string")};
     }
 
 

@@ -23,6 +23,12 @@ public class Client {
 		return server;
 	}
 
+	private String[] strToArray(String str) {
+
+		str = str.substring(1, str.length()-1);
+		return str.split(", ");
+	}
+
 	public String[] echo(String testString) {
 		//Create a server connection
 		XmlRpcClient server = createConnection();
@@ -41,21 +47,19 @@ public class Client {
 		catch (Exception ex) { System.err.println(ex.getMessage()); return new String[] {"-20","Connection Error!"}; }
 	}
 
-
-	public boolean authenticate(String[] creds) {
+	public String[] authenticate(String[] creds) {
 		XmlRpcClient server = createConnection();
 
 		Vector params = new Vector();
-		params.add(creds);
+		params.add(creds[0]);
+		params.add(creds[1]);
 
 		try {
 			Object result = server.execute("server.authenticate", params);
 			String res = result.toString();
-			System.out.println(res);
+			return strToArray(res);
 		}
-		catch (Exception ex) { System.err.println(ex.getMessage()); return false; }
-
-		return true;
+		catch (Exception ex) { System.err.println(ex.getMessage()); return new String[] {"-20","Connection Error!"}; }
 	}
 
 	public String[] addUser (String creds[]) {
@@ -65,4 +69,14 @@ public class Client {
 	}
 
 
+	public String[] drop_table_users() {
+		XmlRpcClient server = createConnection();
+
+		try {
+			Object result = server.execute("server.drop_table_users", new Vector());
+			String res = result.toString();
+			return strToArray(res);
+		}
+		catch (Exception ex) { System.err.println(ex.getMessage()); return new String[] {"-20","Connection Error!"}; }
+	}
 }
