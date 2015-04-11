@@ -88,7 +88,7 @@ public class Database {
 
     //region AUTHENTICATION
 
-    public DbGenericReturn authenticate(String[] creds) {
+    public DbGenericReturn authenticate_old(String[] creds) {
 
         String username = creds[0];
         String password = creds[1];
@@ -119,6 +119,39 @@ public class Database {
 
             return new DbGenericReturn("-1", "Error when attempting to authenticate. Report this to your administrator.");
         }
+    }
+
+    public DbGenericReturn authenticate(String [] creds) { //MAYBE THIS WILL WORK BETTER!
+        String username = creds[0];
+        String password = creds[1];
+
+        try {
+            stmt = conn.createStatement();
+            rs = stmt.executeQuery("SELECT * FROM users WHERE username='" + username + "' AND password='" + password + "';"); //DO THE QUERY
+
+            String q_username = rs.getString("username");
+            String q_password = rs.getString("password");
+
+            if(q_username.equals(username) && q_password.equals(password)) {
+                return new DbGenericReturn("1", "Login Successful");
+            }
+            else if (!q_username.equals(username) && q_password.equals(password)) {
+                return new DbGenericReturn("0", "Invalid Username");
+            }
+            else if (q_username.equals(username) && !q_password.equals(password)) {
+                return new DbGenericReturn("0", "Incorrect Password!");
+            }
+            else {
+                return new DbGenericReturn("0", "Incorrect login credentials. Please try again.");
+            }
+        }
+        catch (SQLException ex) {
+            System.out.println("SQLException: " + ex.getMessage());
+            System.out.println("SQLState: " + ex.getSQLState());
+            System.out.println("VendorError: " + ex.getErrorCode());
+        }
+
+        return new DbGenericReturn("-1", "Error when attempting to authenticate. Report this to your administrator.");
     }
 
     //endregion

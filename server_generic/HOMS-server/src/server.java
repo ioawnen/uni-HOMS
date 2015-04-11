@@ -13,6 +13,19 @@ import javax.xml.crypto.Data;
  * This is a simple server application. This server receive a string message
  * from the Android mobile phone and show it on the console.
  * Author by Lak J Comspace
+ *
+ *
+ * HOW TO SEND DATA AS ARRAYS:
+ *
+ * Simple Response array style:
+ *      String[] {return_code, return_string}
+ *
+ * Response with data:
+ *      String[][] {{return_code}, return_array}
+ *  -or-
+ *      String[][] {{return_code},{return_string1, return_string2, return_string3}}
+ *
+ *  DON'T JUST RETURN A SINGLE VALUE WHERE POSSIBLE! RETURN AN EXPLANATION THAT CAN BE DISPLAYED/USED!
  */
 public class Server {
 
@@ -90,7 +103,79 @@ public class Server {
         return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
     }
 
+    public String[] removeOrder(String[] creds, int O_Id) {
 
+        DbGenericReturn dbResult = database_conn.removeOrder(creds, O_Id);
+        return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
+
+    }
+
+    public String[][] getOrder(String[] creds, int O_Id) {
+
+        DbDataReturn dbResult = database_conn.getOrder(creds, O_Id);
+        return new String[][] {{dbResult.getReturn_code()},dbResult.getReturn_strings()};
+
+    }
+
+    public String[][] getNOrders(String[] creds, int nOrders){
+
+        DbDataReturn dbResult = database_conn.getNOrders(creds, nOrders);
+        return new String[][] {{dbResult.getReturn_code()},dbResult.getReturn_strings()};
+    }
+
+    public String[][] getUserOrders(String[] creds, int nOrders) {
+
+        DbDataReturn dbResult = database_conn.getUserOrders(creds, nOrders);
+        return new String[][] {{dbResult.getReturn_code()},dbResult.getReturn_strings()};
+    }
+
+    public  String[] getInProgressOrders(String[] creds, int nOrders) { //TODO: IMPLEMENT WHEN NEEDED
+        return new String[] {"-98", "Not yet implemented."};
+    }
+
+    public String[] addOrderItem(String[] creds, int O_Id, int I_Id) {
+
+        DbGenericReturn dbResult = database_conn.addOrderItem(creds, O_Id, I_Id);
+        return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
+    }
+
+    public String[] modifyOrderItem(String[] creds, int O_Id, int I_Id, int isActive){
+
+        DbGenericReturn dbResult = database_conn.modifyOrderItem(creds, O_Id, I_Id, isActive);
+        return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
+    }
+
+    public String[] removeOrderItem(String[] creds, int O_Id, int I_Id) {
+
+        DbGenericReturn dbResult = database_conn.removeOrderItem(creds, O_Id, I_Id);
+        return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
+    }
+
+    public String[] getOrderItems(String[] creds, int O_Id) {
+
+        return new String[] {"-98", "Not yet implemented."};
+    }
+
+    public String[] addItem(String[] creds, String itemName, String itemDesc, int itemPrice, int itemAvail, int itemVeget, int itemVegan, int itemSpicy) {
+
+        return new String[] {"-98", "Not yet implemented."};
+    }
+    public String[] modifyItem(String[] creds, int I_Id, String itemName, String itemDesc, int itemPrice, int itemAvail, int itemVeget, int itemVegan, int itemSpicy) {
+
+        return new String[] {"-98", "Not yet implemented."};
+    }
+    public String[] removeItem(String[] creds, int I_Id) {
+
+        return new String[] {"-98", "Not yet implemented."};
+    }
+    public String[] getItem(String[] creds, int I_Id) {
+
+        return new String[] {"-98", "Not yet implemented."};
+    }
+    public String[] getItems(String[] creds) {
+
+        return new String[] {"-98", "Not yet implemented."};
+    }
 
 
 
