@@ -57,7 +57,7 @@ public class MainActivity extends ActionBarActivity {
         toast.show();
     }
 
-    public boolean validateLogin() //Validates login input against some set rules.
+    public String[] validateLogin() //Validates login input against some set rules.
     {
         //Grab the login details
         EditText usernameEditText = (EditText) findViewById(R.id.login_username);
@@ -69,30 +69,22 @@ public class MainActivity extends ActionBarActivity {
         if (!sUsername.matches("") && !sPassword.matches("")) {
 
             Client client = new Client();
-            boolean result = client.authenticate(new String[] {sUsername, sPassword});
-            System.out.println("SERVER RESPONSE = "+result);
+            String[] result = client.authenticate(new String[] {sUsername, sPassword});
+            System.out.println("SERVER RESPONSE = "+result[0]);
 
-            if(result==true){
-                return true;
-            }
-            else {
-                makeToast("Server says no......");
-                return false;
-            }
-
-
+            return new String[] {result[0],result[1]};
         }
         else if (sUsername.matches("")) {
             makeToast(getString(R.string.login_no_username));
-            return false;
+            return new String[] {"",""};
         }
         else if (sPassword.matches("")) {
             makeToast(getString(R.string.login_no_password));
-            return false;
+            return new String[] {"",""};
         }
         else {
             makeToast(getString(R.string.login_error_generic));
-            return false;
+            return new String[] {"",""};
         }
 
 
@@ -105,17 +97,15 @@ public class MainActivity extends ActionBarActivity {
         //Check yo credentials
 
         //Stub. Use this to control login progress at some point
+        String[] login = validateLogin();
 
-        if(validateLogin()) {
-
-
-
-            Intent intent = new Intent(this, HomeActivity.class);
+        if(login[0].equals("1")) {
+            //Intent intent = new Intent(this, HomeActivity.class);
             makeToast(getString(R.string.login_successful));
-            startActivity(intent);
+            //startActivity(intent);
         }
         else {
-            makeToast(getString(R.string.login_error_generic));
+            makeToast(getString(R.string.login_error_generic)+": "+login[1]);
             return;
         }
     }

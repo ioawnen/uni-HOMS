@@ -1,0 +1,52 @@
+JFDML JFormDesigner: "5.2.1.0.138" Java: "1.8.0_40" encoding: "UTF-8"
+
+new FormModel {
+	"i18n.autoExternalize": true
+	"i18n.bundleName": "mainform_strings"
+	"i18n.keyPrefix": "MainForm"
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq {space :::p, par l {comp tabbedPane1:::::x, comp scrollPane2:::::x}, space :::p}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp scrollPane2::::628:x, space :::p, comp tabbedPane1:::p::p, space :::p}}"
+		} ) {
+			name: "frame1"
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane2"
+				add( new FormComponent( "javax.swing.JList" ) {
+					name: "list1"
+					addEvent( new FormEvent( "javax.swing.event.ListSelectionListener", "valueChanged", "list1ValueChanged", true ) )
+				} )
+			} )
+			add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
+				name: "tabbedPane1"
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {seq l {space :::p, comp clockLabel:::p:230:p, space ::379:x}}"
+					"$verticalGroup": "par l {seq l {space :::p, comp clockLabel::::88:x, space :::p}}"
+				} ) {
+					name: "panel1"
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "clockLabel"
+						"text": new FormMessage( null, "MainForm.clockLabel.text" )
+					} )
+				}, new FormLayoutConstraints( null ) {
+					"title": new FormMessage( null, "MainForm.panel1.tab.title" )
+				} )
+				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+					"$horizontalGroup": "par l {space :0:615:x}"
+					"$verticalGroup": "par l {space :0:100:x}"
+				} ) {
+					name: "panel2"
+				}, new FormLayoutConstraints( null ) {
+					"title": new FormMessage( null, "MainForm.panel2.tab.title" )
+				} )
+			} )
+			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+				name: "menuBar1"
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 20, 5 )
+			"size": new java.awt.Dimension( 645, 830 )
+		} )
+	}
+}

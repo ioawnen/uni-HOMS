@@ -11,14 +11,14 @@ public class Client {
 
 
 	private XmlRpcClient createConnection() { //Simple centralised method for standardising server connections. CALL THIS.
-		XmlRpcClient server = null;
-		try {
-			server = new XmlRpcClient("http://localhost:38575/RPC2"); //TODO: MAKE THIS CONFIGURABLE
+			XmlRpcClient server = null;
+			try {
+				server = new XmlRpcClient("http://localhost:38575/RPC2"); //TODO: MAKE THIS CONFIGURABLE
 
-		}
-		catch (Exception ex) {
-			System.err.println(ex.getMessage());
-			return null;
+			}
+			catch (Exception ex) {
+				System.err.println(ex.getMessage());
+				return null;
 		}
 		return server;
 	}
