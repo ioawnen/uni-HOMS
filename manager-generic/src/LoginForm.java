@@ -1,4 +1,5 @@
 import java.awt.*;
+import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
@@ -17,10 +18,43 @@ public class LoginForm extends JPanel {
 		initComponents();
 	}
 
+	private void SignInButtonActionPerformed(ActionEvent e) {
+		// TODO add your code here
+
+		if(validateFields()) {
+			//Client client = new Client();
+			//client.validate(new String[] {usernameField.getText(), passwordField.getPassword().toString()});
+			System.out.println(getPassword());
+		}
+	}
+
+	private void inputFieldsFocusGained(FocusEvent e) {
+		// TODO add your code here
+	}
+
+	private void serverFieldKeyTyped(KeyEvent e) {
+		// TODO add your code here
+	}
+
+	private void serverFieldFocusGained(FocusEvent e) {
+		// TODO add your code here
+		serverField.setBackground(new Color(255,255,255,255));
+	}
+
+	private void usernameFieldFocusGained(FocusEvent e) {
+		// TODO add your code here
+		usernameField.setBackground(new Color(255,255,255,255));
+	}
+
+	private void passwordFieldFocusGained(FocusEvent e) {
+		passwordField.setBackground(new Color(255,255,255,255));
+	}
+
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		// Generated using JFormDesigner Evaluation license - Ian Owen
-		ResourceBundle bundle = ResourceBundle.getBundle("mainform_strings");
+		ResourceBundle bundle = ResourceBundle.getBundle("loginform_strings");
 		dialog1 = new JDialog();
 		menuBar1 = new JMenuBar();
 		panel1 = new JPanel();
@@ -31,15 +65,22 @@ public class LoginForm extends JPanel {
 		usernameField = new JTextField();
 		passwordLabel = new JLabel();
 		passwordField = new JPasswordField();
-		button1 = new JButton();
+		SignInButton = new JButton();
 
 		//======== dialog1 ========
 		{
+			dialog1.setTitle(bundle.getString("LoginForm.dialog1.title"));
 			Container dialog1ContentPane = dialog1.getContentPane();
 			dialog1.setJMenuBar(menuBar1);
 
 			//======== panel1 ========
 			{
+				panel1.addFocusListener(new FocusAdapter() {
+					@Override
+					public void focusGained(FocusEvent e) {
+						inputFieldsFocusGained(e);
+					}
+				});
 
 				// JFormDesigner evaluation mark
 				panel1.setBorder(new javax.swing.border.CompoundBorder(
@@ -66,6 +107,14 @@ public class LoginForm extends JPanel {
 				panel1.add(serverLabel, new GridBagConstraints(1, 2, 1, 1, 0.0, 0.0,
 					GridBagConstraints.CENTER, GridBagConstraints.BOTH,
 					new Insets(0, 0, 5, 5), 0, 0));
+
+				//---- serverField ----
+				serverField.addFocusListener(new FocusAdapter() {
+					@Override
+					public void focusGained(FocusEvent e) {
+						serverFieldFocusGained(e);
+					}
+				});
 				panel1.add(serverField, new GridBagConstraints(3, 2, 1, 1, 0.0, 0.0,
 					GridBagConstraints.CENTER, GridBagConstraints.BOTH,
 					new Insets(0, 0, 5, 5), 0, 0));
@@ -76,6 +125,14 @@ public class LoginForm extends JPanel {
 				panel1.add(usernameLabel, new GridBagConstraints(1, 3, 1, 1, 0.0, 0.0,
 					GridBagConstraints.CENTER, GridBagConstraints.BOTH,
 					new Insets(0, 0, 5, 5), 0, 0));
+
+				//---- usernameField ----
+				usernameField.addFocusListener(new FocusAdapter() {
+					@Override
+					public void focusGained(FocusEvent e) {
+						usernameFieldFocusGained(e);
+					}
+				});
 				panel1.add(usernameField, new GridBagConstraints(3, 3, 1, 1, 0.0, 0.0,
 					GridBagConstraints.CENTER, GridBagConstraints.BOTH,
 					new Insets(0, 0, 5, 5), 0, 0));
@@ -86,13 +143,27 @@ public class LoginForm extends JPanel {
 				panel1.add(passwordLabel, new GridBagConstraints(1, 4, 1, 1, 0.0, 0.0,
 					GridBagConstraints.CENTER, GridBagConstraints.BOTH,
 					new Insets(0, 0, 5, 5), 0, 0));
+
+				//---- passwordField ----
+				passwordField.addFocusListener(new FocusAdapter() {
+					@Override
+					public void focusGained(FocusEvent e) {
+						passwordFieldFocusGained(e);
+					}
+				});
 				panel1.add(passwordField, new GridBagConstraints(3, 4, 1, 1, 0.0, 0.0,
 					GridBagConstraints.CENTER, GridBagConstraints.BOTH,
 					new Insets(0, 0, 5, 5), 0, 0));
 
-				//---- button1 ----
-				button1.setText(bundle.getString("LoginForm.button1.text"));
-				panel1.add(button1, new GridBagConstraints(1, 6, 3, 1, 0.0, 0.0,
+				//---- SignInButton ----
+				SignInButton.setText(bundle.getString("LoginForm.SignInButton.text"));
+				SignInButton.addActionListener(new ActionListener() {
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						SignInButtonActionPerformed(e);
+					}
+				});
+				panel1.add(SignInButton, new GridBagConstraints(1, 6, 3, 1, 0.0, 0.0,
 					GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
 					new Insets(0, 0, 0, 5), 0, 0));
 			}
@@ -110,7 +181,7 @@ public class LoginForm extends JPanel {
 				dialog1ContentPaneLayout.createParallelGroup()
 					.addGroup(dialog1ContentPaneLayout.createSequentialGroup()
 						.addContainerGap()
-						.addComponent(panel1, GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
+						.addComponent(panel1, GroupLayout.DEFAULT_SIZE, 253, Short.MAX_VALUE)
 						.addContainerGap())
 			);
 			dialog1.pack();
@@ -131,6 +202,37 @@ public class LoginForm extends JPanel {
 	private JTextField usernameField;
 	private JLabel passwordLabel;
 	private JPasswordField passwordField;
-	private JButton button1;
+	private JButton SignInButton;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
+
+	public boolean validateFields() {
+
+		if(serverField.getText().length()==0){
+			System.out.println("Server required.");
+			serverField.setBackground(new Color(255,255,0,255));
+			return false;
+		}
+		if(usernameField.getText().length()==0){
+			System.out.println("Username required.");
+			usernameField.setBackground(new Color(255,255,0,255));
+			return false;
+		}
+		if(getPassword().length()==0){
+			System.out.println("Password required.");
+			passwordField.setBackground(new Color(255,255,0,255));
+			return false;
+		}
+
+
+		return true;
+	}
+
+	private String getPassword() {
+		char[] pass = passwordField.getPassword();
+		return new String(pass);
+	}
+	public void setVisibility(boolean vis) {
+		dialog1.setVisible(vis);
+	}
+
 }

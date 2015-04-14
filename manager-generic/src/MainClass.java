@@ -5,5 +5,8 @@ public class MainClass {
 
 	public static void main(String[] args) {
 		System.out.println("STARTED");
+		LoginForm login = new LoginForm();
+		login.setVisibility(true);
+		
 	}
 }
