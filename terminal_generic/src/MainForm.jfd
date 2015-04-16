@@ -7,8 +7,8 @@ new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq {space :::p, par l {comp tabbedPane1:::::x, comp scrollPane2:::::x}, space :::p}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp scrollPane2::::628:x, space :::p, comp tabbedPane1:::p::p, space :::p}}"
+			"$horizontalGroup": "par l {comp menuBar2::l:::x, seq {space :::p, par l {comp tabbedPane1:::::x, comp scrollPane2:::::x}, space :::p}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp scrollPane2::::640:x, space :::p, comp tabbedPane1:::p::p, space :::p, comp menuBar2:::p::p}}"
 		} ) {
 			name: "frame1"
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
@@ -33,20 +33,79 @@ new FormModel {
 					"title": new FormMessage( null, "MainForm.panel1.tab.title" )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {space :0:615:x}"
-					"$verticalGroup": "par l {space :0:100:x}"
+					"$horizontalGroup": "par l {seq l {space :::p, comp label1::::603:x, space :::p}}"
+					"$verticalGroup": "par l {seq l {space :::p, comp label1::::88:x, space :::p}}"
 				} ) {
 					name: "panel2"
+					add( new FormComponent( "javax.swing.JLabel" ) {
+						name: "label1"
+						"text": new FormMessage( null, "MainForm.label1.text" )
+					} )
 				}, new FormLayoutConstraints( null ) {
 					"title": new FormMessage( null, "MainForm.panel2.tab.title" )
 				} )
 			} )
+			add( new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+				name: "menuBar2"
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label2"
+					"text": new FormMessage( null, "MainForm.label2.text" )
+					"foreground": sfield java.awt.Color gray
+				} )
+			} )
 			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
 				name: "menuBar1"
+				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+					name: "menu1"
+					"text": new FormMessage( null, "MainForm.menu1.text" )
+					add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
+						name: "menu2"
+						"text": new FormMessage( null, "MainForm.menu2.text" )
+						add( new FormComponent( "javax.swing.JRadioButtonMenuItem" ) {
+							name: "radioButtonMenuItem1"
+							"text": new FormMessage( null, "MainForm.radioButtonMenuItem1.text" )
+							"$buttonGroup": new FormReference( "updateRateButtonGroup" )
+						} )
+						add( new FormComponent( "javax.swing.JRadioButtonMenuItem" ) {
+							name: "radioButtonMenuItem2"
+							"text": new FormMessage( null, "MainForm.radioButtonMenuItem2.text" )
+							"$buttonGroup": new FormReference( "updateRateButtonGroup" )
+						} )
+						add( new FormComponent( "javax.swing.JRadioButtonMenuItem" ) {
+							name: "radioButtonMenuItem3"
+							"text": new FormMessage( null, "MainForm.radioButtonMenuItem3.text" )
+							"$buttonGroup": new FormReference( "updateRateButtonGroup" )
+						} )
+						add( new FormComponent( "javax.swing.JRadioButtonMenuItem" ) {
+							name: "radioButtonMenuItem4"
+							"text": new FormMessage( null, "MainForm.radioButtonMenuItem4.text" )
+							"$buttonGroup": new FormReference( "updateRateButtonGroup" )
+						} )
+						add( new FormComponent( "javax.swing.JRadioButtonMenuItem" ) {
+							name: "radioButtonMenuItem5"
+							"text": new FormMessage( null, "MainForm.radioButtonMenuItem5.text" )
+							"$buttonGroup": new FormReference( "updateRateButtonGroup" )
+						} )
+						add( new FormComponent( "javax.swing.JRadioButtonMenuItem" ) {
+							name: "radioButtonMenuItem6"
+							"text": new FormMessage( null, "MainForm.radioButtonMenuItem6.text" )
+							"$buttonGroup": new FormReference( "updateRateButtonGroup" )
+						} )
+					} )
+					add( new FormComponent( "javax.swing.JCheckBoxMenuItem" ) {
+						name: "checkBoxMenuItem1"
+						"text": new FormMessage( null, "MainForm.checkBoxMenuItem1.text" )
+					} )
+				} )
 			}
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 20, 5 )
-			"size": new java.awt.Dimension( 645, 830 )
+			"size": new java.awt.Dimension( 645, 865 )
+		} )
+		add( new FormNonVisual( "javax.swing.ButtonGroup" ) {
+			name: "updateRateButtonGroup"
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 899 )
 		} )
 	}
 }

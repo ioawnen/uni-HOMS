@@ -1,3 +1,5 @@
+import javax.swing.*;
+
 /**
  * Created by Ian on 14/04/2015.
  */
@@ -7,6 +9,5 @@ public class MainClass {
 		System.out.println("STARTED");
 		LoginForm login = new LoginForm();
 		login.setVisibility(true);
-		
 	}
 }

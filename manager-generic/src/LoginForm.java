@@ -22,9 +22,29 @@ public class LoginForm extends JPanel {
 		// TODO add your code here
 
 		if(validateFields()) {
-			//Client client = new Client();
-			//client.validate(new String[] {usernameField.getText(), passwordField.getPassword().toString()});
+			/*Client client = new Client();
+			String[] results = client.validate(new String[] {usernameField.getText(), passwordField.getPassword().toString()});
+			if(results[0].equals("1")) {
+				//CONTINUE ONWARDS
+				MainForm mainForm = new MainForm();
+				mainForm.setCreds(usernameField.getText(), passwordField.getPassword().toString());
+				mainForm.setVisibility(true);
+			}
+			else if(results[0].equals("0")) {
+				JOptionPane.showMessageDialog(null,"The username or password is invalid.","HOMS | Could not login",JOptionPane.WARNING_MESSAGE);
+			}
+			else {
+				JOptionPane.showMessageDialog(null,"<html>An Error Occured.<br>Error Code: "+results[0]+"<br>Message: "+results[1]+"</html>","HOMS | Error!",JOptionPane.WARNING_MESSAGE);
+			}
+			*/
+
+			//TODO: REMOVE THIS AFTER IMPLEMENTING CLIENT CLASS
 			System.out.println(getPassword());
+			MainForm mainForm = new MainForm();
+			mainForm.setCreds(usernameField.getText(), passwordField.getPassword().toString());
+			mainForm.setVisibility(true);
+
+
 		}
 	}
 
@@ -208,17 +228,17 @@ public class LoginForm extends JPanel {
 	public boolean validateFields() {
 
 		if(serverField.getText().length()==0){
-			System.out.println("Server required.");
+			//System.out.println("Server required.");
 			serverField.setBackground(new Color(255,255,0,255));
 			return false;
 		}
 		if(usernameField.getText().length()==0){
-			System.out.println("Username required.");
+			//System.out.println("Username required.");
 			usernameField.setBackground(new Color(255,255,0,255));
 			return false;
 		}
 		if(getPassword().length()==0){
-			System.out.println("Password required.");
+			//System.out.println("Password required.");
 			passwordField.setBackground(new Color(255,255,0,255));
 			return false;
 		}
