@@ -6,15 +6,8 @@
  * @author Ian
  */
 
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.sql.ResultSet;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Locale;
-import java.util.ResourceBundle;
+import java.sql.*;
+import java.util.*;
 
 public class Database {
 
@@ -64,7 +57,8 @@ public class Database {
 
         try{
             stmt = conn.createStatement();
-            rs = stmt.executeQuery("SELECT * FROM users WHERE username='" + username + "' LIMIT 1;"); //DO THE QUERY
+            rs = stmt.executeQuery("SELECT * FROM users WHERE Username='" + username + "' LIMIT 1;"); //DO THE QUERY
+            rs.first();
 
             uid = rs.getInt("U_Id");
             isActive = rs.getInt("Is_Active");
@@ -250,6 +244,7 @@ public class Database {
 
                 //Get U_Id
                 User userData = getUserData(creds[0]);
+                System.out.println("USER ID = "+userData.getU_Id());
                 if (userData.getU_Id()==-1 || userData.getLast_Name().equals(null)) { //Checks if the data is valid.
                     return new DbGenericReturn("-30", "Database Error when fetching user ID.");
                 }
@@ -454,7 +449,7 @@ public class Database {
                 //Execute Statement
                 stmt = conn.createStatement();
                 stmt.executeUpdate("INSERT INTO order_items (O_Id, I_Id, Is_Active) " +
-                        "VALUES (" + O_Id + ", " + I_Id + ")"); //DO THE QUERY
+                        "VALUES (" + O_Id + ", " + I_Id + ", 1);"); //DO THE QUERY
                 stmt.close();
                 //Say it all worked
                 return new DbGenericReturn("1", "Order Item Added");
@@ -533,23 +528,195 @@ public class Database {
 
     }
 
+    public DbDataReturn getActiveOrderItems(String[] creds, int nOrders) {
+        DbGenericReturn auth = authenticate(creds);
+        if (auth.getReturn_code().equals("1")) {
+
+            try {
+                stmt = conn.createStatement();
+                rs = stmt.executeQuery("SELECT * FROM order_items LIMIT " + nOrders + ";"); //DO THE QUERY
+
+                String[] orderArray = new String[nOrders*4];
+                int i = 0;
+
+                while(rs.next()) { //Iterate through orders,
+
+                    String oid = rs.getString("O_Id");
+                    String iid = rs.getString("I_Id");
+                    java.sql.Timestamp date = rs.getTimestamp("Time_Added");
+                    String isActive = rs.getString("Is_Active");
+
+
+
+                    orderArray[i+0] = oid;
+                    orderArray[i+1] = iid;
+                    orderArray[i+2] = String.format("%1$TD %1$TT", date);
+                    orderArray[i+3] = isActive;
+
+                    i+=4;
+                }
+                return new DbDataReturn("1", orderArray);
+            } catch (SQLException ex) {
+                System.out.println("SQLException: " + ex.getMessage());
+                System.out.println("SQLState: " + ex.getSQLState());
+                System.out.println("VendorError: " + ex.getErrorCode());
+                return new DbDataReturn("-1", new String[]{"Sql Error!: " + ex});
+            }
+        }
+        else if (auth.getReturn_code().equals("0")){ return new DbDataReturn("-50", new String[] {auth.getReturn_string()}); }
+        else if (auth.getReturn_code().equals("-1")) { return new DbDataReturn("-51", new String[] {auth.getReturn_string()}); }
+        else { return new DbDataReturn("-99", new String[] {"Server Error!"}); }
+    }
+
+
     //endregion
 
     //region ITEMS (FOOD AND DRINK ITEMS, NOT ORDER ITEMS)
-     public void addItem(String[] creds, String itemName, String itemDesc, int itemPrice, int itemAvail, int itemVeget, int itemVegan, int itemSpicy) {
+     public DbGenericReturn addItem(String[] creds, String itemName, String itemDesc, int itemPrice, int itemAvail, int itemVeget, int itemVegan, int itemSpicy) {
          //TODO: IMPLEMENT THIS! (adds an item)
+         //Authenticate user
+         DbGenericReturn auth = authenticate(creds);
+         if (auth.getReturn_code().equals("1") && isAdmin(creds[0]) && isActive(creds[0])) {
+
+             try {
+                 stmt = conn.createStatement();
+
+                 stmt.executeUpdate("INSERT INTO items (Item_Name, Item_Description, Item_Price, Item_Available, Item_Is_Vegetarian, Item_Is_Vegan, Item_Is_Spicy) " +
+                         "VALUES ('" + itemName + "', '" + itemDesc + "', " + itemPrice + ", " + itemAvail + ", " + itemVeget + ", " + itemVegan + ", " + itemSpicy + ");"); //DO THE QUERY
+
+                 stmt.close();
+                 return new DbGenericReturn("1", "Item Added");
+             } catch (SQLException ex) {
+                 System.out.println("SQLException: " + ex.getMessage());
+                 System.out.println("SQLState: " + ex.getSQLState());
+                 System.out.println("VendorError: " + ex.getErrorCode());
+
+                 if (ex.getMessage().startsWith("Duplicate entry") && ex.getMessage().endsWith("for key 'Username'")) {
+                     //This is what happens when there is a user with the same username
+                     return new DbGenericReturn("-2", ex.getMessage());
+                 } else if (ex.getMessage().startsWith("Duplicate entry") && ex.getMessage().endsWith("for key 'Employee_Number'")) {
+                     //This is what happens when there is a user with the same employee number
+                     return new DbGenericReturn("-2", ex.getMessage());
+                 } else {
+                     //This is what happens when anything else happens. Handle the other stray errors better than this.
+                     return new DbGenericReturn("-1", ex.getMessage());
+                 }
+             }
+         }
+         else if (auth.getReturn_code().equals("0")){ return new DbGenericReturn("-50", auth.getReturn_string()); }
+         else if (auth.getReturn_code().equals("-1")) { return new DbGenericReturn("-51", auth.getReturn_string()); }
+         else if (isAdmin(creds[0])) { return new DbGenericReturn("-52", R.getString("err-52") ); }
+         else if (isActive(creds[0])) { return new DbGenericReturn("-53", R.getString("err-53") ); }
+         else { return new DbGenericReturn("-99", "Server Error!"); }
+
      }
-    public void modifyItem(String[] creds, int I_Id, String itemName, String itemDesc, int itemPrice, int itemAvail, int itemVeget, int itemVegan, int itemSpicy) {
+    public DbGenericReturn modifyItem(String[] creds, int I_Id, String itemName, String itemDesc, int itemPrice, int itemAvail, int itemVeget, int itemVegan, int itemSpicy) {
         //TODO: IMPLEMENT THIS! (modifies item based on ID)
+        //Authenticate user
+        DbGenericReturn auth = authenticate(creds);
+        if (auth.getReturn_code().equals("1") && isAdmin(creds[0]) && isActive(creds[0])) {
+            try {
+                stmt = conn.createStatement();
+                stmt.executeUpdate("UPDATE users SET " +
+                        "Item_Name='" +         itemName + "', " +
+                        "Item_Description='" +  itemDesc + "', " +
+                        "Item_Price=" +         itemPrice + ", " +
+                        "Item_Available=" +     itemAvail + ", " +
+                        "Item_Is_Vegetarian=" +    itemVeget + ", " +
+                        "Item_Is_Vegan=" +         itemVegan + ", " +
+                        "Item_Is_Spicy=" +          itemSpicy + " " +
+                        "WHERE I_Id=" +         I_Id + ";");
+
+                stmt.close();
+                return new DbGenericReturn("1", "Item Modified");
+            }
+            catch(SQLException ex) {
+                System.out.println("SQLException: " + ex.getMessage());
+                System.out.println("SQLState: " + ex.getSQLState());
+                System.out.println("VendorError: " + ex.getErrorCode());
+
+                return new DbGenericReturn("-1", ex.getMessage() + " " + ex.getSQLState() + " " + ex.getErrorCode());
+            }
+        }
+        else if (auth.getReturn_code().equals("0")){ return new DbGenericReturn("-50", auth.getReturn_string()); }
+        else if (auth.getReturn_code().equals("-1")) { return new DbGenericReturn("-51", auth.getReturn_string()); }
+        else if (isAdmin(creds[0])) { return new DbGenericReturn("-52", R.getString("err-52") ); }
+        else if (isActive(creds[0])) { return new DbGenericReturn("-53", R.getString("err-53") ); }
+        else { return new DbGenericReturn("-99", "Server Error!"); }
     }
-    public void removeItem(String[] creds, int I_Id) {
+    public DbGenericReturn removeItem(String[] creds, int I_Id) {
         //TODO: IMPLEMENT THIS! (removes item based on ID)
+        DbGenericReturn auth = authenticate(creds);
+        if (auth.getReturn_code().equals("1")) {
+            try {
+                stmt = conn.createStatement();
+
+                stmt.executeUpdate("DELETE FROM items WHERE I_Id="+I_Id+" LIMIT 1;"); //DO THE QUERY
+
+                stmt.close();
+                return new DbGenericReturn("1", "Item Removed");
+            }
+            catch(SQLException ex) {
+                System.out.println("SQLException: " + ex.getMessage());
+                System.out.println("SQLState: " + ex.getSQLState());
+                System.out.println("VendorError: " + ex.getErrorCode());
+
+                return new DbGenericReturn("-1", ex.getMessage() + " " + ex.getSQLState() + " " + ex.getErrorCode());
+            }
+        }
+        else if (auth.getReturn_code().equals("0")){ return new DbGenericReturn("-50", auth.getReturn_string()); }
+        else if (auth.getReturn_code().equals("-1")) { return new DbGenericReturn("-51", auth.getReturn_string()); }
+        else { return new DbGenericReturn("-99", "Server Error!"); }
     }
     public void getItem(String[] creds, int I_Id) {
         //TODO: IMPLEMENT THIS! (gets item info based on ID)
+        //This is looking more and more redundant the more I work on getItems.
     }
-    public void getItems(String[] creds) {
+    public DbDataReturn getItems(String[] creds) {
         //TODO: IMPLEMENT THIS! (returns all items)
+        DbGenericReturn auth = authenticate(creds);
+        if (auth.getReturn_code().equals("1")) {
+
+            try {
+                stmt = conn.createStatement();
+                rs = stmt.executeQuery("SELECT * FROM orders;"); //DO THE QUERY
+
+                List<String> items = new ArrayList<>();
+
+                while(rs.next()) { //Iterate through orders,
+
+                    String iid = rs.getString("I_Id");
+                    String itemName = rs.getString("Item_Name");
+                    String itemDescs = rs.getString("Item_Description");
+                    String itemPrice = rs.getString("Item_Price");
+                    String itemAval = rs.getString("Item_Available");
+                    String itemVeget = rs.getString("Item_Vegetarian");
+                    String itemVegan = rs.getString("Item_Vegan");
+                    String itemSpicy = rs.getString("Item_Spicy");
+
+                    items.add(iid);
+                    items.add(itemName);
+                    items.add(itemDescs);
+                    items.add(itemPrice);
+                    items.add(itemAval);
+                    items.add(itemVeget);
+                    items.add(itemVegan);
+                    items.add(itemSpicy);
+                }
+
+                return new DbDataReturn("1", items.toArray(new String[items.size()]));
+
+            } catch (SQLException ex) {
+                System.out.println("SQLException: " + ex.getMessage());
+                System.out.println("SQLState: " + ex.getSQLState());
+                System.out.println("VendorError: " + ex.getErrorCode());
+                return new DbDataReturn("-1", new String[]{"Sql Error!: " + ex});
+            }
+        }
+        else if (auth.getReturn_code().equals("0")){ return new DbDataReturn("-50", new String[] {auth.getReturn_string()}); }
+        else if (auth.getReturn_code().equals("-1")) { return new DbDataReturn("-51", new String[] {auth.getReturn_string()}); }
+        else { return new DbDataReturn("-99", new String[] {"Server Error!"}); }
+
     }
 
 }

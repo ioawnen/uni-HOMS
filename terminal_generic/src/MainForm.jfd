@@ -8,7 +8,7 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 			"$horizontalGroup": "par l {comp menuBar2::l:::x, seq {space :::p, par l {comp tabbedPane1:::::x, comp scrollPane2:::::x}, space :::p}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp scrollPane2::::640:x, space :::p, comp tabbedPane1:::p::p, space :::p, comp menuBar2:::p::p}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp scrollPane2::::646:x, space :::p, comp tabbedPane1:::p::p, space :::p, comp menuBar2:::p::p}}"
 		} ) {
 			name: "frame1"
 			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
@@ -16,6 +16,7 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JList" ) {
 					name: "list1"
 					addEvent( new FormEvent( "javax.swing.event.ListSelectionListener", "valueChanged", "list1ValueChanged", true ) )
+					addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "onListMouseClicked", true ) )
 				} )
 			} )
 			add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
@@ -58,43 +59,48 @@ new FormModel {
 				add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
 					name: "menu1"
 					"text": new FormMessage( null, "MainForm.menu1.text" )
+					add( new FormComponent( "javax.swing.JCheckBoxMenuItem" ) {
+						name: "autoUpdateCheckBox"
+						"text": new FormMessage( null, "MainForm.autoUpdateCheckBox.text" )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "autoUpdateCheckBoxActionPerformed", true ) )
+					} )
 					add( new FormContainer( "javax.swing.JMenu", new FormLayoutManager( class javax.swing.JMenu ) ) {
 						name: "menu2"
 						"text": new FormMessage( null, "MainForm.menu2.text" )
 						add( new FormComponent( "javax.swing.JRadioButtonMenuItem" ) {
-							name: "radioButtonMenuItem1"
-							"text": new FormMessage( null, "MainForm.radioButtonMenuItem1.text" )
+							name: "update1sRadioButton"
+							"text": new FormMessage( null, "MainForm.update1sRadioButton.text" )
 							"$buttonGroup": new FormReference( "updateRateButtonGroup" )
 						} )
 						add( new FormComponent( "javax.swing.JRadioButtonMenuItem" ) {
-							name: "radioButtonMenuItem2"
-							"text": new FormMessage( null, "MainForm.radioButtonMenuItem2.text" )
+							name: "update2sRadioButton"
+							"text": new FormMessage( null, "MainForm.update2sRadioButton.text" )
 							"$buttonGroup": new FormReference( "updateRateButtonGroup" )
 						} )
 						add( new FormComponent( "javax.swing.JRadioButtonMenuItem" ) {
-							name: "radioButtonMenuItem3"
-							"text": new FormMessage( null, "MainForm.radioButtonMenuItem3.text" )
+							name: "update5sRadioButton"
+							"text": new FormMessage( null, "MainForm.update5sRadioButton.text" )
 							"$buttonGroup": new FormReference( "updateRateButtonGroup" )
 						} )
 						add( new FormComponent( "javax.swing.JRadioButtonMenuItem" ) {
-							name: "radioButtonMenuItem4"
-							"text": new FormMessage( null, "MainForm.radioButtonMenuItem4.text" )
+							name: "update10sRadioButton"
+							"text": new FormMessage( null, "MainForm.update10sRadioButton.text" )
 							"$buttonGroup": new FormReference( "updateRateButtonGroup" )
 						} )
 						add( new FormComponent( "javax.swing.JRadioButtonMenuItem" ) {
-							name: "radioButtonMenuItem5"
-							"text": new FormMessage( null, "MainForm.radioButtonMenuItem5.text" )
+							name: "update30sRadioButton"
+							"text": new FormMessage( null, "MainForm.update30sRadioButton.text" )
 							"$buttonGroup": new FormReference( "updateRateButtonGroup" )
 						} )
 						add( new FormComponent( "javax.swing.JRadioButtonMenuItem" ) {
-							name: "radioButtonMenuItem6"
-							"text": new FormMessage( null, "MainForm.radioButtonMenuItem6.text" )
+							name: "update1mRadioButton"
+							"text": new FormMessage( null, "MainForm.update1mRadioButton.text" )
 							"$buttonGroup": new FormReference( "updateRateButtonGroup" )
 						} )
 					} )
 					add( new FormComponent( "javax.swing.JCheckBoxMenuItem" ) {
-						name: "checkBoxMenuItem1"
-						"text": new FormMessage( null, "MainForm.checkBoxMenuItem1.text" )
+						name: "darkModeCheckBox"
+						"text": new FormMessage( null, "MainForm.darkModeCheckBox.text" )
 					} )
 				} )
 			}

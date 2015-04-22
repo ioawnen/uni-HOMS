@@ -7,7 +7,6 @@ public class MainClass {
 		System.out.println("STARTING");
 		MainForm form = new MainForm();
 		form.setVisibility(true);
-		form.setTableItems();
 		System.out.println("STARTED");
 	}
 }

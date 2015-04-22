@@ -1,8 +1,11 @@
 import java.awt.*;
+import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
+import javax.swing.border.*;
 import javax.swing.event.*;
+import java.lang.Thread;
 /*
  * Created by JFormDesigner on Tue Apr 14 14:56:34 BST 2015
  */
@@ -13,6 +16,8 @@ import javax.swing.event.*;
  * @author unknown
  */
 public class MainForm extends JPanel {
+
+	String[] creds;
 	public MainForm() {
 		initComponents();
 	}
@@ -21,7 +26,26 @@ public class MainForm extends JPanel {
 		// TODO add your code here
 	}
 
+	private void autoUpdateCheckBoxActionPerformed(ActionEvent e) {
+		// TODO add your code here
+		autoUpdateList();
+	}
 
+	private void onListMouseClicked(MouseEvent e) {
+		// TODO add your code here
+		if (e.getClickCount() == 2) {
+			System.out.println("double clicked");
+			int n = JOptionPane.showConfirmDialog(
+					frame1,
+					"Mark item as done?",
+					"Confirm Completion",
+					JOptionPane.YES_NO_OPTION);
+			if(n==0) {
+				//DO THE UPDATE
+				String item = list1.getSelectedValue().toString();
+			}
+		}
+	}
 
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
@@ -30,14 +54,15 @@ public class MainForm extends JPanel {
 		frame1 = new JFrame();
 		menuBar1 = new JMenuBar();
 		menu1 = new JMenu();
+		autoUpdateCheckBox = new JCheckBoxMenuItem();
 		menu2 = new JMenu();
-		radioButtonMenuItem1 = new JRadioButtonMenuItem();
-		radioButtonMenuItem2 = new JRadioButtonMenuItem();
-		radioButtonMenuItem3 = new JRadioButtonMenuItem();
-		radioButtonMenuItem4 = new JRadioButtonMenuItem();
-		radioButtonMenuItem5 = new JRadioButtonMenuItem();
-		radioButtonMenuItem6 = new JRadioButtonMenuItem();
-		checkBoxMenuItem1 = new JCheckBoxMenuItem();
+		update1sRadioButton = new JRadioButtonMenuItem();
+		update2sRadioButton = new JRadioButtonMenuItem();
+		update5sRadioButton = new JRadioButtonMenuItem();
+		update10sRadioButton = new JRadioButtonMenuItem();
+		update30sRadioButton = new JRadioButtonMenuItem();
+		update1mRadioButton = new JRadioButtonMenuItem();
+		darkModeCheckBox = new JCheckBoxMenuItem();
 		scrollPane2 = new JScrollPane();
 		list1 = new JList();
 		tabbedPane1 = new JTabbedPane();
@@ -59,39 +84,49 @@ public class MainForm extends JPanel {
 				{
 					menu1.setText(bundle.getString("MainForm.menu1.text"));
 
+					//---- autoUpdateCheckBox ----
+					autoUpdateCheckBox.setText(bundle.getString("MainForm.autoUpdateCheckBox.text"));
+					autoUpdateCheckBox.addActionListener(new ActionListener() {
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							autoUpdateCheckBoxActionPerformed(e);
+						}
+					});
+					menu1.add(autoUpdateCheckBox);
+
 					//======== menu2 ========
 					{
 						menu2.setText(bundle.getString("MainForm.menu2.text"));
 
-						//---- radioButtonMenuItem1 ----
-						radioButtonMenuItem1.setText(bundle.getString("MainForm.radioButtonMenuItem1.text"));
-						menu2.add(radioButtonMenuItem1);
+						//---- update1sRadioButton ----
+						update1sRadioButton.setText(bundle.getString("MainForm.update1sRadioButton.text"));
+						menu2.add(update1sRadioButton);
 
-						//---- radioButtonMenuItem2 ----
-						radioButtonMenuItem2.setText(bundle.getString("MainForm.radioButtonMenuItem2.text"));
-						menu2.add(radioButtonMenuItem2);
+						//---- update2sRadioButton ----
+						update2sRadioButton.setText(bundle.getString("MainForm.update2sRadioButton.text"));
+						menu2.add(update2sRadioButton);
 
-						//---- radioButtonMenuItem3 ----
-						radioButtonMenuItem3.setText(bundle.getString("MainForm.radioButtonMenuItem3.text"));
-						menu2.add(radioButtonMenuItem3);
+						//---- update5sRadioButton ----
+						update5sRadioButton.setText(bundle.getString("MainForm.update5sRadioButton.text"));
+						menu2.add(update5sRadioButton);
 
-						//---- radioButtonMenuItem4 ----
-						radioButtonMenuItem4.setText(bundle.getString("MainForm.radioButtonMenuItem4.text"));
-						menu2.add(radioButtonMenuItem4);
+						//---- update10sRadioButton ----
+						update10sRadioButton.setText(bundle.getString("MainForm.update10sRadioButton.text"));
+						menu2.add(update10sRadioButton);
 
-						//---- radioButtonMenuItem5 ----
-						radioButtonMenuItem5.setText(bundle.getString("MainForm.radioButtonMenuItem5.text"));
-						menu2.add(radioButtonMenuItem5);
+						//---- update30sRadioButton ----
+						update30sRadioButton.setText(bundle.getString("MainForm.update30sRadioButton.text"));
+						menu2.add(update30sRadioButton);
 
-						//---- radioButtonMenuItem6 ----
-						radioButtonMenuItem6.setText(bundle.getString("MainForm.radioButtonMenuItem6.text"));
-						menu2.add(radioButtonMenuItem6);
+						//---- update1mRadioButton ----
+						update1mRadioButton.setText(bundle.getString("MainForm.update1mRadioButton.text"));
+						menu2.add(update1mRadioButton);
 					}
 					menu1.add(menu2);
 
-					//---- checkBoxMenuItem1 ----
-					checkBoxMenuItem1.setText(bundle.getString("MainForm.checkBoxMenuItem1.text"));
-					menu1.add(checkBoxMenuItem1);
+					//---- darkModeCheckBox ----
+					darkModeCheckBox.setText(bundle.getString("MainForm.darkModeCheckBox.text"));
+					menu1.add(darkModeCheckBox);
 				}
 				menuBar1.add(menu1);
 			}
@@ -105,6 +140,12 @@ public class MainForm extends JPanel {
 					@Override
 					public void valueChanged(ListSelectionEvent e) {
 						list1ValueChanged(e);
+					}
+				});
+				list1.addMouseListener(new MouseAdapter() {
+					@Override
+					public void mouseClicked(MouseEvent e) {
+						onListMouseClicked(e);
 					}
 				});
 				scrollPane2.setViewportView(list1);
@@ -197,7 +238,7 @@ public class MainForm extends JPanel {
 				frame1ContentPaneLayout.createParallelGroup()
 					.addGroup(frame1ContentPaneLayout.createSequentialGroup()
 						.addContainerGap()
-						.addComponent(scrollPane2, GroupLayout.DEFAULT_SIZE, 640, Short.MAX_VALUE)
+						.addComponent(scrollPane2, GroupLayout.DEFAULT_SIZE, 646, Short.MAX_VALUE)
 						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 						.addComponent(tabbedPane1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
@@ -209,12 +250,12 @@ public class MainForm extends JPanel {
 
 		//---- updateRateButtonGroup ----
 		ButtonGroup updateRateButtonGroup = new ButtonGroup();
-		updateRateButtonGroup.add(radioButtonMenuItem1);
-		updateRateButtonGroup.add(radioButtonMenuItem2);
-		updateRateButtonGroup.add(radioButtonMenuItem3);
-		updateRateButtonGroup.add(radioButtonMenuItem4);
-		updateRateButtonGroup.add(radioButtonMenuItem5);
-		updateRateButtonGroup.add(radioButtonMenuItem6);
+		updateRateButtonGroup.add(update1sRadioButton);
+		updateRateButtonGroup.add(update2sRadioButton);
+		updateRateButtonGroup.add(update5sRadioButton);
+		updateRateButtonGroup.add(update10sRadioButton);
+		updateRateButtonGroup.add(update30sRadioButton);
+		updateRateButtonGroup.add(update1mRadioButton);
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
@@ -223,14 +264,15 @@ public class MainForm extends JPanel {
 	private JFrame frame1;
 	private JMenuBar menuBar1;
 	private JMenu menu1;
+	private JCheckBoxMenuItem autoUpdateCheckBox;
 	private JMenu menu2;
-	private JRadioButtonMenuItem radioButtonMenuItem1;
-	private JRadioButtonMenuItem radioButtonMenuItem2;
-	private JRadioButtonMenuItem radioButtonMenuItem3;
-	private JRadioButtonMenuItem radioButtonMenuItem4;
-	private JRadioButtonMenuItem radioButtonMenuItem5;
-	private JRadioButtonMenuItem radioButtonMenuItem6;
-	private JCheckBoxMenuItem checkBoxMenuItem1;
+	private JRadioButtonMenuItem update1sRadioButton;
+	private JRadioButtonMenuItem update2sRadioButton;
+	private JRadioButtonMenuItem update5sRadioButton;
+	private JRadioButtonMenuItem update10sRadioButton;
+	private JRadioButtonMenuItem update30sRadioButton;
+	private JRadioButtonMenuItem update1mRadioButton;
+	private JCheckBoxMenuItem darkModeCheckBox;
 	private JScrollPane scrollPane2;
 	private JList list1;
 	private JTabbedPane tabbedPane1;
@@ -242,37 +284,85 @@ public class MainForm extends JPanel {
 	private JLabel label2;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 
-	private String makeListItem(String O_Id, String T_Id, String item){
+	public void setCreds(String[] credentials) {
+		creds = credentials;
+	}
+
+	private void autoUpdateList() {
+		// TODO add your code here
+
+		setCreds(new String[] {"ian", "password"});
+		System.out.println("STATE CHANGED TO "+autoUpdateCheckBox.getState());
+		System.out.println("UPDATING");
+
+		Client client = new Client();
+		String[] result = client.getActiveOrderItems(creds,40);
+
+		if(result[0].equals("1")) {
+			String[] trimmedResult = Arrays.copyOfRange(result, 1, result.length);
+
+
+			String[][] orderItems = new String[trimmedResult.length+1][4];
+			int x = 0;
+			for(int i = 0; trimmedResult.length>i; i=i+4) {
+				orderItems[x][0] = trimmedResult[i];
+				orderItems[x][1] = trimmedResult[i+1];
+				orderItems[x][2] = trimmedResult[i+2];
+				orderItems[x][3] = trimmedResult[i+3];
+				x++;
+
+
+			}
+
+			//setTableItems(orderItems);
+			setTableItems(trimmedResult);
+
+		} else { //Error case
+			System.err.println("ERROR!: "+result[0]+result[1]);
+		}
+	}
+
+	private String makeListItem(String O_Id, String T_Id, String date, String item){
 
 		String listItem = "<html><span><hr><span>"+
-				"OID: "+O_Id+" TID: "+T_Id+"<br>"+
+				"OID: "+O_Id+" TID: "+T_Id+" TIME: "+date+"<br>"+
 				"<font size=+2>"+item+"</font>"
-
-
-
-
-
 				+"</html>";
-
 
 		return listItem;
 	}
 
+	private int getUpdateRate() {
+		if(update1sRadioButton.isSelected()) {
+			return 1;
+		} else if(update2sRadioButton.isSelected()) {
+			return 2;
+		} else if(update5sRadioButton.isSelected()) {
+			return 5;
+		} else if(update10sRadioButton.isSelected()) {
+			return 10;
+		} else if(update30sRadioButton.isSelected()) {
+			return 30;
+		} else if(update1mRadioButton.isSelected()) {
+			return 60;
+		} else {
+			return 10;
+		}
 
-	public void setTableItems() {
+	}
 
-		String[][] orders = new String[][] {{"13546","34","SOME FOOD THAT'S NICE"},{"dfirh","dfihjbd","SMOKED SOMETHING"}};
+	public void setTableItems(String[] orders) {
 
-		String[] orderText = new String[orders.length];
-
-		for(int i = 0; i<orders.length; i++) {
-			orderText[i] = makeListItem(orders[i][0],orders[i][1],orders[i][2]);
+		String[] orderText = new String[orders.length/4];
+		int x = 0;
+		for(int i = 0; i<orders.length; i+=4) {
+			orderText[x] = makeListItem(orders[i], orders[i+1], orders[i+2], orders[+3]);
+			x++;
 		}
 		list1.setListData(orderText);
 
-
-
 	}
+
 
 	public void setClockTime() {
 
