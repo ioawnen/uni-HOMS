@@ -5,16 +5,16 @@
  */
 final class Item {
 
-	private final int I_Id;
+	private final String I_Id;
 	private final String Item_Name;
 	private final String Item_Description;
-	private final int Item_Price;
-	private final int Item_Available;
-	private final int Item_Is_Vegetarian;
-	private final int Item_Is_Vegan;
-	private final int Item_Is_Spicy;
+	private final String Item_Price;
+	private final String Item_Available;
+	private final String Item_Is_Vegetarian;
+	private final String Item_Is_Vegan;
+	private final String Item_Is_Spicy;
 
-	public Item(int iid, String itemName, String itemDescription, int itemPrice, int itemAvailable, int itemIsVegetarian, int itemIsVegan, int itemIsSpicy) {
+	public Item(String iid, String itemName, String itemDescription, String itemPrice, String itemAvailable, String itemIsVegetarian, String itemIsVegan, String itemIsSpicy) {
 		this.I_Id = iid;
 		this.Item_Name = itemName;
 		this.Item_Description = itemDescription;
@@ -26,11 +26,11 @@ final class Item {
 	}
 
 
-	public int getItem_Is_Spicy() {
+	public String getItem_Is_Spicy() {
 		return Item_Is_Spicy;
 	}
 
-	public int getI_Id() {
+	public String getI_Id() {
 		return I_Id;
 	}
 
@@ -42,19 +42,19 @@ final class Item {
 		return Item_Description;
 	}
 
-	public int getItem_Price() {
+	public String getItem_Price() {
 		return Item_Price;
 	}
 
-	public int getItem_Available() {
+	public String getItem_Available() {
 		return Item_Available;
 	}
 
-	public int getItem_Is_Vegetarian() {
+	public String getItem_Is_Vegetarian() {
 		return Item_Is_Vegetarian;
 	}
 
-	public int getItem_Is_Vegan() {
+	public String getItem_Is_Vegan() {
 		return Item_Is_Vegan;
 	}
 }

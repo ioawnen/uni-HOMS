@@ -7,7 +7,11 @@
  */
 
 import java.sql.*;
+import java.text.ParseException;
 import java.util.*;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 public class Database {
 
@@ -352,7 +356,7 @@ public class Database {
         else { return new DbDataReturn("-99", new String[] {"Server Error!"}); }
 
     }
-    public DbDataReturn getNOrders(String[] creds, int nOrders) {
+    public DbDataReturn getOrders(String[] creds) {
         //TODO: IMPLEMENT THIS! (gets large amounts of previous orders)
 
         DbGenericReturn auth = authenticate(creds);
@@ -360,24 +364,20 @@ public class Database {
 
             try {
                 stmt = conn.createStatement();
-                rs = stmt.executeQuery("SELECT * FROM orders LIMIT " + nOrders + " ORDER BY O_Id DESC;"); //DO THE QUERY
+                rs = stmt.executeQuery("SELECT * FROM orders ORDER BY O_Id DESC;"); //DO THE QUERY
 
-                String[] orderArray = new String[nOrders*3];
-                int i = 0;
+                List<String> orders = new ArrayList<>();
 
                 while(rs.next()) { //Iterate through orders,
-
                     String oid = rs.getString("O_Id");
                     String uid = rs.getString("U_Id");
                     String tid = rs.getString("T_Id");
 
-                    orderArray[i+0] = oid;
-                    orderArray[i+1] = uid;
-                    orderArray[i+2] = tid;
-
-                    i+=3;
+                    orders.add(oid);
+                    orders.add(uid);
+                    orders.add(tid);
                 }
-                return new DbDataReturn("1", orderArray);
+                return new DbDataReturn("1", orders.toArray(new String[orders.size()]));
             } catch (SQLException ex) {
                 System.out.println("SQLException: " + ex.getMessage());
                 System.out.println("SQLState: " + ex.getSQLState());
@@ -522,10 +522,38 @@ public class Database {
         else { return new DbGenericReturn("-99", "Server Error!"); }
     }
 
-    public void getOrderItems(String[] creds, int O_Id) {
-        //TODO: IMPLEMENT THIS! (gets items on order)
+    public DbDataReturn getOrderItems(String[] creds) {
+        DbGenericReturn auth = authenticate(creds);
+        if (auth.getReturn_code().equals("1")) {
 
+            try {
+                stmt = conn.createStatement();
+                rs = stmt.executeQuery("SELECT * FROM order_items;"); //DO THE QUERY
 
+                List<String> orderItems = new ArrayList<>();
+                while(rs.next()) { //Iterate through orders,
+
+                    String oid = rs.getString("O_Id");
+                    String iid = rs.getString("I_Id");
+                    java.sql.Timestamp date = rs.getTimestamp("Time_Added");
+                    String isActive = rs.getString("Is_Active");
+
+                    orderItems.add(oid);
+                    orderItems.add(iid);
+                    orderItems.add(String.format("%1$TD %1$TT", date));
+                    orderItems.add(isActive);
+                }
+                return new DbDataReturn("1", orderItems.toArray(new String[orderItems.size()]));
+            } catch (SQLException ex) {
+                System.out.println("SQLException: " + ex.getMessage());
+                System.out.println("SQLState: " + ex.getSQLState());
+                System.out.println("VendorError: " + ex.getErrorCode());
+                return new DbDataReturn("-1", new String[]{"Sql Error!: " + ex});
+            }
+        }
+        else if (auth.getReturn_code().equals("0")){ return new DbDataReturn("-50", new String[] {auth.getReturn_string()}); }
+        else if (auth.getReturn_code().equals("-1")) { return new DbDataReturn("-51", new String[] {auth.getReturn_string()}); }
+        else { return new DbDataReturn("-99", new String[] {"Server Error!"}); }
     }
 
     public DbDataReturn getActiveOrderItems(String[] creds, int nOrders) {
@@ -534,11 +562,11 @@ public class Database {
 
             try {
                 stmt = conn.createStatement();
-                rs = stmt.executeQuery("SELECT * FROM order_items LIMIT " + nOrders + ";"); //DO THE QUERY
+                rs = stmt.executeQuery("SELECT * FROM order_items WHERE Is_Active=1;"); //DO THE QUERY
 
                 String[] orderArray = new String[nOrders*4];
-                int i = 0;
 
+                List<String> orderItems = new ArrayList<>();
                 while(rs.next()) { //Iterate through orders,
 
                     String oid = rs.getString("O_Id");
@@ -548,14 +576,12 @@ public class Database {
 
 
 
-                    orderArray[i+0] = oid;
-                    orderArray[i+1] = iid;
-                    orderArray[i+2] = String.format("%1$TD %1$TT", date);
-                    orderArray[i+3] = isActive;
-
-                    i+=4;
+                    orderItems.add(oid);
+                    orderItems.add(iid);
+                    orderItems.add(String.format("%1$TD %1$TT", date));
+                    orderItems.add(isActive);
                 }
-                return new DbDataReturn("1", orderArray);
+                return new DbDataReturn("1", orderItems.toArray(new String[orderItems.size()]));
             } catch (SQLException ex) {
                 System.out.println("SQLException: " + ex.getMessage());
                 System.out.println("SQLState: " + ex.getSQLState());
@@ -679,7 +705,7 @@ public class Database {
 
             try {
                 stmt = conn.createStatement();
-                rs = stmt.executeQuery("SELECT * FROM orders;"); //DO THE QUERY
+                rs = stmt.executeQuery("SELECT * FROM items;"); //DO THE QUERY
 
                 List<String> items = new ArrayList<>();
 
@@ -690,9 +716,9 @@ public class Database {
                     String itemDescs = rs.getString("Item_Description");
                     String itemPrice = rs.getString("Item_Price");
                     String itemAval = rs.getString("Item_Available");
-                    String itemVeget = rs.getString("Item_Vegetarian");
-                    String itemVegan = rs.getString("Item_Vegan");
-                    String itemSpicy = rs.getString("Item_Spicy");
+                    String itemVeget = rs.getString("Item_Is_Vegetarian");
+                    String itemVegan = rs.getString("Item_Is_Vegan");
+                    String itemSpicy = rs.getString("Item_Is_Spicy");
 
                     items.add(iid);
                     items.add(itemName);
@@ -703,7 +729,10 @@ public class Database {
                     items.add(itemVegan);
                     items.add(itemSpicy);
                 }
-
+                String[] results = items.toArray(new String[items.size()]);
+                for(int i = 0; results.length<i; i++) {
+                    System.out.println(results[i]);
+                }
                 return new DbDataReturn("1", items.toArray(new String[items.size()]));
 
             } catch (SQLException ex) {
@@ -712,6 +741,128 @@ public class Database {
                 System.out.println("VendorError: " + ex.getErrorCode());
                 return new DbDataReturn("-1", new String[]{"Sql Error!: " + ex});
             }
+        }
+        else if (auth.getReturn_code().equals("0")){ return new DbDataReturn("-50", new String[] {auth.getReturn_string()}); }
+        else if (auth.getReturn_code().equals("-1")) { return new DbDataReturn("-51", new String[] {auth.getReturn_string()}); }
+        else { return new DbDataReturn("-99", new String[] {"Server Error!"}); }
+
+    }
+
+    public DbDataReturn getManagementData(String[] creds) { //This is a hack if i've ever seen one.
+
+        int income24H = 0; //
+        int income7D = 0; //
+        int income28D = 0; //
+        int incomeAve24H = 0; //TODO: LOW PRIORITY MAKE THIS WORK
+        int incomeTotal = 0; //
+        int orderItems24H = 0; //
+        int orderItems7D = 0; //
+        int orderItems28D = 0; //
+        int orderItemsTotal = 0; //
+        int orderItemsInProgress = 0; //
+
+        DbGenericReturn auth = authenticate(creds);
+        if (auth.getReturn_code().equals("1") && isAdmin(creds[0]) && isActive(creds[0])) {
+
+
+            //GET A LIST OF ALL ITEMS AND THEIR DATA
+            String[] results = getItems(creds).getReturn_strings(); //Get the array of items from getItems.
+            System.out.println("resultssize = "+results.length);
+            List<Item> items = new ArrayList<>(); //THIS LIST IS THE IMPORTANT ONE
+
+            for(int i = 0; results.length>i; i=i+8) { //Populate that array
+                items.add(new Item(results[i],results[i+1],results[i+2],results[i+3],results[i+4],results[i+5],results[i+6],results[i+7]));
+                System.out.println("ITEM! "+results[i]+" "+results[i+1]+" "+results[i+2]+" "+results[i+3]+" "+results[i+4]+" "+results[i+5]+" "+results[i+6]+" "+results[i+7]);
+            }
+
+            //GET A LIST OF ALL ORDER ITEMS
+            String[] orderItemsResult = getOrderItems(creds).getReturn_strings();
+            System.out.println("order item size = "+results.length);
+            List<OrderItem> orderItems = new ArrayList<>(); //THIS LIST IS THE IMPORTANT ONE
+
+            for(int i = 0; orderItemsResult.length>i; i=i+4) { //Populate that array
+                orderItems.add(new OrderItem(orderItemsResult[i],orderItemsResult[i+1],orderItemsResult[i+2],orderItemsResult[i+3]));
+                System.out.println("ORDER ITEM! "+orderItemsResult[i]+" "+orderItemsResult[i+1]+" "+orderItemsResult[i+2]+" "+orderItemsResult[i+3]);
+            }
+            System.out.println("SIZE"+orderItems.size());
+
+            //Put the order items with their corresponding items in a convoluted 2d array.
+            Object[][] orderItemsAndItems = new Object[orderItems.size()][2];
+            int i = 0;
+            for(OrderItem tempOrderItem : orderItems) {
+                orderItemsAndItems[i][0] = tempOrderItem;
+
+                for(Item tempItem : items) {
+                    if(tempItem.getI_Id().equals(tempOrderItem.getI_Id())) {
+                        orderItemsAndItems[i][1] = tempItem;
+                        break;
+                    }
+                }
+                i++;
+            }
+
+
+            //INCOME AND ORDER ITEMS
+            //Check if the order items are within specific time frames and count the profits.
+
+            for(Object[] tempArray : orderItemsAndItems) {
+                OrderItem orderItem = OrderItem.class.cast(tempArray[0]); //Get the current orderItem from the array
+                Item item = Item.class.cast(tempArray[1]); //And get it's corresponding item too.
+                Date now = new Date(); //Get the time right now
+                boolean inProCou = false;
+
+                incomeTotal += Integer.parseInt(item.getItem_Price()); //Add all of the orders for the total.
+                orderItemsTotal++; //Total count of all order items
+
+                if(orderItem.getIs_Active().equals("1")) { //If order is in progress right now
+                    orderItemsInProgress++; //Add it to the count
+                }
+
+
+                try {
+                    //Convert time String to Date object
+                    SimpleDateFormat sdf = new SimpleDateFormat("MM/dd/yy HH:mm:ss");
+                    Date orderTime = sdf.parse(orderItem.getTime());
+
+                    long minsSinceOrder = TimeUnit.MILLISECONDS.toMinutes(now.getTime() - orderTime.getTime()); //get The mins since the order was added.
+                    System.out.println("TIME OF ORDER "+orderTime.toString()+" TIME NOW "+now.toString());
+                    System.out.println("HOURS SINCE ORDER "+minsSinceOrder);
+
+
+                    if(minsSinceOrder<1440) { //If the order was placed in the last 24 hours
+                        income24H += Integer.parseInt(item.getItem_Price());
+                        orderItems24H++;
+                    }
+                    if(minsSinceOrder<10080) { //If the order was placed in the last 7 days
+                        income7D += Integer.parseInt(item.getItem_Price());
+                        orderItems7D++;
+                    }
+                    if(minsSinceOrder<40320) { //If the order was placed in the last 28 days
+                        income28D += Integer.parseInt(item.getItem_Price());
+                        orderItems28D++;
+                    }
+
+                } catch (ParseException e) {
+                    e.printStackTrace();
+                }
+            }
+
+            //ORDERS
+            //TODO: ADD ORDER TIMESTAMPS!
+
+
+            return new DbDataReturn("1", new String[] {
+                    Integer.toString(income24H),
+                    Integer.toString(income7D),
+                    Integer.toString(income28D),
+                    Integer.toString(incomeAve24H),
+                    Integer.toString(orderItems24H),
+                    Integer.toString(orderItems7D),
+                    Integer.toString(orderItems28D),
+                    Integer.toString(orderItemsTotal),
+                    Integer.toString(orderItemsInProgress),
+            });
+
         }
         else if (auth.getReturn_code().equals("0")){ return new DbDataReturn("-50", new String[] {auth.getReturn_string()}); }
         else if (auth.getReturn_code().equals("-1")) { return new DbDataReturn("-51", new String[] {auth.getReturn_string()}); }

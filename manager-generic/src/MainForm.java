@@ -44,6 +44,10 @@ public class MainForm extends JPanel {
 		ordersTodayLabel = new JLabel();
 		averageIncomeDailyPanel = new JPanel();
 		averageIncomeDailyLabel = new JLabel();
+		ordersInProgPanel2 = new JPanel();
+		ordersInProgLabel2 = new JLabel();
+		ordersInProgPanel3 = new JPanel();
+		ordersInProgLabel3 = new JLabel();
 		manageUsersPanel = new JPanel();
 		usersScrollPane = new JScrollPane();
 		usersTable = new JTable();
@@ -180,7 +184,7 @@ public class MainForm extends JPanel {
 
 					//======== ordersTodayPanel ========
 					{
-						ordersTodayPanel.setBorder(new TitledBorder("Orders Today"));
+						ordersTodayPanel.setBorder(new TitledBorder("Orders (24h)"));
 						ordersTodayPanel.setLayout(new GridBagLayout());
 						((GridBagLayout)ordersTodayPanel.getLayout()).columnWidths = new int[] {0, 0, 0, 0};
 						((GridBagLayout)ordersTodayPanel.getLayout()).rowHeights = new int[] {0, 0, 0, 0};
@@ -212,6 +216,40 @@ public class MainForm extends JPanel {
 							new Insets(0, 0, 5, 5), 0, 0));
 					}
 
+					//======== ordersInProgPanel2 ========
+					{
+						ordersInProgPanel2.setBorder(new TitledBorder("Orders (7 Days)"));
+						ordersInProgPanel2.setLayout(new GridBagLayout());
+						((GridBagLayout)ordersInProgPanel2.getLayout()).columnWidths = new int[] {0, 0, 0, 0};
+						((GridBagLayout)ordersInProgPanel2.getLayout()).rowHeights = new int[] {0, 0, 0, 0};
+						((GridBagLayout)ordersInProgPanel2.getLayout()).columnWeights = new double[] {0.0, 1.0, 0.0, 1.0E-4};
+						((GridBagLayout)ordersInProgPanel2.getLayout()).rowWeights = new double[] {0.0, 1.0, 0.0, 1.0E-4};
+
+						//---- ordersInProgLabel2 ----
+						ordersInProgLabel2.setFont(ordersInProgLabel2.getFont().deriveFont(ordersInProgLabel2.getFont().getSize() + 10f));
+						ordersInProgLabel2.setText(bundle.getString("MainForm.ordersInProgLabel2.text"));
+						ordersInProgPanel2.add(ordersInProgLabel2, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
+							GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
+							new Insets(0, 0, 5, 5), 0, 0));
+					}
+
+					//======== ordersInProgPanel3 ========
+					{
+						ordersInProgPanel3.setBorder(new TitledBorder("Orders (28 Days)"));
+						ordersInProgPanel3.setLayout(new GridBagLayout());
+						((GridBagLayout)ordersInProgPanel3.getLayout()).columnWidths = new int[] {0, 0, 0, 0};
+						((GridBagLayout)ordersInProgPanel3.getLayout()).rowHeights = new int[] {0, 0, 0, 0};
+						((GridBagLayout)ordersInProgPanel3.getLayout()).columnWeights = new double[] {0.0, 1.0, 0.0, 1.0E-4};
+						((GridBagLayout)ordersInProgPanel3.getLayout()).rowWeights = new double[] {0.0, 1.0, 0.0, 1.0E-4};
+
+						//---- ordersInProgLabel3 ----
+						ordersInProgLabel3.setFont(ordersInProgLabel3.getFont().deriveFont(ordersInProgLabel3.getFont().getSize() + 10f));
+						ordersInProgLabel3.setText(bundle.getString("MainForm.ordersInProgLabel3.text"));
+						ordersInProgPanel3.add(ordersInProgLabel3, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
+							GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
+							new Insets(0, 0, 5, 5), 0, 0));
+					}
+
 					GroupLayout overviewPanelLayout = new GroupLayout(overviewPanel);
 					overviewPanel.setLayout(overviewPanelLayout);
 					overviewPanelLayout.setHorizontalGroup(
@@ -228,14 +266,20 @@ public class MainForm extends JPanel {
 									.addGroup(overviewPanelLayout.createSequentialGroup()
 										.addComponent(income7dPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
 										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(ordersInProgPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+										.addComponent(ordersInProgPanel2, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
 										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 292, Short.MAX_VALUE)
 										.addComponent(tablesTodayPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
 									.addGroup(overviewPanelLayout.createSequentialGroup()
 										.addGroup(overviewPanelLayout.createParallelGroup()
-											.addComponent(income28dPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-											.addComponent(averageIncomeDailyPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
-										.addGap(0, 678, Short.MAX_VALUE)))
+											.addGroup(overviewPanelLayout.createSequentialGroup()
+												.addComponent(income28dPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+												.addComponent(ordersInProgPanel3, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
+											.addGroup(overviewPanelLayout.createSequentialGroup()
+												.addComponent(averageIncomeDailyPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+												.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+												.addComponent(ordersInProgPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)))
+										.addGap(0, 482, Short.MAX_VALUE)))
 								.addContainerGap())
 					);
 					overviewPanelLayout.setVerticalGroup(
@@ -249,16 +293,18 @@ public class MainForm extends JPanel {
 									.addComponent(ordersTodayPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 								.addGroup(overviewPanelLayout.createParallelGroup()
-									.addGroup(overviewPanelLayout.createSequentialGroup()
-										.addGroup(overviewPanelLayout.createParallelGroup()
-											.addComponent(income7dPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-											.addComponent(tablesTodayPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
-										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(income28dPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
-									.addComponent(ordersInProgPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
+									.addComponent(income7dPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+									.addComponent(tablesTodayPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+									.addComponent(ordersInProgPanel2, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addComponent(averageIncomeDailyPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(95, Short.MAX_VALUE))
+								.addGroup(overviewPanelLayout.createParallelGroup()
+									.addComponent(ordersInProgPanel3, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+									.addComponent(income28dPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
+								.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
+								.addGroup(overviewPanelLayout.createParallelGroup()
+									.addComponent(averageIncomeDailyPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+									.addComponent(ordersInProgPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
+								.addContainerGap(89, Short.MAX_VALUE))
 					);
 				}
 				tabbedPane1.addTab(bundle.getString("MainForm.overviewPanel.tab.title"), overviewPanel);
@@ -416,6 +462,10 @@ public class MainForm extends JPanel {
 	private JLabel ordersTodayLabel;
 	private JPanel averageIncomeDailyPanel;
 	private JLabel averageIncomeDailyLabel;
+	private JPanel ordersInProgPanel2;
+	private JLabel ordersInProgLabel2;
+	private JPanel ordersInProgPanel3;
+	private JLabel ordersInProgLabel3;
 	private JPanel manageUsersPanel;
 	private JScrollPane usersScrollPane;
 	private JTable usersTable;

@@ -22,13 +22,13 @@ new FormModel {
 			add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
 				name: "tabbedPane1"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq l {space :::p, comp clockLabel:::p:230:p, space ::379:x}}"
-					"$verticalGroup": "par l {seq l {space :::p, comp clockLabel::::88:x, space :::p}}"
+					"$horizontalGroup": "par l {seq l {space :::p, comp infoLabel:::p:232:p, space ::377:x}}"
+					"$verticalGroup": "par l {seq l {space :::p, comp infoLabel::::88:x, space :::p}}"
 				} ) {
 					name: "panel1"
 					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "clockLabel"
-						"text": new FormMessage( null, "MainForm.clockLabel.text" )
+						name: "infoLabel"
+						"text": new FormMessage( null, "MainForm.infoLabel.text" )
 					} )
 				}, new FormLayoutConstraints( null ) {
 					"title": new FormMessage( null, "MainForm.panel1.tab.title" )
@@ -49,8 +49,8 @@ new FormModel {
 			add( new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
 				name: "menuBar2"
 				add( new FormComponent( "javax.swing.JLabel" ) {
-					name: "label2"
-					"text": new FormMessage( null, "MainForm.label2.text" )
+					name: "statusLabel"
+					"text": new FormMessage( null, "MainForm.statusLabel.text" )
 					"foreground": sfield java.awt.Color gray
 				} )
 			} )

@@ -7,31 +7,31 @@
  */
 final class OrderItem {
 
-	private final int O_Id;
-	private final int I_Id;
-	private final int Time; //This needs looking into. Store in unix time for now.
-	private final int Is_Active;
+	private final String O_Id;
+	private final String I_Id;
+	private final String Time; //This needs looking Stringo. Store in unix time for now.
+	private final String Is_Active;
 
-	public OrderItem(int oid, int iid, int time, int isActive) {
+	public OrderItem(String oid, String iid, String time, String isActive) {
 		this.O_Id = oid;
 		this.I_Id = iid;
 		this.Time = time;
 		this.Is_Active = isActive;
 	}
 
-	public int getO_Id() {
+	public String getO_Id() {
 		return O_Id;
 	}
 
-	public int getI_Id() {
+	public String getI_Id() {
 		return I_Id;
 	}
 
-	public int getTime() {
+	public String getTime() {
 		return Time;
 	}
 
-	public int getIs_Active() {
+	public String getIs_Active() {
 		return Is_Active;
 	}
 }

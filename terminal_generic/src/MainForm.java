@@ -18,6 +18,7 @@ import java.lang.Thread;
 public class MainForm extends JPanel {
 
 	String[] creds;
+	String[][] items;
 	public MainForm() {
 		initComponents();
 	}
@@ -33,6 +34,23 @@ public class MainForm extends JPanel {
 
 	private void onListMouseClicked(MouseEvent e) {
 		// TODO add your code here
+
+		//Get the Order ID, Item ID. //TODO MOVE THIS TO A SEPARATE METHOD
+		String item = list1.getSelectedValue().toString();
+		String[] item_part1 = item.split("IID: ");
+		String[] item_part2 = item_part1[1].split(" ");
+		String item_id = item_part2[0];
+
+		String[] item_part3 = item.split("OID: ");
+		String[] item_part4 = item_part3[1].split(" ");
+		String order_id = item_part4[0];
+
+		System.out.println(order_id+" "+item_id);
+
+		setInfoText(item_id);
+
+
+
 		if (e.getClickCount() == 2) {
 			System.out.println("double clicked");
 			int n = JOptionPane.showConfirmDialog(
@@ -42,7 +60,13 @@ public class MainForm extends JPanel {
 					JOptionPane.YES_NO_OPTION);
 			if(n==0) {
 				//DO THE UPDATE
-				String item = list1.getSelectedValue().toString();
+				Client client = new Client();
+				String[] result = client.modifyOrderItem(creds, Integer.parseInt(order_id), Integer.parseInt(item_id), 0); //Set the order as inactive (completed)
+				autoUpdateList();
+
+				if(!result[0].equals("1")) {
+					JOptionPane.showMessageDialog(frame1, "Error!");
+				}
 			}
 		}
 	}
@@ -67,11 +91,11 @@ public class MainForm extends JPanel {
 		list1 = new JList();
 		tabbedPane1 = new JTabbedPane();
 		panel1 = new JPanel();
-		clockLabel = new JLabel();
+		infoLabel = new JLabel();
 		panel2 = new JPanel();
 		label1 = new JLabel();
 		menuBar2 = new JMenuBar();
-		label2 = new JLabel();
+		statusLabel = new JLabel();
 
 		//======== frame1 ========
 		{
@@ -165,8 +189,8 @@ public class MainForm extends JPanel {
 							java.awt.Color.red), panel1.getBorder())); panel1.addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
 
 
-					//---- clockLabel ----
-					clockLabel.setText(bundle.getString("MainForm.clockLabel.text"));
+					//---- infoLabel ----
+					infoLabel.setText(bundle.getString("MainForm.infoLabel.text"));
 
 					GroupLayout panel1Layout = new GroupLayout(panel1);
 					panel1.setLayout(panel1Layout);
@@ -174,14 +198,14 @@ public class MainForm extends JPanel {
 						panel1Layout.createParallelGroup()
 							.addGroup(panel1Layout.createSequentialGroup()
 								.addContainerGap()
-								.addComponent(clockLabel, GroupLayout.PREFERRED_SIZE, 230, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(379, Short.MAX_VALUE))
+								.addComponent(infoLabel, GroupLayout.PREFERRED_SIZE, 232, GroupLayout.PREFERRED_SIZE)
+								.addContainerGap(377, Short.MAX_VALUE))
 					);
 					panel1Layout.setVerticalGroup(
 						panel1Layout.createParallelGroup()
 							.addGroup(panel1Layout.createSequentialGroup()
 								.addContainerGap()
-								.addComponent(clockLabel, GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+								.addComponent(infoLabel, GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
 								.addContainerGap())
 					);
 				}
@@ -216,10 +240,10 @@ public class MainForm extends JPanel {
 			//======== menuBar2 ========
 			{
 
-				//---- label2 ----
-				label2.setText(bundle.getString("MainForm.label2.text"));
-				label2.setForeground(Color.gray);
-				menuBar2.add(label2);
+				//---- statusLabel ----
+				statusLabel.setText(bundle.getString("MainForm.statusLabel.text"));
+				statusLabel.setForeground(Color.gray);
+				menuBar2.add(statusLabel);
 			}
 
 			GroupLayout frame1ContentPaneLayout = new GroupLayout(frame1ContentPane);
@@ -277,26 +301,33 @@ public class MainForm extends JPanel {
 	private JList list1;
 	private JTabbedPane tabbedPane1;
 	private JPanel panel1;
-	private JLabel clockLabel;
+	private JLabel infoLabel;
 	private JPanel panel2;
 	private JLabel label1;
 	private JMenuBar menuBar2;
-	private JLabel label2;
+	private JLabel statusLabel;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 
 	public void setCreds(String[] credentials) {
 		creds = credentials;
 	}
+	private boolean intToBool(int i) {
+		if(i==1){
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 
 	private void autoUpdateList() {
 		// TODO add your code here
 
-		setCreds(new String[] {"ian", "password"});
 		System.out.println("STATE CHANGED TO "+autoUpdateCheckBox.getState());
 		System.out.println("UPDATING");
 
 		Client client = new Client();
-		String[] result = client.getActiveOrderItems(creds,40);
+		String[] result = client.getActiveOrderItems(creds, 40);
 
 		if(result[0].equals("1")) {
 			String[] trimmedResult = Arrays.copyOfRange(result, 1, result.length);
@@ -322,14 +353,90 @@ public class MainForm extends JPanel {
 		}
 	}
 
-	private String makeListItem(String O_Id, String T_Id, String date, String item){
+	public void updateItems() {
+
+		Client client = new Client();
+		String[] result = client.getItems(creds);
+		System.out.println("1");
+		if(result[0].equals("1")) {
+			String[] trimmedResult = Arrays.copyOfRange(result, 1, result.length);
+			items = new String[trimmedResult.length][8];
+
+			int x = 0;
+			for(int i = 0; trimmedResult.length>i; i=i+8) {
+
+				System.out.println(x+" "+i);
+				items[x][0] = trimmedResult[i];
+				items[x][1] = trimmedResult[i+1];
+				items[x][2] = trimmedResult[i+2];
+				items[x][3] = trimmedResult[i+3];
+				items[x][4] = trimmedResult[i+4];
+				items[x][5] = trimmedResult[i+5];
+				items[x][6] = trimmedResult[i+6];
+				items[x][7] = trimmedResult[i+7];
+				x++;
+			}
+		}
+	}
+
+	private String makeListItem(String O_Id, String T_Id, String date, String item){ //TODO: NEEDS VALIDATION
+
+		//Firstly, get the item info from the ID.
+
+		String[] itemData = new String[8];
+		for(int j = 0; j < items[0].length; j++) {
+			if(items[j][0].equals(item)) {
+				itemData[0] = items[j][0];
+				itemData[1] = items[j][1];
+				itemData[2] = items[j][2];
+				itemData[3] = items[j][3];
+				itemData[4] = items[j][4];
+				itemData[5] = items[j][5];
+				itemData[6] = items[j][6];
+				itemData[7] = items[j][7];
+				break;
+			}
+		}
+
+		//Assemble the String (HTML for styling)
 
 		String listItem = "<html><span><hr><span>"+
-				"OID: "+O_Id+" TID: "+T_Id+" TIME: "+date+"<br>"+
-				"<font size=+2>"+item+"</font>"
+				"OID: "+O_Id+" IID: "+itemData[0]+" TID: "+T_Id+" TIME: "+date+"<br>"+
+				"<font size=+2>"+itemData[1]+"</font>"
 				+"</html>";
 
 		return listItem;
+	}
+	private void setInfoText(String item) {
+
+
+		String[] itemData = new String[8];
+		for(int j = 0; j < items[0].length; j++) {
+			if(items[j][0].equals(item)) {
+				itemData[0] = items[j][0]; //ID
+				itemData[1] = items[j][1]; //Name
+				itemData[2] = items[j][2]; //Description
+				itemData[3] = items[j][3]; //Price
+				itemData[4] = items[j][4]; //IsAvailable
+				itemData[5] = items[j][5]; //IsVegetarian
+				itemData[6] = items[j][6]; //IsVegan
+				itemData[7] = items[j][7]; //IsSpicy
+				break;
+			}
+		}
+
+		String infoText = "<html>"+
+				"Item Name:   "+itemData[1]+"<br>"+
+				"Description: "+itemData[2]+"<br>"+
+				"Price:       "+itemData[3]+"<br>"+
+				"Available:   "+itemData[4]+"<br>"+
+				"Vegetarian:  "+itemData[5]+"<br>"+
+				"Vegan:       "+itemData[6]+"<br>"+
+				"Spicy:       "+itemData[7]+
+				"</html>";
+
+		infoLabel.setText(infoText);
+
 	}
 
 	private int getUpdateRate() {
@@ -346,7 +453,7 @@ public class MainForm extends JPanel {
 		} else if(update1mRadioButton.isSelected()) {
 			return 60;
 		} else {
-			return 10;
+			return 10; //no config default
 		}
 
 	}
@@ -365,8 +472,7 @@ public class MainForm extends JPanel {
 
 
 	public void setClockTime() {
-
-
+	//TODO: Implement real time clock
 	}
 	public void setVisibility(boolean vis) {
 		frame1.setVisible(vis);

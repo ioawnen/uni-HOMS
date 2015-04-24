@@ -5,6 +5,7 @@ import java.net.InetSocketAddress;
 import java.net.ServerSocket;
 import java.net.Socket;
 
+import com.sun.org.apache.xerces.internal.util.SynchronizedSymbolTable;
 import org.apache.xmlrpc.WebServer;
 
 import javax.xml.crypto.Data;
@@ -61,17 +62,31 @@ public class Server {
         //database_conn.addUser(new String[] {"ian", "password"}, "nai", "password", 1, 0, 12453390, "Nai", "Owen");
         //database_conn.modifyUser(new String[] {"ian", "password"}, 55, "nai", "password", 1, 0, 72453390, "Nai", "Owen");
 
-        returnVal = database_conn.addOrder(new String[] {"ian", "password"}, 1);
+        returnVal = database_conn.addOrder(new String[]{"ian", "password"}, 1);
         System.out.println("ADD ORDER: "+returnVal.getReturn_code() + " " + returnVal.getReturn_string());
 
         returnVal = database_conn.addOrderItem(new String[]{"ian", "password"}, 1, 1);
         System.out.println("ADD ORDER ITEM: "+returnVal.getReturn_code() + " " + returnVal.getReturn_string());
 
-        returnVal2 = database_conn.getActiveOrderItems(new String[] {"ian", "password"}, 10);
+        returnVal2 = database_conn.getActiveOrderItems(new String[]{"ian", "password"}, 10);
         System.out.println("GET ACTIVE ORDER ITEMS: "+returnVal2.getReturn_code() + " " + returnVal2.getReturn_strings()[2]);
         for(int i = 0; returnVal2.getReturn_strings().length>i; i++) {
             System.out.println(returnVal2.getReturn_strings()[i]);
         }
+        returnVal2 = database_conn.getItems(new String[]{"ian", "password"});
+        System.out.println("GET ACTIVE ORDER ITEMS: "+returnVal2.getReturn_code() + " " + returnVal2.getReturn_strings()[2]);
+        for(int i = 0; returnVal2.getReturn_strings().length>i; i++) {
+            System.out.println(returnVal2.getReturn_strings()[i]);
+        }
+
+
+        returnVal2 = database_conn.getManagementData(new String[]{"ian", "password"});
+        System.out.println("GET MANAGEMENT DATA ITEMS: "+returnVal2.getReturn_code() + " " + returnVal2.getReturn_strings());
+        for(int i = 0; returnVal2.getReturn_strings().length>i; i++) {
+            System.out.println(returnVal2.getReturn_strings()[i]);
+        }
+
+
     }
 
     public String[] echo(String testString) {
@@ -136,7 +151,7 @@ public class Server {
 
     public String[][] getNOrders(String Uname, String Pword, int nOrders){
 
-        DbDataReturn dbResult = database_conn.getNOrders(new String[] {Uname, Pword}, nOrders);
+        DbDataReturn dbResult = database_conn.getOrders(new String[] {Uname, Pword});
         return new String[][] {{dbResult.getReturn_code()},dbResult.getReturn_strings()};
     }
 
@@ -174,11 +189,16 @@ public class Server {
     }
 
     public String[] getActiveOrderItems(String Uname, String Pword, int nOrders) {
+        System.out.println("getActiveOrderItems Request");
         DbDataReturn dbResult = database_conn.getActiveOrderItems(new String[] {Uname, Pword}, nOrders);
 
         String[] results = new String[dbResult.getReturn_strings().length+1];
         results[0] = dbResult.getReturn_code();
         System.arraycopy(dbResult.getReturn_strings(), 0, results, 1, dbResult.getReturn_strings().length);
+
+        for(int i = 0; results.length>i; i++) {
+            System.out.println("RESULTS "+results[i]);
+        }
 
         return results;
 
@@ -200,9 +220,19 @@ public class Server {
 
         return new String[] {"-98", "Not yet implemented."};
     }
-    public String[][] getItems(String Uname, String Pword) {
+    public String[] getItems(String Uname, String Pword) {
+        System.out.println("getItems Request");
         DbDataReturn dbResult = database_conn.getItems(new String[] {Uname, Pword});
-        return new String[][] {{dbResult.getReturn_code()},dbResult.getReturn_strings()};
+
+
+        String[] results = new String[dbResult.getReturn_strings().length+1];
+        results[0] = dbResult.getReturn_code();
+        System.arraycopy(dbResult.getReturn_strings(), 0, results, 1, dbResult.getReturn_strings().length);
+
+        for(int i = 0; results.length>i; i++) {
+            System.out.println("RESULTS "+results[i]);
+        }
+        return results;
     }
 
     public String[] drop_table_users() {

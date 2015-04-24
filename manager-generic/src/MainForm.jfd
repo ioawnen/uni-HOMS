@@ -14,8 +14,8 @@ new FormModel {
 			add( new FormContainer( "javax.swing.JTabbedPane", new FormLayoutManager( class javax.swing.JTabbedPane ) ) {
 				name: "tabbedPane1"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq {space :::p, par l {seq l {comp income24hPanel:::p:190:p, space :::p, comp ordersTodayPanel:::p:190:p, space ::292:x, comp itemsTodayPanel:::p:190:p}, seq l {comp income7dPanel:::p:190:p, space :::p, comp ordersInProgPanel:::p:190:p, space ::292:x, comp tablesTodayPanel:::p:190:p}, seq {par l {comp income28dPanel:::p:190:p, comp averageIncomeDailyPanel::l:p:190:p}, space :0:678:x}}, space :::p}}"
-					"$verticalGroup": "par l {seq l {space :::p, par l {par l:t {comp income24hPanel:::p:95:p, comp itemsTodayPanel:::p:95:p}, comp ordersTodayPanel::l:p:95:p}, space :::p, par l {seq {par l {comp income7dPanel:::p:95:p, comp tablesTodayPanel:::p:95:p}, space :::p, comp income28dPanel:::p:95:p}, comp ordersInProgPanel:::p:95:p}, space :::p, comp averageIncomeDailyPanel:::p:95:p, space ::95:x}}"
+					"$horizontalGroup": "par l {seq {space :::p, par l {seq l {comp income24hPanel:::p:190:p, space :::p, comp ordersTodayPanel:::p:190:p, space ::292:x, comp itemsTodayPanel:::p:190:p}, seq l {comp income7dPanel:::p:190:p, space :::p, comp ordersInProgPanel2:::p:190:p, space ::292:x, comp tablesTodayPanel:::p:190:p}, seq {par l {seq {comp income28dPanel:::p:190:p, space :::p, comp ordersInProgPanel3:::p:190:p}, seq l {comp averageIncomeDailyPanel:::p:190:p, space :::p, comp ordersInProgPanel:::p:190:p}}, space :0:482:x}}, space :::p}}"
+					"$verticalGroup": "par l {seq l {space :::p, par l {par l:t {comp income24hPanel:::p:95:p, comp itemsTodayPanel:::p:95:p}, comp ordersTodayPanel::l:p:95:p}, space :::p, par l {comp income7dPanel:::p:95:p, comp tablesTodayPanel:::p:95:p, comp ordersInProgPanel2::l:p:95:p}, space :::p, par l {comp ordersInProgPanel3:::p:95:p, comp income28dPanel:::p:95:p}, space u:::p, par l {comp averageIncomeDailyPanel:::p:95:p, comp ordersInProgPanel::l:p:95:p}, space ::89:x}}"
 				} ) {
 					name: "overviewPanel"
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
@@ -141,7 +141,7 @@ new FormModel {
 						"$alignLeft": true
 					} ) {
 						name: "ordersTodayPanel"
-						"border": new javax.swing.border.TitledBorder( "Orders Today" )
+						"border": new javax.swing.border.TitledBorder( "Orders (24h)" )
 						add( new FormComponent( "javax.swing.JLabel" ) {
 							name: "ordersTodayLabel"
 							"text": new FormMessage( null, "MainForm.ordersTodayLabel.text" )
@@ -165,6 +165,44 @@ new FormModel {
 							name: "averageIncomeDailyLabel"
 							"text": new FormMessage( null, "MainForm.averageIncomeDailyLabel.text" )
 							"font": #SwingDerivedFont0
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+							"gridx": 1
+							"gridy": 1
+						} )
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+						"$columnSpecs": "0, center:0:1.0, 0"
+						"$rowSpecs": "0, 0:1.0, 0"
+						"$hGap": 5
+						"$vGap": 5
+						"$alignTop": true
+						"$alignLeft": true
+					} ) {
+						name: "ordersInProgPanel2"
+						"border": new javax.swing.border.TitledBorder( "Orders (7 Days)" )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "ordersInProgLabel2"
+							"font": #SwingDerivedFont0
+							"text": new FormMessage( null, "MainForm.ordersInProgLabel2.text" )
+						}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+							"gridx": 1
+							"gridy": 1
+						} )
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+						"$columnSpecs": "0, center:0:1.0, 0"
+						"$rowSpecs": "0, 0:1.0, 0"
+						"$hGap": 5
+						"$vGap": 5
+						"$alignTop": true
+						"$alignLeft": true
+					} ) {
+						name: "ordersInProgPanel3"
+						"border": new javax.swing.border.TitledBorder( "Orders (28 Days)" )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "ordersInProgLabel3"
+							"font": #SwingDerivedFont0
+							"text": new FormMessage( null, "MainForm.ordersInProgLabel3.text" )
 						}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
 							"gridx": 1
 							"gridy": 1

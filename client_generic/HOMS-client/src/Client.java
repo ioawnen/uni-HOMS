@@ -306,6 +306,23 @@ public class Client {
 
 	}
 
+	public String[] getItems(String[] creds) {
+
+		XmlRpcClient server = createConnection();
+
+		Vector params = new Vector();
+		params.add(creds[0]);
+		params.add(creds[1]);
+
+		try {
+			Object result = server.execute("server.getItems", params);
+			String res = result.toString();
+			return strToArray(res);
+		}
+		catch (Exception ex) { System.err.println(ex.getMessage()); return new String[] {"-20","Connection Error!"}; }
+	}
+
+
 
 
 
