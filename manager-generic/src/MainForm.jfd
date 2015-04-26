@@ -15,7 +15,7 @@ new FormModel {
 				name: "tabbedPane1"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 					"$horizontalGroup": "par l {seq {space :::p, par l {seq l {comp income24hPanel:::p:190:p, space :::p, comp ordersTodayPanel:::p:190:p, space ::292:x, comp itemsTodayPanel:::p:190:p}, seq l {comp income7dPanel:::p:190:p, space :::p, comp ordersInProgPanel2:::p:190:p, space ::292:x, comp tablesTodayPanel:::p:190:p}, seq {par l {seq {comp income28dPanel:::p:190:p, space :::p, comp ordersInProgPanel3:::p:190:p}, seq l {comp averageIncomeDailyPanel:::p:190:p, space :::p, comp ordersInProgPanel:::p:190:p}}, space :0:482:x}}, space :::p}}"
-					"$verticalGroup": "par l {seq l {space :::p, par l {par l:t {comp income24hPanel:::p:95:p, comp itemsTodayPanel:::p:95:p}, comp ordersTodayPanel::l:p:95:p}, space :::p, par l {comp income7dPanel:::p:95:p, comp tablesTodayPanel:::p:95:p, comp ordersInProgPanel2::l:p:95:p}, space :::p, par l {comp ordersInProgPanel3:::p:95:p, comp income28dPanel:::p:95:p}, space u:::p, par l {comp averageIncomeDailyPanel:::p:95:p, comp ordersInProgPanel::l:p:95:p}, space ::89:x}}"
+					"$verticalGroup": "par l {seq l {space :::p, par l {par l:t {comp income24hPanel:::p:95:p, comp itemsTodayPanel:::p:95:p}, comp ordersTodayPanel::l:p:95:p}, space :::p, par l {comp income7dPanel:::p:95:p, comp tablesTodayPanel:::p:95:p, comp ordersInProgPanel2::l:p:95:p}, space :::p, par l {comp ordersInProgPanel3:::p:95:p, comp income28dPanel:::p:95:p}, space u:::p, par l {comp averageIncomeDailyPanel:::p:95:p, comp ordersInProgPanel::l:p:95:p}, space ::134:x}}"
 				} ) {
 					name: "overviewPanel"
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
@@ -212,22 +212,105 @@ new FormModel {
 					"title": new FormMessage( null, "MainForm.overviewPanel.tab.title" )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq t {space :::x, comp usersScrollPane:::p:868:p, space :::p}}"
-					"$verticalGroup": "par l {seq l {space :::p, comp usersScrollPane:::p:350:p, space ::143:x}}"
+					"$horizontalGroup": "par l {comp userInputPanel::l:::x, comp usersScrollPane::l::880:x}"
+					"$verticalGroup": "par l {seq l {comp usersScrollPane::::388:x, space :::x, comp userInputPanel:::p:150:p}}"
 				} ) {
 					name: "manageUsersPanel"
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
 						name: "usersScrollPane"
 						add( new FormComponent( "javax.swing.JTable" ) {
 							name: "usersTable"
+							addEvent( new FormEvent( "java.awt.event.MouseListener", "mouseClicked", "usersTableMouseClicked", true ) )
+							addEvent( new FormEvent( "java.beans.PropertyChangeListener", "propertyChange", "usersTablePropertyChange", true ) )
+						} )
+					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+						"$horizontalGroup": "par l {seq {space :::p, par l {seq {par l {seq {par l {comp userInputUsernameLabel:::p:75:p, comp userInputPasswordLabel::l:p:75:p}, space :::p, par l:::p {comp userInputUsernameField::::200:x, comp userInputPasswordField::::200:x}}, seq l {comp userInputUserIdLabel:::p:75:p, space :::p, comp userInputUserIdField:::p:200:p}}, space ::296:x, par l:::p {comp userInputEmployeeNoLabel::t:p:75:p, comp userInputFirstNameLabel::t:p:75:p, comp userInputLastNameLabel::t:p:75:p}, space :::p, par l {comp userInputEmployeeNoField:::p:200:p, comp userInputFirstNameField:::p:200:p, comp userInputLastNameField:::p:200:p}}, seq {space :6:6:p, comp userInputActiveCheckBox:::p:100:p, space :::p, comp userInputAdminCheckBox:::p:100:p, space ::440:x, comp userInputClearButton:::p:100:p, space :::p, comp userInputAddNewButton:::p:100:p}}, space :::p}}"
+						"$verticalGroup": "par l {seq {space :4:4:p, par l {seq l {par b {comp userInputUserIdLabel::b:p::p, comp userInputUserIdField::b:p::p}, space :p:6:p, par b {comp userInputUsernameLabel::b:p::p, comp userInputUsernameField::b:p::p}, space :::p, par b {comp userInputPasswordLabel::b:p::p, comp userInputPasswordField::b:p::p}, space :::x, par b {comp userInputActiveCheckBox::b:p::p, comp userInputAdminCheckBox::b:p::p}, space :p:44:p}, seq l {par b {comp userInputEmployeeNoField::b:p::p, comp userInputEmployeeNoLabel::b:p::p}, space :::p, par b {comp userInputFirstNameField::b:p::p, comp userInputFirstNameLabel::b:p::p}, space :::p, par b {comp userInputLastNameField::b:p::p, comp userInputLastNameLabel::b:p::p}, space :::p, par b {comp userInputAddNewButton::b:p::p, comp userInputClearButton::b:p::p}, space :0:0:x}}}}"
+					} ) {
+						name: "userInputPanel"
+						"border": new javax.swing.border.TitledBorder( "i18nKey=MainForm.userInputPanel.border" )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "userInputUsernameLabel"
+							"text": new FormMessage( null, "MainForm.userInputUsernameLabel.text" )
+							"horizontalAlignment": 11
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "userInputPasswordLabel"
+							"text": new FormMessage( null, "MainForm.userInputPasswordLabel.text" )
+							"horizontalAlignment": 11
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "userInputEmployeeNoLabel"
+							"text": new FormMessage( null, "MainForm.userInputEmployeeNoLabel.text" )
+							"horizontalAlignment": 11
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "userInputFirstNameLabel"
+							"text": new FormMessage( null, "MainForm.userInputFirstNameLabel.text" )
+							"horizontalAlignment": 11
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "userInputLastNameLabel"
+							"text": new FormMessage( null, "MainForm.userInputLastNameLabel.text" )
+							"horizontalAlignment": 11
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "userInputUsernameField"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "userInputEmployeeNoField"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "userInputFirstNameField"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "userInputLastNameField"
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "userInputAddNewButton"
+							"text": new FormMessage( null, "MainForm.userInputAddNewButton.text" )
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "userInputAddNewButtonActionPerformed", true ) )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "userInputUserIdLabel"
+							"text": new FormMessage( null, "MainForm.userInputUserIdLabel.text" )
+							"horizontalAlignment": 11
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "userInputUserIdField"
+							"editable": false
+						} )
+						add( new FormComponent( "javax.swing.JCheckBox" ) {
+							name: "userInputActiveCheckBox"
+							"text": new FormMessage( null, "MainForm.userInputActiveCheckBox.text" )
+							"horizontalTextPosition": 10
+							"iconTextGap": 10
+							"horizontalAlignment": 11
+						} )
+						add( new FormComponent( "javax.swing.JCheckBox" ) {
+							name: "userInputAdminCheckBox"
+							"text": new FormMessage( null, "MainForm.userInputAdminCheckBox.text" )
+							"horizontalTextPosition": 10
+							"iconTextGap": 10
+							"horizontalAlignment": 11
+						} )
+						add( new FormComponent( "javax.swing.JPasswordField" ) {
+							name: "userInputPasswordField"
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "userInputClearButton"
+							"text": new FormMessage( null, "MainForm.userInputClearButton.text" )
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "userInputAddNewButtonActionPerformed", true ) )
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "userInputClearButtonActionPerformed", true ) )
 						} )
 					} )
 				}, new FormLayoutConstraints( null ) {
 					"title": new FormMessage( null, "MainForm.manageUsersPanel.tab.title" )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq l {space :::p, comp tablesScrollPane:::p:868:p, space :::x}}"
-					"$verticalGroup": "par l {seq l {space :::p, comp tablesScrollPane:::p:350:p, space ::143:x}}"
+					"$horizontalGroup": "par l {seq {space :::p, par l {comp tablesScrollPane::l:p:868:p, comp tablesInputPanel::l:p::p}, space :::x}}"
+					"$verticalGroup": "par l {seq l {space :::p, comp tablesScrollPane:::p:350:p, space :::x, comp tablesInputPanel:::p:176:p}}"
 				} ) {
 					name: "manageTablesPanel"
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
@@ -236,12 +319,90 @@ new FormModel {
 							name: "tablesTable"
 						} )
 					} )
+					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+						"$horizontalGroup": "par l {seq {space :::p, par l {seq {par l {comp userInputUsernameLabel2:::p:75:p, comp userInputPasswordLabel2::l:p:75:p}, space :::p, par l:::p {comp userInputUsernameField2:::p:200:p, comp userInputPasswordField2:::p:200:p}}, seq l {comp userInputUserIdLabel2:::p:75:p, space :6:6:p, comp userInputUserIdField2:::p:200:p}, seq l {space :6:6:p, comp userInputActiveCheckBox2:::p:100:p, space :::p, comp userInputAdminCheckBox2:::p:100:p}}, space :::x, par l:::p {comp userInputEmployeeNoLabel2::t:p:75:p, comp userInputFirstNameLabel2::t:p:75:p, comp userInputLastNameLabel2::t:p:75:p}, space :::p, par l:::p {seq {comp tablesInputUpdateButton:::p:100:p, space :::x, comp userInputAddNewButton2:::p:100:p}, comp userInputEmployeeNoField2:::p:200:p, comp userInputFirstNameField2:::p:200:p, comp userInputLastNameField2:::p:200:p}, space ::278:x}}"
+						"$verticalGroup": "par l {seq l {par l {seq l {space :4:4:p, comp userInputUserIdLabel2:::p::p}, comp userInputUserIdField2:::p::p}, space :::p, par b {comp userInputUsernameLabel2::b:p::p, comp userInputUsernameField2::b:p::p}, space :::p, par b {comp userInputPasswordLabel2::b:p::p, comp userInputPasswordField2::b:p::p}, space :::x, par b {comp userInputActiveCheckBox2::b:p::p, comp userInputAdminCheckBox2::b:p::p}, space :p:44:p}, seq l {space :p:4:p, par b {comp userInputEmployeeNoField2::b:p::p, comp userInputEmployeeNoLabel2::b:p::p}, space :::p, par b {comp userInputFirstNameField2::b:p::p, comp userInputFirstNameLabel2::b:p::p}, space :::p, par b {comp userInputLastNameField2::b:p::p, comp userInputLastNameLabel2::b:p::p}, space s:::p, par b {comp userInputAddNewButton2::b:p::p, comp tablesInputUpdateButton::b:p::p}, space :0:0:x}}"
+					} ) {
+						name: "tablesInputPanel"
+						"border": new javax.swing.border.TitledBorder( "i18nKey=MainForm.tablesInputPanel.border" )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "tablesInputUpdateButton"
+							"text": new FormMessage( null, "MainForm.tablesInputUpdateButton.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "userInputUsernameLabel2"
+							"text": new FormMessage( null, "MainForm.userInputUsernameLabel2.text" )
+							"horizontalAlignment": 11
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "userInputPasswordLabel2"
+							"text": new FormMessage( null, "MainForm.userInputPasswordLabel2.text" )
+							"horizontalAlignment": 11
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "userInputEmployeeNoLabel2"
+							"text": new FormMessage( null, "MainForm.userInputEmployeeNoLabel2.text" )
+							"horizontalAlignment": 11
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "userInputFirstNameLabel2"
+							"text": new FormMessage( null, "MainForm.userInputFirstNameLabel2.text" )
+							"horizontalAlignment": 11
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "userInputLastNameLabel2"
+							"text": new FormMessage( null, "MainForm.userInputLastNameLabel2.text" )
+							"horizontalAlignment": 11
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "userInputUsernameField2"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "userInputPasswordField2"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "userInputEmployeeNoField2"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "userInputFirstNameField2"
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "userInputLastNameField2"
+						} )
+						add( new FormComponent( "javax.swing.JButton" ) {
+							name: "userInputAddNewButton2"
+							"text": new FormMessage( null, "MainForm.userInputAddNewButton2.text" )
+						} )
+						add( new FormComponent( "javax.swing.JLabel" ) {
+							name: "userInputUserIdLabel2"
+							"text": new FormMessage( null, "MainForm.userInputUserIdLabel2.text" )
+							"horizontalAlignment": 11
+						} )
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "userInputUserIdField2"
+							"editable": false
+						} )
+						add( new FormComponent( "javax.swing.JCheckBox" ) {
+							name: "userInputActiveCheckBox2"
+							"text": new FormMessage( null, "MainForm.userInputActiveCheckBox2.text" )
+							"horizontalTextPosition": 10
+							"iconTextGap": 10
+							"horizontalAlignment": 11
+						} )
+						add( new FormComponent( "javax.swing.JCheckBox" ) {
+							name: "userInputAdminCheckBox2"
+							"text": new FormMessage( null, "MainForm.userInputAdminCheckBox2.text" )
+							"horizontalTextPosition": 10
+							"iconTextGap": 10
+							"horizontalAlignment": 11
+						} )
+					} )
 				}, new FormLayoutConstraints( null ) {
 					"title": new FormMessage( null, "MainForm.manageTablesPanel.tab.title" )
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 					"$horizontalGroup": "par l {seq t {space :::x, comp itemsScrollPane:::p:868:p, space :::p}}"
-					"$verticalGroup": "par l {seq l {space :::p, comp itemsScrollPane:::p:350:p, space ::143:x}}"
+					"$verticalGroup": "par l {seq l {space :::p, comp itemsScrollPane:::p:350:p, space ::188:x}}"
 				} ) {
 					name: "manageItemsPanel"
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
@@ -255,7 +416,7 @@ new FormModel {
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 					"$horizontalGroup": "par l {seq l {space :::p, comp orderssSrollPane::::868:x, space :::p}}"
-					"$verticalGroup": "par l {seq l {space :::p, comp orderssSrollPane:::p:350:p, space ::143:x}}"
+					"$verticalGroup": "par l {seq l {space :::p, comp orderssSrollPane:::p:350:p, space ::188:x}}"
 				} ) {
 					name: "manageOrdersPanel"
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
@@ -272,8 +433,8 @@ new FormModel {
 				name: "menuBar1"
 			}
 		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 910, 595 )
+			"location": new java.awt.Point( 5, 0 )
+			"size": new java.awt.Dimension( 910, 640 )
 		} )
 	}
 }

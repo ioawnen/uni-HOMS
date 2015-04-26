@@ -22,13 +22,19 @@ public class LoginForm extends JPanel {
 		// TODO add your code here
 
 		if(validateFields()) {
-			/*Client client = new Client();
-			String[] results = client.validate(new String[] {usernameField.getText(), passwordField.getPassword().toString()});
+			String username = usernameField.getText();
+			String password = new String(passwordField.getPassword());
+
+			String[] results = new Client().authenticate(new String[] {username, password});
 			if(results[0].equals("1")) {
 				//CONTINUE ONWARDS
+
 				MainForm mainForm = new MainForm();
-				mainForm.setCreds(usernameField.getText(), passwordField.getPassword().toString());
+				mainForm.setCreds(username, password);
+				mainForm.updateUserTable();
 				mainForm.setVisibility(true);
+				dialog1.setVisible(false);
+				dialog1.dispose();
 			}
 			else if(results[0].equals("0")) {
 				JOptionPane.showMessageDialog(null,"The username or password is invalid.","HOMS | Could not login",JOptionPane.WARNING_MESSAGE);
@@ -36,13 +42,17 @@ public class LoginForm extends JPanel {
 			else {
 				JOptionPane.showMessageDialog(null,"<html>An Error Occured.<br>Error Code: "+results[0]+"<br>Message: "+results[1]+"</html>","HOMS | Error!",JOptionPane.WARNING_MESSAGE);
 			}
-			*/
+
 
 			//TODO: REMOVE THIS AFTER IMPLEMENTING CLIENT CLASS
-			System.out.println(getPassword());
+			/*System.out.println(getPassword());
 			MainForm mainForm = new MainForm();
 			mainForm.setCreds(usernameField.getText(), passwordField.getPassword().toString());
+
+			mainForm.setCreds("ian", "password");
 			mainForm.setVisibility(true);
+			mainForm.updateUserTable();
+			*/
 
 
 		}

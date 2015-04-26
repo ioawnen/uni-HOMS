@@ -85,6 +85,11 @@ public class Server {
         for(int i = 0; returnVal2.getReturn_strings().length>i; i++) {
             System.out.println(returnVal2.getReturn_strings()[i]);
         }
+        returnVal2 = database_conn.getUsers(new String[]{"ian", "password"});
+        System.out.println("GET USERS: "+returnVal2.getReturn_code() + " " + returnVal2.getReturn_strings());
+        for(int i = 0; returnVal2.getReturn_strings().length>i; i++) {
+            System.out.println(returnVal2.getReturn_strings()[i]);
+        }
 
 
     }
@@ -96,11 +101,11 @@ public class Server {
     public String[] authenticate(String username, String password) {
 
         //DO CHECK HERE
-        System.out.println("Client Authentication Request");
+        System.out.println("Client Authentication Request Username: "+username+" Password: "+password);
 
         DbGenericReturn authResult = database_conn.authenticate(new String[] {username, password});
-
         String[] result = {authResult.getReturn_code(), authResult.getReturn_string()};
+        System.out.println("RESULT: "+authResult.getReturn_code()+" "+authResult.getReturn_string());
 
         return result;
     }
@@ -113,51 +118,51 @@ public class Server {
 
     public String[] modifyUser(String Uname, String Pword, int U_Id, String username, String password, int isActive, int isAdmin, int EmployeeNumber, String firstName, String lastName) { //TODO: CHECK IF USER EXISTS BEFORE ACTION
 
-        DbGenericReturn dbResult = database_conn.modifyUser(new String[] {Uname, Pword}, U_Id, username, password, isActive, isAdmin, EmployeeNumber, firstName, lastName);
+        DbGenericReturn dbResult = database_conn.modifyUser(new String[]{Uname, Pword}, U_Id, username, password, isActive, isAdmin, EmployeeNumber, firstName, lastName);
         return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
     }
 
     public String[] removeUser(String Uname, String Pword, int U_Id) {
 
-        DbGenericReturn dbResult = database_conn.removeUser(new String[] {Uname, Pword}, U_Id);
+        DbGenericReturn dbResult = database_conn.removeUser(new String[]{Uname, Pword}, U_Id);
         return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
     }
 
     public String[] addOrder(String Uname, String Pword, int  T_Id) {
 
-        DbGenericReturn dbResult = database_conn.addOrder(new String[] {Uname, Pword}, T_Id);
+        DbGenericReturn dbResult = database_conn.addOrder(new String[]{Uname, Pword}, T_Id);
         return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
     }
 
     public String[] modifyOrder(String Uname, String Pword, int O_Id, int T_Id) {
 
-        DbGenericReturn dbResult = database_conn.modifyOrder(new String[] {Uname, Pword}, O_Id, T_Id);
+        DbGenericReturn dbResult = database_conn.modifyOrder(new String[]{Uname, Pword}, O_Id, T_Id);
         return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
     }
 
     public String[] removeOrder(String Uname, String Pword, int O_Id) {
 
-        DbGenericReturn dbResult = database_conn.removeOrder(new String[] {Uname, Pword}, O_Id);
+        DbGenericReturn dbResult = database_conn.removeOrder(new String[]{Uname, Pword}, O_Id);
         return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
 
     }
 
     public String[][] getOrder(String Uname, String Pword, int O_Id) {
 
-        DbDataReturn dbResult = database_conn.getOrder(new String[] {Uname, Pword}, O_Id);
+        DbDataReturn dbResult = database_conn.getOrder(new String[]{Uname, Pword}, O_Id);
         return new String[][] {{dbResult.getReturn_code()},dbResult.getReturn_strings()};
 
     }
 
     public String[][] getNOrders(String Uname, String Pword, int nOrders){
 
-        DbDataReturn dbResult = database_conn.getOrders(new String[] {Uname, Pword});
+        DbDataReturn dbResult = database_conn.getOrders(new String[]{Uname, Pword});
         return new String[][] {{dbResult.getReturn_code()},dbResult.getReturn_strings()};
     }
 
     public String[][] getUserOrders(String Uname, String Pword, int nOrders) {
 
-        DbDataReturn dbResult = database_conn.getUserOrders(new String[] {Uname, Pword}, nOrders);
+        DbDataReturn dbResult = database_conn.getUserOrders(new String[]{Uname, Pword}, nOrders);
         return new String[][] {{dbResult.getReturn_code()},dbResult.getReturn_strings()};
     }
 
@@ -173,13 +178,13 @@ public class Server {
 
     public String[] modifyOrderItem(String Uname, String Pword, int O_Id, int I_Id, int isActive){
 
-        DbGenericReturn dbResult = database_conn.modifyOrderItem(new String[] {Uname, Pword}, O_Id, I_Id, isActive);
+        DbGenericReturn dbResult = database_conn.modifyOrderItem(new String[]{Uname, Pword}, O_Id, I_Id, isActive);
         return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
     }
 
     public String[] removeOrderItem(String Uname, String Pword, int O_Id, int I_Id) {
 
-        DbGenericReturn dbResult = database_conn.removeOrderItem(new String[] {Uname, Pword}, O_Id, I_Id);
+        DbGenericReturn dbResult = database_conn.removeOrderItem(new String[]{Uname, Pword}, O_Id, I_Id);
         return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
     }
 
@@ -221,8 +226,23 @@ public class Server {
         return new String[] {"-98", "Not yet implemented."};
     }
     public String[] getItems(String Uname, String Pword) {
-        System.out.println("getItems Request");
+        System.out.println("\ngetItems Request");
         DbDataReturn dbResult = database_conn.getItems(new String[] {Uname, Pword});
+
+
+        String[] results = new String[dbResult.getReturn_strings().length+1];
+        results[0] = dbResult.getReturn_code();
+        System.arraycopy(dbResult.getReturn_strings(), 0, results, 1, dbResult.getReturn_strings().length);
+
+        for(int i = 0; results.length>i; i++) {
+            System.out.println("RESULTS "+results[i]);
+        }
+        return results;
+    }
+
+    public String[] getUsers(String Uname, String Pword) {
+        System.out.println("\ngetUsers Request");
+        DbDataReturn dbResult = database_conn.getUsers(new String[] {Uname, Pword});
 
 
         String[] results = new String[dbResult.getReturn_strings().length+1];

@@ -341,13 +341,6 @@ public class Client {
 
 
 
-
-
-
-
-
-
-
 	public String[] drop_table_users() { //gg moron
 		XmlRpcClient server = createConnection();
 

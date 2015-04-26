@@ -9,5 +9,6 @@ public class MainClass {
 		System.out.println("STARTED");
 		LoginForm login = new LoginForm();
 		login.setVisibility(true);
+
 	}
 }

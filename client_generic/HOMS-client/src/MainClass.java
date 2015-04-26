@@ -21,11 +21,18 @@ public class MainClass {
 		String[] data =client.addOrderItem(new String[]{"ian", "password"}, 1, 1);
 		System.out.println("DATA: "+data[0]+data[1]);
 
-		String[] data3 = client.getActiveOrderItems(new String[] {"ian", "password"},10);
+		String[] data3 = client.getActiveOrderItems(new String[]{"ian", "password"}, 10);
 		System.out.println("DATA3: "+data3[0]+" "+data3[3]);
 
 		for(int i = 0; data3.length>i; i++) {
 			System.out.println(data3[i]);
+		}
+
+		String[] data4 = client.getUsers(new String[] {"ian", "password"});
+		System.out.println("DATA4: "+data4[0]+" "+data4[3]);
+
+		for(int i = 0; data4.length>i; i++) {
+			System.out.println(data4[i]);
 		}
 	}
 }

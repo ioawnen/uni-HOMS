@@ -870,4 +870,57 @@ public class Database {
 
     }
 
+    public DbDataReturn getUsers(String[] creds) {
+        //TODO: IMPLEMENT THIS! (returns all items)
+        DbGenericReturn auth = authenticate(creds);
+        if (auth.getReturn_code().equals("1") && isAdmin(creds[0]) && isActive(creds[0])) {
+
+            try {
+                stmt = conn.createStatement();
+                rs = stmt.executeQuery("SELECT * FROM users;"); //DO THE QUERY
+
+                List<String> users = new ArrayList<>();
+
+                while(rs.next()) { //Iterate through orders,
+
+                    String uid = rs.getString("U_Id");
+                    String username = rs.getString("Username");
+                    //String password = rs.getString("Password"); //BAD!
+                    String isActive = rs.getString("Is_Active");
+                    String isAdmin = rs.getString("Is_Admin");
+                    String employeeNumber = rs.getString("Employee_Number");
+                    String firstName = rs.getString("First_Name");
+                    String lastName = rs.getString("Last_Name");
+
+
+
+                    users.add(uid);
+                    users.add(username);
+                    //users.add(password); //BAD!
+                    users.add(isActive);
+                    users.add(isAdmin);
+                    users.add(employeeNumber);
+                    users.add(firstName);
+                    users.add(lastName);
+
+                }
+                String[] results = users.toArray(new String[users.size()]);
+                for(int i = 0; results.length<i; i++) {
+                    System.out.println(results[i]);
+                }
+                return new DbDataReturn("1", users.toArray(new String[users.size()]));
+
+            } catch (SQLException ex) {
+                System.out.println("SQLException: " + ex.getMessage());
+                System.out.println("SQLState: " + ex.getSQLState());
+                System.out.println("VendorError: " + ex.getErrorCode());
+                return new DbDataReturn("-1", new String[]{"Sql Error!: " + ex});
+            }
+        }
+        else if (auth.getReturn_code().equals("0")){ return new DbDataReturn("-50", new String[] {auth.getReturn_string()}); }
+        else if (auth.getReturn_code().equals("-1")) { return new DbDataReturn("-51", new String[] {auth.getReturn_string()}); }
+        else { return new DbDataReturn("-99", new String[] {"Server Error!"}); }
+
+    }
+
 }
