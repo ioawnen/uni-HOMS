@@ -48,7 +48,7 @@ public class Server {
             System.err.println(ex);
         }
 
-        //DATABASE TESTS!
+        /*DATABASE TESTS!
         System.err.println("BEGINNING TESTS");
         DbGenericReturn returnVal;
         DbDataReturn returnVal2;
@@ -90,6 +90,7 @@ public class Server {
         for(int i = 0; returnVal2.getReturn_strings().length>i; i++) {
             System.out.println(returnVal2.getReturn_strings()[i]);
         }
+        */
 
 
     }

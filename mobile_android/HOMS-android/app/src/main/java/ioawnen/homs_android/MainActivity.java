@@ -65,10 +65,13 @@ public class MainActivity extends ActionBarActivity {
         EditText passwordEditText = (EditText) findViewById(R.id.login_password);
         String sPassword = passwordEditText.getText().toString();
 
+        System.err.println("FUCK SHIT FUCK BALLS");
+
         //Check if empty
         if (!sUsername.matches("") && !sPassword.matches("")) {
 
-            Client client = new Client();
+            Client_Android client = new Client_Android();
+            System.out.println("FUCK SHIT FUCK BALLS");
             String[] result = client.authenticate(new String[] {sUsername, sPassword});
             System.out.println("SERVER RESPONSE = "+result[0]);
 
@@ -100,12 +103,15 @@ public class MainActivity extends ActionBarActivity {
         String[] login = validateLogin();
 
         if(login[0].equals("1")) {
-            //Intent intent = new Intent(this, HomeActivity.class);
+            Intent intent = new Intent(this, MenuActivity.class);
             makeToast(getString(R.string.login_successful));
-            //startActivity(intent);
+            startActivity(intent);
+
         }
         else {
             makeToast(getString(R.string.login_error_generic)+": "+login[1]);
+            Intent intent = new Intent(this, MenuActivity.class);
+            startActivity(intent);
             return;
         }
     }
