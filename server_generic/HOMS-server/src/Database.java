@@ -338,7 +338,7 @@ public class Database {
             try {
                 stmt = conn.createStatement();
                 rs = stmt.executeQuery("SELECT * FROM orders WHERE O_Id=" + O_Id + " LIMIT 1;"); //DO THE QUERY
-
+                rs.first();
                 String oid = rs.getString("O_Id");
                 String uid = rs.getString("U_Id");
                 String tid = rs.getString("T_Id");
@@ -405,7 +405,7 @@ public class Database {
                 int U_Id = userData.getU_Id();
 
                 stmt = conn.createStatement();
-                rs = stmt.executeQuery("SELECT * FROM orders WHERE U_Id=" + U_Id + " LIMIT " + nOrders + " ORDER BY O_Id DESC;"); //DO THE QUERY
+                rs = stmt.executeQuery("SELECT * FROM orders WHERE U_Id=" + U_Id + " LIMIT " + nOrders + ";"); //DO THE QUERY
 
                 String[] orderArray = new String[nOrders*3];
                 int i = 0;
@@ -421,6 +421,9 @@ public class Database {
                     orderArray[i+2] = tid;
 
                     i+=3;
+                }
+                if(orderArray.length==0) {
+                    return new DbDataReturn("0", new String[]{"No orders to return"});
                 }
                 return new DbDataReturn("1", orderArray);
             } catch (SQLException ex) {

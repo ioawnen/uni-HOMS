@@ -10,9 +10,13 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/listView"
+        android:layout_above="@+id/addItemButton"
+        android:choiceMode="singleChoice"
+        android:background="#ffd3d3d3"
+        android:layout_marginBottom="5dp"
         android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_above="@+id/addItemButton" />
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
@@ -20,7 +24,12 @@
         android:text="Add Item"
         android:id="@+id/addItemButton"
         android:layout_alignParentBottom="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:background="#ff0000ff"
+        android:textColor="#ffffffff"
+        android:layout_margin="5dp"
+        android:nestedScrollingEnabled="false"
+        android:onClick="onAddItemButtonClick" />
 
     <Button
         android:layout_width="wrap_content"
@@ -28,20 +37,24 @@
         android:text="Confirm"
         android:id="@+id/confirmButton"
         android:layout_alignBottom="@+id/addItemButton"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:background="#ff00ff00"
+        android:layout_margin="5dp"
+        android:onClick="onConfirmButtonClick" />
 
     <EditText
-        android:layout_width="wrap_content"
+        android:layout_width="100dp"
         android:layout_height="wrap_content"
         android:inputType="number"
         android:ems="10"
         android:id="@+id/TableField"
-        android:layout_below="@+id/listView"
-        android:layout_centerHorizontal="true"
         android:text="Table"
         android:textAlignment="center"
         android:autoText="false"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="5dp" />
+        android:gravity="center"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:layout_alignBottom="@+id/confirmButton"
+        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

@@ -33,18 +33,6 @@ new FormModel {
 				}, new FormLayoutConstraints( null ) {
 					"title": new FormMessage( null, "MainForm.panel1.tab.title" )
 				} )
-				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-					"$horizontalGroup": "par l {seq l {space :::p, comp label1::::603:x, space :::p}}"
-					"$verticalGroup": "par l {seq l {space :::p, comp label1::::88:x, space :::p}}"
-				} ) {
-					name: "panel2"
-					add( new FormComponent( "javax.swing.JLabel" ) {
-						name: "label1"
-						"text": new FormMessage( null, "MainForm.label1.text" )
-					} )
-				}, new FormLayoutConstraints( null ) {
-					"title": new FormMessage( null, "MainForm.panel2.tab.title" )
-				} )
 			} )
 			add( new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
 				name: "menuBar2"

@@ -114,6 +114,8 @@ public class MainForm extends JPanel {
 		ResourceBundle bundle = ResourceBundle.getBundle("mainform_strings");
 		frame1 = new JFrame();
 		menuBar1 = new JMenuBar();
+		menu1 = new JMenu();
+		menuItem2 = new JMenuItem();
 		tabbedPane1 = new JTabbedPane();
 		overviewPanel = new JPanel();
 		income24hPanel = new JPanel();
@@ -122,20 +124,18 @@ public class MainForm extends JPanel {
 		income7dLabel = new JLabel();
 		income28dPanel = new JPanel();
 		income28dLabel = new JLabel();
-		itemsTodayPanel = new JPanel();
-		itemsTodayLabel = new JLabel();
-		tablesTodayPanel = new JPanel();
-		tablesTodayLabel = new JLabel();
 		ordersInProgPanel = new JPanel();
 		ordersInProgLabel = new JLabel();
 		ordersTodayPanel = new JPanel();
 		ordersTodayLabel = new JLabel();
-		averageIncomeDailyPanel = new JPanel();
-		averageIncomeDailyLabel = new JLabel();
 		ordersInProgPanel2 = new JPanel();
 		ordersInProgLabel2 = new JLabel();
 		ordersInProgPanel3 = new JPanel();
 		ordersInProgLabel3 = new JLabel();
+		income28dPanel2 = new JPanel();
+		income28dLabel2 = new JLabel();
+		ordersInProgPanel4 = new JPanel();
+		ordersInProgLabel4 = new JLabel();
 		manageUsersPanel = new JPanel();
 		usersScrollPane = new JScrollPane();
 		usersTable = new JTable();
@@ -179,13 +179,24 @@ public class MainForm extends JPanel {
 		manageItemsPanel = new JPanel();
 		itemsScrollPane = new JScrollPane();
 		itemsTable = new JTable();
-		manageOrdersPanel = new JPanel();
-		orderssSrollPane = new JScrollPane();
-		ordersTable = new JTable();
 
 		//======== frame1 ========
 		{
 			Container frame1ContentPane = frame1.getContentPane();
+
+			//======== menuBar1 ========
+			{
+
+				//======== menu1 ========
+				{
+					menu1.setText(bundle.getString("MainForm.menu1.text"));
+
+					//---- menuItem2 ----
+					menuItem2.setText(bundle.getString("MainForm.menuItem2.text"));
+					menu1.add(menuItem2);
+				}
+				menuBar1.add(menu1);
+			}
 			frame1.setJMenuBar(menuBar1);
 
 			//======== tabbedPane1 ========
@@ -253,40 +264,6 @@ public class MainForm extends JPanel {
 							new Insets(0, 0, 5, 5), 0, 0));
 					}
 
-					//======== itemsTodayPanel ========
-					{
-						itemsTodayPanel.setBorder(new TitledBorder("Items Sold Today"));
-						itemsTodayPanel.setLayout(new GridBagLayout());
-						((GridBagLayout)itemsTodayPanel.getLayout()).columnWidths = new int[] {0, 0, 0, 0};
-						((GridBagLayout)itemsTodayPanel.getLayout()).rowHeights = new int[] {0, 0, 0, 0};
-						((GridBagLayout)itemsTodayPanel.getLayout()).columnWeights = new double[] {0.0, 1.0, 0.0, 1.0E-4};
-						((GridBagLayout)itemsTodayPanel.getLayout()).rowWeights = new double[] {0.0, 1.0, 0.0, 1.0E-4};
-
-						//---- itemsTodayLabel ----
-						itemsTodayLabel.setText(bundle.getString("MainForm.itemsTodayLabel.text"));
-						itemsTodayLabel.setFont(itemsTodayLabel.getFont().deriveFont(itemsTodayLabel.getFont().getSize() + 10f));
-						itemsTodayPanel.add(itemsTodayLabel, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
-							GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
-							new Insets(0, 0, 5, 5), 0, 0));
-					}
-
-					//======== tablesTodayPanel ========
-					{
-						tablesTodayPanel.setBorder(new TitledBorder("Tables Served Today"));
-						tablesTodayPanel.setLayout(new GridBagLayout());
-						((GridBagLayout)tablesTodayPanel.getLayout()).columnWidths = new int[] {0, 0, 0, 0};
-						((GridBagLayout)tablesTodayPanel.getLayout()).rowHeights = new int[] {0, 0, 0, 0};
-						((GridBagLayout)tablesTodayPanel.getLayout()).columnWeights = new double[] {0.0, 1.0, 0.0, 1.0E-4};
-						((GridBagLayout)tablesTodayPanel.getLayout()).rowWeights = new double[] {0.0, 1.0, 0.0, 1.0E-4};
-
-						//---- tablesTodayLabel ----
-						tablesTodayLabel.setText(bundle.getString("MainForm.tablesTodayLabel.text"));
-						tablesTodayLabel.setFont(tablesTodayLabel.getFont().deriveFont(tablesTodayLabel.getFont().getSize() + 10f));
-						tablesTodayPanel.add(tablesTodayLabel, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
-							GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
-							new Insets(0, 0, 5, 5), 0, 0));
-					}
-
 					//======== ordersInProgPanel ========
 					{
 						ordersInProgPanel.setBorder(new TitledBorder("Orders In Progress"));
@@ -306,7 +283,7 @@ public class MainForm extends JPanel {
 
 					//======== ordersTodayPanel ========
 					{
-						ordersTodayPanel.setBorder(new TitledBorder("Orders (24h)"));
+						ordersTodayPanel.setBorder(new TitledBorder("Ordered Items (24h)"));
 						ordersTodayPanel.setLayout(new GridBagLayout());
 						((GridBagLayout)ordersTodayPanel.getLayout()).columnWidths = new int[] {0, 0, 0, 0};
 						((GridBagLayout)ordersTodayPanel.getLayout()).rowHeights = new int[] {0, 0, 0, 0};
@@ -321,26 +298,9 @@ public class MainForm extends JPanel {
 							new Insets(0, 0, 5, 5), 0, 0));
 					}
 
-					//======== averageIncomeDailyPanel ========
-					{
-						averageIncomeDailyPanel.setBorder(new TitledBorder("Average (Daily)"));
-						averageIncomeDailyPanel.setLayout(new GridBagLayout());
-						((GridBagLayout)averageIncomeDailyPanel.getLayout()).columnWidths = new int[] {0, 0, 0, 0};
-						((GridBagLayout)averageIncomeDailyPanel.getLayout()).rowHeights = new int[] {0, 0, 0, 0};
-						((GridBagLayout)averageIncomeDailyPanel.getLayout()).columnWeights = new double[] {0.0, 1.0, 0.0, 1.0E-4};
-						((GridBagLayout)averageIncomeDailyPanel.getLayout()).rowWeights = new double[] {0.0, 1.0, 0.0, 1.0E-4};
-
-						//---- averageIncomeDailyLabel ----
-						averageIncomeDailyLabel.setText(bundle.getString("MainForm.averageIncomeDailyLabel.text"));
-						averageIncomeDailyLabel.setFont(averageIncomeDailyLabel.getFont().deriveFont(averageIncomeDailyLabel.getFont().getSize() + 10f));
-						averageIncomeDailyPanel.add(averageIncomeDailyLabel, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
-							GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
-							new Insets(0, 0, 5, 5), 0, 0));
-					}
-
 					//======== ordersInProgPanel2 ========
 					{
-						ordersInProgPanel2.setBorder(new TitledBorder("Orders (7 Days)"));
+						ordersInProgPanel2.setBorder(new TitledBorder("Ordered Items (7 Days)"));
 						ordersInProgPanel2.setLayout(new GridBagLayout());
 						((GridBagLayout)ordersInProgPanel2.getLayout()).columnWidths = new int[] {0, 0, 0, 0};
 						((GridBagLayout)ordersInProgPanel2.getLayout()).rowHeights = new int[] {0, 0, 0, 0};
@@ -357,7 +317,7 @@ public class MainForm extends JPanel {
 
 					//======== ordersInProgPanel3 ========
 					{
-						ordersInProgPanel3.setBorder(new TitledBorder("Orders (28 Days)"));
+						ordersInProgPanel3.setBorder(new TitledBorder("Ordered Items (28 Days)"));
 						ordersInProgPanel3.setLayout(new GridBagLayout());
 						((GridBagLayout)ordersInProgPanel3.getLayout()).columnWidths = new int[] {0, 0, 0, 0};
 						((GridBagLayout)ordersInProgPanel3.getLayout()).rowHeights = new int[] {0, 0, 0, 0};
@@ -372,6 +332,40 @@ public class MainForm extends JPanel {
 							new Insets(0, 0, 5, 5), 0, 0));
 					}
 
+					//======== income28dPanel2 ========
+					{
+						income28dPanel2.setBorder(new TitledBorder("Income (Total)"));
+						income28dPanel2.setLayout(new GridBagLayout());
+						((GridBagLayout)income28dPanel2.getLayout()).columnWidths = new int[] {0, 0, 0, 0};
+						((GridBagLayout)income28dPanel2.getLayout()).rowHeights = new int[] {0, 0, 0, 0};
+						((GridBagLayout)income28dPanel2.getLayout()).columnWeights = new double[] {0.0, 1.0, 0.0, 1.0E-4};
+						((GridBagLayout)income28dPanel2.getLayout()).rowWeights = new double[] {0.0, 1.0, 0.0, 1.0E-4};
+
+						//---- income28dLabel2 ----
+						income28dLabel2.setText(bundle.getString("MainForm.income28dLabel2.text"));
+						income28dLabel2.setFont(income28dLabel2.getFont().deriveFont(income28dLabel2.getFont().getSize() + 10f));
+						income28dPanel2.add(income28dLabel2, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
+							GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
+							new Insets(0, 0, 5, 5), 0, 0));
+					}
+
+					//======== ordersInProgPanel4 ========
+					{
+						ordersInProgPanel4.setBorder(new TitledBorder("Ordered Items (Total)"));
+						ordersInProgPanel4.setLayout(new GridBagLayout());
+						((GridBagLayout)ordersInProgPanel4.getLayout()).columnWidths = new int[] {0, 0, 0, 0};
+						((GridBagLayout)ordersInProgPanel4.getLayout()).rowHeights = new int[] {0, 0, 0, 0};
+						((GridBagLayout)ordersInProgPanel4.getLayout()).columnWeights = new double[] {0.0, 1.0, 0.0, 1.0E-4};
+						((GridBagLayout)ordersInProgPanel4.getLayout()).rowWeights = new double[] {0.0, 1.0, 0.0, 1.0E-4};
+
+						//---- ordersInProgLabel4 ----
+						ordersInProgLabel4.setFont(ordersInProgLabel4.getFont().deriveFont(ordersInProgLabel4.getFont().getSize() + 10f));
+						ordersInProgLabel4.setText(bundle.getString("MainForm.ordersInProgLabel4.text"));
+						ordersInProgPanel4.add(ordersInProgLabel4, new GridBagConstraints(1, 1, 1, 1, 0.0, 0.0,
+							GridBagConstraints.CENTER, GridBagConstraints.VERTICAL,
+							new Insets(0, 0, 5, 5), 0, 0));
+					}
+
 					GroupLayout overviewPanelLayout = new GroupLayout(overviewPanel);
 					overviewPanel.setLayout(overviewPanelLayout);
 					overviewPanelLayout.setHorizontalGroup(
@@ -380,53 +374,46 @@ public class MainForm extends JPanel {
 								.addContainerGap()
 								.addGroup(overviewPanelLayout.createParallelGroup()
 									.addGroup(overviewPanelLayout.createSequentialGroup()
-										.addComponent(income24hPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(ordersTodayPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 292, Short.MAX_VALUE)
-										.addComponent(itemsTodayPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
-									.addGroup(overviewPanelLayout.createSequentialGroup()
-										.addComponent(income7dPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-										.addComponent(ordersInProgPanel2, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 292, Short.MAX_VALUE)
-										.addComponent(tablesTodayPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
-									.addGroup(overviewPanelLayout.createSequentialGroup()
+										.addComponent(ordersInProgPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+										.addGap(0, 678, Short.MAX_VALUE))
+									.addGroup(GroupLayout.Alignment.TRAILING, overviewPanelLayout.createSequentialGroup()
+										.addGroup(overviewPanelLayout.createParallelGroup()
+											.addComponent(income24hPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+											.addComponent(ordersTodayPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
+										.addGap(39, 39, 39)
+										.addGroup(overviewPanelLayout.createParallelGroup()
+											.addComponent(income7dPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+											.addComponent(ordersInProgPanel2, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
+										.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
 										.addGroup(overviewPanelLayout.createParallelGroup()
 											.addGroup(overviewPanelLayout.createSequentialGroup()
-												.addComponent(income28dPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-												.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-												.addComponent(ordersInProgPanel3, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
+												.addComponent(ordersInProgPanel3, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+												.addGap(27, 27, 27)
+												.addComponent(ordersInProgPanel4, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE))
 											.addGroup(overviewPanelLayout.createSequentialGroup()
-												.addComponent(averageIncomeDailyPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
-												.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-												.addComponent(ordersInProgPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)))
-										.addGap(0, 482, Short.MAX_VALUE)))
+												.addComponent(income28dPanel, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)
+												.addGap(27, 27, 27)
+												.addComponent(income28dPanel2, GroupLayout.PREFERRED_SIZE, 190, GroupLayout.PREFERRED_SIZE)))))
 								.addContainerGap())
 					);
 					overviewPanelLayout.setVerticalGroup(
 						overviewPanelLayout.createParallelGroup()
 							.addGroup(overviewPanelLayout.createSequentialGroup()
 								.addContainerGap()
+								.addGroup(overviewPanelLayout.createParallelGroup(GroupLayout.Alignment.TRAILING)
+									.addComponent(income24hPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+									.addComponent(income28dPanel2, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+									.addComponent(income28dPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+									.addComponent(income7dPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
+								.addGap(18, 18, 18)
 								.addGroup(overviewPanelLayout.createParallelGroup()
-									.addGroup(GroupLayout.Alignment.TRAILING, overviewPanelLayout.createParallelGroup()
-										.addComponent(income24hPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-										.addComponent(itemsTodayPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
-									.addComponent(ordersTodayPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addGroup(overviewPanelLayout.createParallelGroup()
-									.addComponent(income7dPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-									.addComponent(tablesTodayPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-									.addComponent(ordersInProgPanel2, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-								.addGroup(overviewPanelLayout.createParallelGroup()
+									.addComponent(ordersTodayPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+									.addComponent(ordersInProgPanel4, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
 									.addComponent(ordersInProgPanel3, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-									.addComponent(income28dPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
+									.addComponent(ordersInProgPanel2, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
 								.addPreferredGap(LayoutStyle.ComponentPlacement.UNRELATED)
-								.addGroup(overviewPanelLayout.createParallelGroup()
-									.addComponent(averageIncomeDailyPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
-									.addComponent(ordersInProgPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE))
-								.addContainerGap(134, Short.MAX_VALUE))
+								.addComponent(ordersInProgPanel, GroupLayout.PREFERRED_SIZE, 95, GroupLayout.PREFERRED_SIZE)
+								.addContainerGap(224, Short.MAX_VALUE))
 					);
 				}
 				tabbedPane1.addTab(bundle.getString("MainForm.overviewPanel.tab.title"), overviewPanel);
@@ -518,83 +505,83 @@ public class MainForm extends JPanel {
 						GroupLayout userInputPanelLayout = new GroupLayout(userInputPanel);
 						userInputPanel.setLayout(userInputPanelLayout);
 						userInputPanelLayout.setHorizontalGroup(
-								userInputPanelLayout.createParallelGroup()
+							userInputPanelLayout.createParallelGroup()
 								.addGroup(userInputPanelLayout.createSequentialGroup()
-										.addContainerGap()
-										.addGroup(userInputPanelLayout.createParallelGroup()
+									.addContainerGap()
+									.addGroup(userInputPanelLayout.createParallelGroup()
+										.addGroup(userInputPanelLayout.createSequentialGroup()
+											.addGroup(userInputPanelLayout.createParallelGroup()
 												.addGroup(userInputPanelLayout.createSequentialGroup()
-														.addGroup(userInputPanelLayout.createParallelGroup()
-																.addGroup(userInputPanelLayout.createSequentialGroup()
-																		.addGroup(userInputPanelLayout.createParallelGroup()
-																				.addComponent(userInputUsernameLabel, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
-																				.addComponent(userInputPasswordLabel, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
-																		.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-																		.addGroup(userInputPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-																				.addComponent(userInputUsernameField, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-																				.addComponent(userInputPasswordField, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
-																.addGroup(userInputPanelLayout.createSequentialGroup()
-																		.addComponent(userInputUserIdLabel, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
-																		.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-																		.addComponent(userInputUserIdField, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)))
-														.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 296, Short.MAX_VALUE)
-														.addGroup(userInputPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-																.addComponent(userInputEmployeeNoLabel, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
-																.addComponent(userInputFirstNameLabel, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
-																.addComponent(userInputLastNameLabel, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
-														.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-														.addGroup(userInputPanelLayout.createParallelGroup()
-																.addComponent(userInputEmployeeNoField, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
-																.addComponent(userInputFirstNameField, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
-																.addComponent(userInputLastNameField, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)))
+													.addGroup(userInputPanelLayout.createParallelGroup()
+														.addComponent(userInputUsernameLabel, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+														.addComponent(userInputPasswordLabel, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
+													.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+													.addGroup(userInputPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+														.addComponent(userInputUsernameField, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+														.addComponent(userInputPasswordField, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)))
 												.addGroup(userInputPanelLayout.createSequentialGroup()
-														.addGap(6, 6, 6)
-														.addComponent(userInputActiveCheckBox, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-														.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-														.addComponent(userInputAdminCheckBox, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-														.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 440, Short.MAX_VALUE)
-														.addComponent(userInputClearButton, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-														.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-														.addComponent(userInputAddNewButton, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)))
+													.addComponent(userInputUserIdLabel, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+													.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+													.addComponent(userInputUserIdField, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)))
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 296, Short.MAX_VALUE)
+											.addGroup(userInputPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+												.addComponent(userInputEmployeeNoLabel, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+												.addComponent(userInputFirstNameLabel, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+												.addComponent(userInputLastNameLabel, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addGroup(userInputPanelLayout.createParallelGroup()
+												.addComponent(userInputEmployeeNoField, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
+												.addComponent(userInputFirstNameField, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
+												.addComponent(userInputLastNameField, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)))
+										.addGroup(userInputPanelLayout.createSequentialGroup()
+											.addGap(6, 6, 6)
+											.addComponent(userInputActiveCheckBox, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addComponent(userInputAdminCheckBox, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 440, Short.MAX_VALUE)
+											.addComponent(userInputClearButton, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addComponent(userInputAddNewButton, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)))
 									.addContainerGap())
 						);
 						userInputPanelLayout.setVerticalGroup(
-								userInputPanelLayout.createParallelGroup()
+							userInputPanelLayout.createParallelGroup()
 								.addGroup(userInputPanelLayout.createSequentialGroup()
-										.addGap(4, 4, 4)
-										.addGroup(userInputPanelLayout.createParallelGroup()
-												.addGroup(userInputPanelLayout.createSequentialGroup()
-														.addGroup(userInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-																.addComponent(userInputUserIdLabel)
-																.addComponent(userInputUserIdField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-														.addGap(6, 6, 6)
-														.addGroup(userInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-																.addComponent(userInputUsernameLabel)
-																.addComponent(userInputUsernameField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-														.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-														.addGroup(userInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-																.addComponent(userInputPasswordLabel)
-																.addComponent(userInputPasswordField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-														.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-														.addGroup(userInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-																.addComponent(userInputActiveCheckBox)
-																.addComponent(userInputAdminCheckBox))
-														.addGap(44, 44, 44))
-												.addGroup(userInputPanelLayout.createSequentialGroup()
-														.addGroup(userInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-																.addComponent(userInputEmployeeNoField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-																.addComponent(userInputEmployeeNoLabel))
-														.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-														.addGroup(userInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-																.addComponent(userInputFirstNameField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-																.addComponent(userInputFirstNameLabel))
-														.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-														.addGroup(userInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-																.addComponent(userInputLastNameField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-																.addComponent(userInputLastNameLabel))
-														.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-														.addGroup(userInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-																.addComponent(userInputAddNewButton)
-																.addComponent(userInputClearButton))
+									.addGap(4, 4, 4)
+									.addGroup(userInputPanelLayout.createParallelGroup()
+										.addGroup(userInputPanelLayout.createSequentialGroup()
+											.addGroup(userInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+												.addComponent(userInputUserIdLabel)
+												.addComponent(userInputUserIdField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+											.addGap(6, 6, 6)
+											.addGroup(userInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+												.addComponent(userInputUsernameLabel)
+												.addComponent(userInputUsernameField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addGroup(userInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+												.addComponent(userInputPasswordLabel)
+												.addComponent(userInputPasswordField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+											.addGroup(userInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+												.addComponent(userInputActiveCheckBox)
+												.addComponent(userInputAdminCheckBox))
+											.addGap(44, 44, 44))
+										.addGroup(userInputPanelLayout.createSequentialGroup()
+											.addGroup(userInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+												.addComponent(userInputEmployeeNoField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+												.addComponent(userInputEmployeeNoLabel))
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addGroup(userInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+												.addComponent(userInputFirstNameField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+												.addComponent(userInputFirstNameLabel))
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addGroup(userInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+												.addComponent(userInputLastNameField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+												.addComponent(userInputLastNameLabel))
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addGroup(userInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+												.addComponent(userInputAddNewButton)
+												.addComponent(userInputClearButton))
 											.addGap(0, 0, Short.MAX_VALUE))))
 						);
 					}
@@ -609,9 +596,9 @@ public class MainForm extends JPanel {
 					manageUsersPanelLayout.setVerticalGroup(
 						manageUsersPanelLayout.createParallelGroup()
 							.addGroup(manageUsersPanelLayout.createSequentialGroup()
-									.addComponent(usersScrollPane, GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
-									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-									.addComponent(userInputPanel, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
+								.addComponent(usersScrollPane, GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addComponent(userInputPanel, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
 					);
 				}
 				tabbedPane1.addTab(bundle.getString("MainForm.manageUsersPanel.tab.title"), manageUsersPanel);
@@ -762,8 +749,8 @@ public class MainForm extends JPanel {
 							.addGroup(manageTablesPanelLayout.createSequentialGroup()
 								.addContainerGap()
 								.addGroup(manageTablesPanelLayout.createParallelGroup()
-										.addComponent(tablesScrollPane, GroupLayout.PREFERRED_SIZE, 868, GroupLayout.PREFERRED_SIZE)
-										.addComponent(tablesInputPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+									.addComponent(tablesScrollPane, GroupLayout.PREFERRED_SIZE, 868, GroupLayout.PREFERRED_SIZE)
+									.addComponent(tablesInputPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
 								.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 					);
 					manageTablesPanelLayout.setVerticalGroup(
@@ -799,37 +786,10 @@ public class MainForm extends JPanel {
 							.addGroup(manageItemsPanelLayout.createSequentialGroup()
 								.addContainerGap()
 								.addComponent(itemsScrollPane, GroupLayout.PREFERRED_SIZE, 350, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(188, Short.MAX_VALUE))
+								.addContainerGap(189, Short.MAX_VALUE))
 					);
 				}
 				tabbedPane1.addTab(bundle.getString("MainForm.manageItemsPanel.tab.title"), manageItemsPanel);
-
-				//======== manageOrdersPanel ========
-				{
-
-					//======== orderssSrollPane ========
-					{
-						orderssSrollPane.setViewportView(ordersTable);
-					}
-
-					GroupLayout manageOrdersPanelLayout = new GroupLayout(manageOrdersPanel);
-					manageOrdersPanel.setLayout(manageOrdersPanelLayout);
-					manageOrdersPanelLayout.setHorizontalGroup(
-						manageOrdersPanelLayout.createParallelGroup()
-							.addGroup(manageOrdersPanelLayout.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(orderssSrollPane, GroupLayout.DEFAULT_SIZE, 868, Short.MAX_VALUE)
-								.addContainerGap())
-					);
-					manageOrdersPanelLayout.setVerticalGroup(
-						manageOrdersPanelLayout.createParallelGroup()
-							.addGroup(manageOrdersPanelLayout.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(orderssSrollPane, GroupLayout.PREFERRED_SIZE, 350, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(188, Short.MAX_VALUE))
-					);
-				}
-				tabbedPane1.addTab(bundle.getString("MainForm.manageOrdersPanel.tab.title"), manageOrdersPanel);
 			}
 
 			GroupLayout frame1ContentPaneLayout = new GroupLayout(frame1ContentPane);
@@ -858,6 +818,8 @@ public class MainForm extends JPanel {
 	// Generated using JFormDesigner Evaluation license - Ian Owen
 	private JFrame frame1;
 	private JMenuBar menuBar1;
+	private JMenu menu1;
+	private JMenuItem menuItem2;
 	private JTabbedPane tabbedPane1;
 	private JPanel overviewPanel;
 	private JPanel income24hPanel;
@@ -866,20 +828,18 @@ public class MainForm extends JPanel {
 	private JLabel income7dLabel;
 	private JPanel income28dPanel;
 	private JLabel income28dLabel;
-	private JPanel itemsTodayPanel;
-	private JLabel itemsTodayLabel;
-	private JPanel tablesTodayPanel;
-	private JLabel tablesTodayLabel;
 	private JPanel ordersInProgPanel;
 	private JLabel ordersInProgLabel;
 	private JPanel ordersTodayPanel;
 	private JLabel ordersTodayLabel;
-	private JPanel averageIncomeDailyPanel;
-	private JLabel averageIncomeDailyLabel;
 	private JPanel ordersInProgPanel2;
 	private JLabel ordersInProgLabel2;
 	private JPanel ordersInProgPanel3;
 	private JLabel ordersInProgLabel3;
+	private JPanel income28dPanel2;
+	private JLabel income28dLabel2;
+	private JPanel ordersInProgPanel4;
+	private JLabel ordersInProgLabel4;
 	private JPanel manageUsersPanel;
 	private JScrollPane usersScrollPane;
 	private JTable usersTable;
@@ -923,9 +883,6 @@ public class MainForm extends JPanel {
 	private JPanel manageItemsPanel;
 	private JScrollPane itemsScrollPane;
 	private JTable itemsTable;
-	private JPanel manageOrdersPanel;
-	private JScrollPane orderssSrollPane;
-	private JTable ordersTable;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 
 	public void setCreds(String username, String password){

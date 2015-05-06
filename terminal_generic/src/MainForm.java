@@ -92,8 +92,6 @@ public class MainForm extends JPanel {
 		tabbedPane1 = new JTabbedPane();
 		panel1 = new JPanel();
 		infoLabel = new JLabel();
-		panel2 = new JPanel();
-		label1 = new JLabel();
 		menuBar2 = new JMenuBar();
 		statusLabel = new JLabel();
 
@@ -210,31 +208,6 @@ public class MainForm extends JPanel {
 					);
 				}
 				tabbedPane1.addTab(bundle.getString("MainForm.panel1.tab.title"), panel1);
-
-				//======== panel2 ========
-				{
-
-					//---- label1 ----
-					label1.setText(bundle.getString("MainForm.label1.text"));
-
-					GroupLayout panel2Layout = new GroupLayout(panel2);
-					panel2.setLayout(panel2Layout);
-					panel2Layout.setHorizontalGroup(
-						panel2Layout.createParallelGroup()
-							.addGroup(panel2Layout.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(label1, GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
-								.addContainerGap())
-					);
-					panel2Layout.setVerticalGroup(
-						panel2Layout.createParallelGroup()
-							.addGroup(panel2Layout.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(label1, GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
-								.addContainerGap())
-					);
-				}
-				tabbedPane1.addTab(bundle.getString("MainForm.panel2.tab.title"), panel2);
 			}
 
 			//======== menuBar2 ========
@@ -302,8 +275,6 @@ public class MainForm extends JPanel {
 	private JTabbedPane tabbedPane1;
 	private JPanel panel1;
 	private JLabel infoLabel;
-	private JPanel panel2;
-	private JLabel label1;
 	private JMenuBar menuBar2;
 	private JLabel statusLabel;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables

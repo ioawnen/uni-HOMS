@@ -26,8 +26,8 @@
     <string name="login_no_password">Enter a Password</string>
     //Input Fields
     <string name="login_username_hint">Username</string>
-    <string name="login_password_hint">Server</string>
-    <string name="login_server_hint">Password</string>
+    <string name="login_password_hint">Password</string>
+    <string name="login_server_hint">Server</string>
     //Buttons
     <string name="login_button_text">Sign In</string>
 
@@ -42,6 +42,6 @@
     <string name="home_button_add_items">Add Items</string>
     <string name="home_button_get_bill">Get Bills</string>
     <string name="title_activity_menu">Menu</string>
-    <string name="title_activity_add_order">AddOrderActivity</string>
+    <string name="title_activity_add_order">Add Order</string>
 
 </resources>
