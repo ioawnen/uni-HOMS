@@ -4,11 +4,16 @@
 public class MainClass {
 
 	public static void main(String[] args){
-		System.out.println("STARTING");
+		/*System.out.println("STARTING");
 		MainForm form = new MainForm();
-		form.setCreds(new String[] {"ian", "********"});
+		form.setCreds(new String[]{"ian", "********"});
 		form.updateItems();
 		form.setVisibility(true);
 		System.out.println("STARTED");
+		*/
+
+
+		LoginForm login = new LoginForm();
+		login.setVisibility(true);
 	}
 }

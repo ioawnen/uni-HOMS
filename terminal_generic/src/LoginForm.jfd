@@ -1,0 +1,97 @@
+JFDML JFormDesigner: "5.2.1.0.138" Java: "1.8.0_40" encoding: "UTF-8"
+
+new FormModel {
+	"i18n.autoExternalize": true
+	"i18n.bundleName": "loginform_strings"
+	"i18n.keyPrefix": "LoginForm"
+	contentType: "form/swing"
+	root: new FormRoot {
+		add( new FormWindow( "javax.swing.JDialog", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :::p, comp panel1::::407:x, space :::p}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp panel1::::253:x, space :::p}}"
+		} ) {
+			name: "dialog1"
+			"title": new FormMessage( null, "LoginForm.dialog1.title" )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
+				"$columnSpecs": "0, 0, 0, 244, 0"
+				"$rowSpecs": "0, 0, 0, 0, 0, 0, 0"
+				"$hGap": 5
+				"$vGap": 5
+			} ) {
+				name: "panel1"
+				addEvent( new FormEvent( "java.awt.event.FocusListener", "focusGained", "inputFieldsFocusGained", true ) )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "label3"
+					"text": new FormMessage( null, "LoginForm.label3.text" )
+					"horizontalTextPosition": 0
+					"horizontalAlignment": 0
+					"font": new com.jformdesigner.model.SwingDerivedFont( null, 0, 6, false )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 1
+					"gridwidth": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "serverLabel"
+					"text": new FormMessage( null, "LoginForm.serverLabel.text" )
+					"horizontalAlignment": 4
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 1
+					"gridy": 2
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "serverField"
+					addEvent( new FormEvent( "java.awt.event.FocusListener", "focusGained", "serverFieldFocusGained", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 3
+					"gridy": 2
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "usernameLabel"
+					"text": new FormMessage( null, "LoginForm.usernameLabel.text" )
+					"horizontalAlignment": 4
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 1
+					"gridy": 3
+				} )
+				add( new FormComponent( "javax.swing.JTextField" ) {
+					name: "usernameField"
+					addEvent( new FormEvent( "java.awt.event.FocusListener", "focusGained", "usernameFieldFocusGained", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 3
+					"gridy": 3
+				} )
+				add( new FormComponent( "javax.swing.JLabel" ) {
+					name: "passwordLabel"
+					"text": new FormMessage( null, "LoginForm.passwordLabel.text" )
+					"horizontalAlignment": 4
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 1
+					"gridy": 4
+				} )
+				add( new FormComponent( "javax.swing.JPasswordField" ) {
+					name: "passwordField"
+					addEvent( new FormEvent( "java.awt.event.FocusListener", "focusGained", "passwordFieldFocusGained", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 3
+					"gridy": 4
+				} )
+				add( new FormComponent( "javax.swing.JButton" ) {
+					name: "SignInButton"
+					"text": new FormMessage( null, "LoginForm.SignInButton.text" )
+					addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "SignInButtonActionPerformed", true ) )
+				}, new FormLayoutConstraints( class com.jformdesigner.runtime.GridBagConstraintsEx ) {
+					"gridx": 1
+					"gridy": 6
+					"gridwidth": 3
+					"hAlign": 0
+				} )
+			} )
+			menuBar: new FormContainer( "javax.swing.JMenuBar", new FormLayoutManager( class javax.swing.JMenuBar ) ) {
+				name: "menuBar1"
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 5, 10 )
+			"size": new java.awt.Dimension( 435, 325 )
+		} )
+	}
+}

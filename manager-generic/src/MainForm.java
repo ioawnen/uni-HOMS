@@ -159,26 +159,34 @@ public class MainForm extends JPanel {
 		manageTablesPanel = new JPanel();
 		tablesScrollPane = new JScrollPane();
 		tablesTable = new JTable();
-		tablesInputPanel = new JPanel();
-		tablesInputUpdateButton = new JButton();
+		userInputPanel2 = new JPanel();
 		userInputUsernameLabel2 = new JLabel();
 		userInputPasswordLabel2 = new JLabel();
 		userInputEmployeeNoLabel2 = new JLabel();
-		userInputFirstNameLabel2 = new JLabel();
-		userInputLastNameLabel2 = new JLabel();
 		userInputUsernameField2 = new JTextField();
-		userInputPasswordField2 = new JTextField();
 		userInputEmployeeNoField2 = new JTextField();
-		userInputFirstNameField2 = new JTextField();
-		userInputLastNameField2 = new JTextField();
 		userInputAddNewButton2 = new JButton();
 		userInputUserIdLabel2 = new JLabel();
 		userInputUserIdField2 = new JTextField();
-		userInputActiveCheckBox2 = new JCheckBox();
-		userInputAdminCheckBox2 = new JCheckBox();
+		userInputPasswordField2 = new JPasswordField();
+		userInputClearButton2 = new JButton();
 		manageItemsPanel = new JPanel();
 		itemsScrollPane = new JScrollPane();
 		itemsTable = new JTable();
+		userInputPanel3 = new JPanel();
+		userInputUsernameLabel3 = new JLabel();
+		userInputPasswordLabel3 = new JLabel();
+		userInputEmployeeNoLabel3 = new JLabel();
+		userInputUsernameField3 = new JTextField();
+		userInputEmployeeNoField3 = new JTextField();
+		userInputAddNewButton3 = new JButton();
+		userInputUserIdLabel3 = new JLabel();
+		userInputUserIdField3 = new JTextField();
+		userInputActiveCheckBox2 = new JCheckBox();
+		userInputAdminCheckBox2 = new JCheckBox();
+		userInputPasswordField3 = new JPasswordField();
+		userInputClearButton3 = new JButton();
+		userInputAdminCheckBox3 = new JCheckBox();
 
 		//======== frame1 ========
 		{
@@ -596,7 +604,7 @@ public class MainForm extends JPanel {
 					manageUsersPanelLayout.setVerticalGroup(
 						manageUsersPanelLayout.createParallelGroup()
 							.addGroup(manageUsersPanelLayout.createSequentialGroup()
-								.addComponent(usersScrollPane, GroupLayout.DEFAULT_SIZE, 388, Short.MAX_VALUE)
+								.addComponent(usersScrollPane, GroupLayout.DEFAULT_SIZE, 389, Short.MAX_VALUE)
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addComponent(userInputPanel, GroupLayout.PREFERRED_SIZE, 150, GroupLayout.PREFERRED_SIZE))
 					);
@@ -611,12 +619,9 @@ public class MainForm extends JPanel {
 						tablesScrollPane.setViewportView(tablesTable);
 					}
 
-					//======== tablesInputPanel ========
+					//======== userInputPanel2 ========
 					{
-						tablesInputPanel.setBorder(new TitledBorder(bundle.getString("MainForm.tablesInputPanel.border")));
-
-						//---- tablesInputUpdateButton ----
-						tablesInputUpdateButton.setText(bundle.getString("MainForm.tablesInputUpdateButton.text"));
+						userInputPanel2.setBorder(new TitledBorder(bundle.getString("MainForm.userInputPanel2.border")));
 
 						//---- userInputUsernameLabel2 ----
 						userInputUsernameLabel2.setText(bundle.getString("MainForm.userInputUsernameLabel2.text"));
@@ -630,16 +635,14 @@ public class MainForm extends JPanel {
 						userInputEmployeeNoLabel2.setText(bundle.getString("MainForm.userInputEmployeeNoLabel2.text"));
 						userInputEmployeeNoLabel2.setHorizontalAlignment(SwingConstants.TRAILING);
 
-						//---- userInputFirstNameLabel2 ----
-						userInputFirstNameLabel2.setText(bundle.getString("MainForm.userInputFirstNameLabel2.text"));
-						userInputFirstNameLabel2.setHorizontalAlignment(SwingConstants.TRAILING);
-
-						//---- userInputLastNameLabel2 ----
-						userInputLastNameLabel2.setText(bundle.getString("MainForm.userInputLastNameLabel2.text"));
-						userInputLastNameLabel2.setHorizontalAlignment(SwingConstants.TRAILING);
-
 						//---- userInputAddNewButton2 ----
 						userInputAddNewButton2.setText(bundle.getString("MainForm.userInputAddNewButton2.text"));
+						userInputAddNewButton2.addActionListener(new ActionListener() {
+							@Override
+							public void actionPerformed(ActionEvent e) {
+								userInputAddNewButtonActionPerformed(e);
+							}
+						});
 
 						//---- userInputUserIdLabel2 ----
 						userInputUserIdLabel2.setText(bundle.getString("MainForm.userInputUserIdLabel2.text"));
@@ -647,6 +650,141 @@ public class MainForm extends JPanel {
 
 						//---- userInputUserIdField2 ----
 						userInputUserIdField2.setEditable(false);
+
+						//---- userInputClearButton2 ----
+						userInputClearButton2.setText(bundle.getString("MainForm.userInputClearButton2.text"));
+						userInputClearButton2.addActionListener(new ActionListener() {
+							@Override
+							public void actionPerformed(ActionEvent e) {
+								userInputAddNewButtonActionPerformed(e);
+								userInputClearButtonActionPerformed(e);
+							}
+						});
+
+						GroupLayout userInputPanel2Layout = new GroupLayout(userInputPanel2);
+						userInputPanel2.setLayout(userInputPanel2Layout);
+						userInputPanel2Layout.setHorizontalGroup(
+							userInputPanel2Layout.createParallelGroup()
+								.addGroup(userInputPanel2Layout.createSequentialGroup()
+									.addContainerGap()
+									.addGroup(userInputPanel2Layout.createParallelGroup()
+										.addGroup(userInputPanel2Layout.createSequentialGroup()
+											.addGroup(userInputPanel2Layout.createParallelGroup()
+												.addGroup(userInputPanel2Layout.createSequentialGroup()
+													.addGroup(userInputPanel2Layout.createParallelGroup()
+														.addComponent(userInputUsernameLabel2, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+														.addComponent(userInputPasswordLabel2, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
+													.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+													.addGroup(userInputPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+														.addComponent(userInputUsernameField2, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+														.addComponent(userInputPasswordField2)))
+												.addGroup(userInputPanel2Layout.createSequentialGroup()
+													.addComponent(userInputUserIdLabel2, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+													.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+													.addComponent(userInputUserIdField2, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)))
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 284, Short.MAX_VALUE)
+											.addComponent(userInputEmployeeNoLabel2, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addComponent(userInputEmployeeNoField2, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE))
+										.addGroup(GroupLayout.Alignment.TRAILING, userInputPanel2Layout.createSequentialGroup()
+											.addGap(0, 640, Short.MAX_VALUE)
+											.addComponent(userInputClearButton2, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addComponent(userInputAddNewButton2, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)))
+									.addContainerGap())
+						);
+						userInputPanel2Layout.setVerticalGroup(
+							userInputPanel2Layout.createParallelGroup()
+								.addGroup(userInputPanel2Layout.createSequentialGroup()
+									.addGap(4, 4, 4)
+									.addGroup(userInputPanel2Layout.createParallelGroup()
+										.addGroup(userInputPanel2Layout.createSequentialGroup()
+											.addGroup(userInputPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+												.addComponent(userInputUserIdLabel2)
+												.addComponent(userInputUserIdField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+											.addGap(6, 6, 6)
+											.addGroup(userInputPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+												.addComponent(userInputUsernameLabel2)
+												.addComponent(userInputUsernameField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addGroup(userInputPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+												.addComponent(userInputPasswordLabel2)
+												.addComponent(userInputPasswordField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+											.addGap(44, 67, Short.MAX_VALUE))
+										.addGroup(userInputPanel2Layout.createSequentialGroup()
+											.addGroup(userInputPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+												.addComponent(userInputEmployeeNoField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+												.addComponent(userInputEmployeeNoLabel2))
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+											.addGroup(userInputPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+												.addComponent(userInputAddNewButton2)
+												.addComponent(userInputClearButton2))
+											.addContainerGap())))
+						);
+					}
+
+					GroupLayout manageTablesPanelLayout = new GroupLayout(manageTablesPanel);
+					manageTablesPanel.setLayout(manageTablesPanelLayout);
+					manageTablesPanelLayout.setHorizontalGroup(
+						manageTablesPanelLayout.createParallelGroup()
+							.addGroup(manageTablesPanelLayout.createSequentialGroup()
+								.addContainerGap()
+								.addGroup(manageTablesPanelLayout.createParallelGroup()
+									.addComponent(tablesScrollPane)
+									.addComponent(userInputPanel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+								.addContainerGap())
+					);
+					manageTablesPanelLayout.setVerticalGroup(
+						manageTablesPanelLayout.createParallelGroup()
+							.addGroup(manageTablesPanelLayout.createSequentialGroup()
+								.addContainerGap()
+								.addComponent(tablesScrollPane, GroupLayout.PREFERRED_SIZE, 350, GroupLayout.PREFERRED_SIZE)
+								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(userInputPanel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addContainerGap())
+					);
+				}
+				tabbedPane1.addTab(bundle.getString("MainForm.manageTablesPanel.tab.title"), manageTablesPanel);
+
+				//======== manageItemsPanel ========
+				{
+
+					//======== itemsScrollPane ========
+					{
+						itemsScrollPane.setViewportView(itemsTable);
+					}
+
+					//======== userInputPanel3 ========
+					{
+						userInputPanel3.setBorder(new TitledBorder(bundle.getString("MainForm.userInputPanel3.border")));
+
+						//---- userInputUsernameLabel3 ----
+						userInputUsernameLabel3.setText(bundle.getString("MainForm.userInputUsernameLabel3.text"));
+						userInputUsernameLabel3.setHorizontalAlignment(SwingConstants.TRAILING);
+
+						//---- userInputPasswordLabel3 ----
+						userInputPasswordLabel3.setText(bundle.getString("MainForm.userInputPasswordLabel3.text"));
+						userInputPasswordLabel3.setHorizontalAlignment(SwingConstants.TRAILING);
+
+						//---- userInputEmployeeNoLabel3 ----
+						userInputEmployeeNoLabel3.setText(bundle.getString("MainForm.userInputEmployeeNoLabel3.text"));
+						userInputEmployeeNoLabel3.setHorizontalAlignment(SwingConstants.TRAILING);
+
+						//---- userInputAddNewButton3 ----
+						userInputAddNewButton3.setText(bundle.getString("MainForm.userInputAddNewButton3.text"));
+						userInputAddNewButton3.addActionListener(new ActionListener() {
+							@Override
+							public void actionPerformed(ActionEvent e) {
+								userInputAddNewButtonActionPerformed(e);
+							}
+						});
+
+						//---- userInputUserIdLabel3 ----
+						userInputUserIdLabel3.setText(bundle.getString("MainForm.userInputUserIdLabel3.text"));
+						userInputUserIdLabel3.setHorizontalAlignment(SwingConstants.TRAILING);
+
+						//---- userInputUserIdField3 ----
+						userInputUserIdField3.setEditable(false);
 
 						//---- userInputActiveCheckBox2 ----
 						userInputActiveCheckBox2.setText(bundle.getString("MainForm.userInputActiveCheckBox2.text"));
@@ -660,125 +798,103 @@ public class MainForm extends JPanel {
 						userInputAdminCheckBox2.setIconTextGap(10);
 						userInputAdminCheckBox2.setHorizontalAlignment(SwingConstants.TRAILING);
 
-						GroupLayout tablesInputPanelLayout = new GroupLayout(tablesInputPanel);
-						tablesInputPanel.setLayout(tablesInputPanelLayout);
-						tablesInputPanelLayout.setHorizontalGroup(
-							tablesInputPanelLayout.createParallelGroup()
-								.addGroup(tablesInputPanelLayout.createSequentialGroup()
+						//---- userInputClearButton3 ----
+						userInputClearButton3.setText(bundle.getString("MainForm.userInputClearButton3.text"));
+						userInputClearButton3.addActionListener(new ActionListener() {
+							@Override
+							public void actionPerformed(ActionEvent e) {
+								userInputAddNewButtonActionPerformed(e);
+								userInputClearButtonActionPerformed(e);
+							}
+						});
+
+						//---- userInputAdminCheckBox3 ----
+						userInputAdminCheckBox3.setText(bundle.getString("MainForm.userInputAdminCheckBox3.text"));
+						userInputAdminCheckBox3.setHorizontalTextPosition(SwingConstants.LEADING);
+						userInputAdminCheckBox3.setIconTextGap(10);
+						userInputAdminCheckBox3.setHorizontalAlignment(SwingConstants.TRAILING);
+
+						GroupLayout userInputPanel3Layout = new GroupLayout(userInputPanel3);
+						userInputPanel3.setLayout(userInputPanel3Layout);
+						userInputPanel3Layout.setHorizontalGroup(
+							userInputPanel3Layout.createParallelGroup()
+								.addGroup(userInputPanel3Layout.createSequentialGroup()
 									.addContainerGap()
-									.addGroup(tablesInputPanelLayout.createParallelGroup()
-										.addGroup(tablesInputPanelLayout.createSequentialGroup()
-											.addGroup(tablesInputPanelLayout.createParallelGroup()
-												.addComponent(userInputUsernameLabel2, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
-												.addComponent(userInputPasswordLabel2, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
+									.addGroup(userInputPanel3Layout.createParallelGroup()
+										.addGroup(userInputPanel3Layout.createSequentialGroup()
+											.addComponent(userInputUserIdLabel3, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
 											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-											.addGroup(tablesInputPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-												.addComponent(userInputUsernameField2, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
-												.addComponent(userInputPasswordField2, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)))
-										.addGroup(tablesInputPanelLayout.createSequentialGroup()
-											.addComponent(userInputUserIdLabel2, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
-											.addGap(6, 6, 6)
-											.addComponent(userInputUserIdField2, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE))
-										.addGroup(tablesInputPanelLayout.createSequentialGroup()
-											.addGap(6, 6, 6)
+											.addComponent(userInputUserIdField3, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 											.addComponent(userInputActiveCheckBox2, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-											.addComponent(userInputAdminCheckBox2, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)))
-									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-									.addGroup(tablesInputPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-										.addComponent(userInputEmployeeNoLabel2, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
-										.addComponent(userInputFirstNameLabel2, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
-										.addComponent(userInputLastNameLabel2, GroupLayout.Alignment.TRAILING, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
-									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-									.addGroup(tablesInputPanelLayout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-										.addGroup(tablesInputPanelLayout.createSequentialGroup()
-											.addComponent(tablesInputUpdateButton, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
 											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-											.addComponent(userInputAddNewButton2, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE))
-										.addComponent(userInputEmployeeNoField2, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
-										.addComponent(userInputFirstNameField2, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
-										.addComponent(userInputLastNameField2, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE))
-									.addContainerGap(278, Short.MAX_VALUE))
+											.addComponent(userInputEmployeeNoLabel3, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addComponent(userInputEmployeeNoField3, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE))
+										.addGroup(userInputPanel3Layout.createSequentialGroup()
+											.addGroup(userInputPanel3Layout.createParallelGroup()
+												.addComponent(userInputUsernameLabel3, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
+												.addComponent(userInputPasswordLabel3, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addGroup(userInputPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
+												.addComponent(userInputUsernameField3, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+												.addComponent(userInputPasswordField3))
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addGroup(userInputPanel3Layout.createParallelGroup()
+												.addComponent(userInputAdminCheckBox2, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+												.addComponent(userInputAdminCheckBox3, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE))
+											.addGap(0, 0, Short.MAX_VALUE))
+										.addGroup(userInputPanel3Layout.createSequentialGroup()
+											.addGap(0, 0, Short.MAX_VALUE)
+											.addComponent(userInputClearButton3, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addComponent(userInputAddNewButton3, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)))
+									.addContainerGap())
 						);
-						tablesInputPanelLayout.setVerticalGroup(
-							tablesInputPanelLayout.createParallelGroup()
-								.addGroup(tablesInputPanelLayout.createSequentialGroup()
-									.addGroup(tablesInputPanelLayout.createParallelGroup()
-										.addGroup(tablesInputPanelLayout.createSequentialGroup()
-											.addGap(4, 4, 4)
-											.addComponent(userInputUserIdLabel2))
-										.addComponent(userInputUserIdField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-									.addGroup(tablesInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-										.addComponent(userInputUsernameLabel2)
-										.addComponent(userInputUsernameField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-									.addGroup(tablesInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-										.addComponent(userInputPasswordLabel2)
-										.addComponent(userInputPasswordField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-									.addGroup(tablesInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-										.addComponent(userInputActiveCheckBox2)
-										.addComponent(userInputAdminCheckBox2))
-									.addGap(44, 44, 44))
-								.addGroup(tablesInputPanelLayout.createSequentialGroup()
+						userInputPanel3Layout.setVerticalGroup(
+							userInputPanel3Layout.createParallelGroup()
+								.addGroup(userInputPanel3Layout.createSequentialGroup()
 									.addGap(4, 4, 4)
-									.addGroup(tablesInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-										.addComponent(userInputEmployeeNoField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addComponent(userInputEmployeeNoLabel2))
-									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-									.addGroup(tablesInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-										.addComponent(userInputFirstNameField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addComponent(userInputFirstNameLabel2))
-									.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-									.addGroup(tablesInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-										.addComponent(userInputLastNameField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-										.addComponent(userInputLastNameLabel2))
-									.addGap(18, 18, 18)
-									.addGroup(tablesInputPanelLayout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-										.addComponent(userInputAddNewButton2)
-										.addComponent(tablesInputUpdateButton))
-									.addGap(0, 0, Short.MAX_VALUE))
+									.addGroup(userInputPanel3Layout.createParallelGroup()
+										.addGroup(userInputPanel3Layout.createSequentialGroup()
+											.addGroup(userInputPanel3Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+												.addComponent(userInputUserIdLabel3)
+												.addComponent(userInputUserIdField3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+												.addComponent(userInputActiveCheckBox2))
+											.addGap(6, 6, 6)
+											.addGroup(userInputPanel3Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+												.addComponent(userInputUsernameLabel3)
+												.addComponent(userInputUsernameField3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+												.addComponent(userInputAdminCheckBox2))
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+											.addGroup(userInputPanel3Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+												.addComponent(userInputPasswordLabel3)
+												.addComponent(userInputPasswordField3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+												.addComponent(userInputAdminCheckBox3))
+											.addGap(44, 66, Short.MAX_VALUE))
+										.addGroup(userInputPanel3Layout.createSequentialGroup()
+											.addGroup(userInputPanel3Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+												.addComponent(userInputEmployeeNoField3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+												.addComponent(userInputEmployeeNoLabel3))
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+											.addGroup(userInputPanel3Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
+												.addComponent(userInputAddNewButton3)
+												.addComponent(userInputClearButton3))
+											.addContainerGap())))
 						);
-					}
-
-					GroupLayout manageTablesPanelLayout = new GroupLayout(manageTablesPanel);
-					manageTablesPanel.setLayout(manageTablesPanelLayout);
-					manageTablesPanelLayout.setHorizontalGroup(
-						manageTablesPanelLayout.createParallelGroup()
-							.addGroup(manageTablesPanelLayout.createSequentialGroup()
-								.addContainerGap()
-								.addGroup(manageTablesPanelLayout.createParallelGroup()
-									.addComponent(tablesScrollPane, GroupLayout.PREFERRED_SIZE, 868, GroupLayout.PREFERRED_SIZE)
-									.addComponent(tablesInputPanel, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-								.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-					);
-					manageTablesPanelLayout.setVerticalGroup(
-						manageTablesPanelLayout.createParallelGroup()
-							.addGroup(manageTablesPanelLayout.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(tablesScrollPane, GroupLayout.PREFERRED_SIZE, 350, GroupLayout.PREFERRED_SIZE)
-								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(tablesInputPanel, GroupLayout.PREFERRED_SIZE, 176, GroupLayout.PREFERRED_SIZE))
-					);
-				}
-				tabbedPane1.addTab(bundle.getString("MainForm.manageTablesPanel.tab.title"), manageTablesPanel);
-
-				//======== manageItemsPanel ========
-				{
-
-					//======== itemsScrollPane ========
-					{
-						itemsScrollPane.setViewportView(itemsTable);
 					}
 
 					GroupLayout manageItemsPanelLayout = new GroupLayout(manageItemsPanel);
 					manageItemsPanel.setLayout(manageItemsPanelLayout);
 					manageItemsPanelLayout.setHorizontalGroup(
 						manageItemsPanelLayout.createParallelGroup()
-							.addGroup(GroupLayout.Alignment.TRAILING, manageItemsPanelLayout.createSequentialGroup()
-								.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-								.addComponent(itemsScrollPane, GroupLayout.PREFERRED_SIZE, 868, GroupLayout.PREFERRED_SIZE)
+							.addGroup(manageItemsPanelLayout.createSequentialGroup()
+								.addContainerGap()
+								.addGroup(manageItemsPanelLayout.createParallelGroup()
+									.addGroup(GroupLayout.Alignment.TRAILING, manageItemsPanelLayout.createSequentialGroup()
+										.addGap(0, 0, Short.MAX_VALUE)
+										.addComponent(itemsScrollPane, GroupLayout.PREFERRED_SIZE, 868, GroupLayout.PREFERRED_SIZE))
+									.addComponent(userInputPanel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
 								.addContainerGap())
 					);
 					manageItemsPanelLayout.setVerticalGroup(
@@ -786,7 +902,9 @@ public class MainForm extends JPanel {
 							.addGroup(manageItemsPanelLayout.createSequentialGroup()
 								.addContainerGap()
 								.addComponent(itemsScrollPane, GroupLayout.PREFERRED_SIZE, 350, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(189, Short.MAX_VALUE))
+								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+								.addComponent(userInputPanel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+								.addContainerGap())
 					);
 				}
 				tabbedPane1.addTab(bundle.getString("MainForm.manageItemsPanel.tab.title"), manageItemsPanel);
@@ -863,26 +981,34 @@ public class MainForm extends JPanel {
 	private JPanel manageTablesPanel;
 	private JScrollPane tablesScrollPane;
 	private JTable tablesTable;
-	private JPanel tablesInputPanel;
-	private JButton tablesInputUpdateButton;
+	private JPanel userInputPanel2;
 	private JLabel userInputUsernameLabel2;
 	private JLabel userInputPasswordLabel2;
 	private JLabel userInputEmployeeNoLabel2;
-	private JLabel userInputFirstNameLabel2;
-	private JLabel userInputLastNameLabel2;
 	private JTextField userInputUsernameField2;
-	private JTextField userInputPasswordField2;
 	private JTextField userInputEmployeeNoField2;
-	private JTextField userInputFirstNameField2;
-	private JTextField userInputLastNameField2;
 	private JButton userInputAddNewButton2;
 	private JLabel userInputUserIdLabel2;
 	private JTextField userInputUserIdField2;
-	private JCheckBox userInputActiveCheckBox2;
-	private JCheckBox userInputAdminCheckBox2;
+	private JPasswordField userInputPasswordField2;
+	private JButton userInputClearButton2;
 	private JPanel manageItemsPanel;
 	private JScrollPane itemsScrollPane;
 	private JTable itemsTable;
+	private JPanel userInputPanel3;
+	private JLabel userInputUsernameLabel3;
+	private JLabel userInputPasswordLabel3;
+	private JLabel userInputEmployeeNoLabel3;
+	private JTextField userInputUsernameField3;
+	private JTextField userInputEmployeeNoField3;
+	private JButton userInputAddNewButton3;
+	private JLabel userInputUserIdLabel3;
+	private JTextField userInputUserIdField3;
+	private JCheckBox userInputActiveCheckBox2;
+	private JCheckBox userInputAdminCheckBox2;
+	private JPasswordField userInputPasswordField3;
+	private JButton userInputClearButton3;
+	private JCheckBox userInputAdminCheckBox3;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 
 	public void setCreds(String username, String password){

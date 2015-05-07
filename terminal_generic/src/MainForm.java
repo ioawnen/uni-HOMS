@@ -294,34 +294,45 @@ public class MainForm extends JPanel {
 	private void autoUpdateList() {
 		// TODO add your code here
 
-		System.out.println("STATE CHANGED TO "+autoUpdateCheckBox.getState());
-		System.out.println("UPDATING");
+		new Thread(new Runnable() {
+			public void run() {
 
-		Client client = new Client();
-		String[] result = client.getActiveOrderItems(creds, 40);
+				while(autoUpdateCheckBox.getState()) {
 
-		if(result[0].equals("1")) {
-			String[] trimmedResult = Arrays.copyOfRange(result, 1, result.length);
+					System.out.println("REFRESH STATE " + autoUpdateCheckBox.getState());
+					System.out.println("UPDATING");
 
+					Client client = new Client();
+					String[] result = client.getActiveOrderItems(creds, 40);
 
-			String[][] orderItems = new String[trimmedResult.length+1][4];
-			int x = 0;
-			for(int i = 0; trimmedResult.length>i; i=i+4) {
-				orderItems[x][0] = trimmedResult[i];
-				orderItems[x][1] = trimmedResult[i+1];
-				orderItems[x][2] = trimmedResult[i+2];
-				orderItems[x][3] = trimmedResult[i+3];
-				x++;
+					if (result[0].equals("1")) {
+						String[] trimmedResult = Arrays.copyOfRange(result, 1, result.length);
 
 
+						String[][] orderItems = new String[trimmedResult.length + 1][4];
+						int x = 0;
+						for (int i = 0; trimmedResult.length > i; i = i + 4) {
+							orderItems[x][0] = trimmedResult[i];
+							orderItems[x][1] = trimmedResult[i + 1];
+							orderItems[x][2] = trimmedResult[i + 2];
+							orderItems[x][3] = trimmedResult[i + 3];
+							x++;
+						}
+
+						//setTableItems(orderItems);
+						setTableItems(trimmedResult);
+					} else { //Error case
+						System.err.println("ERROR!: " + result[0] + result[1]);
+					}
+
+					try {
+						Thread.sleep(getUpdateRate());
+					} catch (InterruptedException e) {
+						e.printStackTrace();
+					}
+				}
 			}
-
-			//setTableItems(orderItems);
-			setTableItems(trimmedResult);
-
-		} else { //Error case
-			System.err.println("ERROR!: "+result[0]+result[1]);
-		}
+		}).start();
 	}
 
 	public void updateItems() {
@@ -412,19 +423,19 @@ public class MainForm extends JPanel {
 
 	private int getUpdateRate() {
 		if(update1sRadioButton.isSelected()) {
-			return 1;
+			return 1000;
 		} else if(update2sRadioButton.isSelected()) {
-			return 2;
+			return 2000;
 		} else if(update5sRadioButton.isSelected()) {
-			return 5;
+			return 5000;
 		} else if(update10sRadioButton.isSelected()) {
-			return 10;
+			return 10000;
 		} else if(update30sRadioButton.isSelected()) {
-			return 30;
+			return 30000;
 		} else if(update1mRadioButton.isSelected()) {
-			return 60;
+			return 60000;
 		} else {
-			return 10; //no config default
+			return 10000; //no config default
 		}
 
 	}
@@ -439,6 +450,10 @@ public class MainForm extends JPanel {
 		}
 		list1.setListData(orderText);
 
+	}
+
+	public void setCreds(String username, String password) {
+		creds = new String[] {username, password};
 	}
 
 
