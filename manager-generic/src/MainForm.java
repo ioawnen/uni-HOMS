@@ -20,6 +20,7 @@ import com.jgoodies.forms.factories.*;
  */
 public class MainForm extends JPanel {
 	private String[] creds = new String[2];
+	String url;
 
 	public MainForm() {
 		initComponents();
@@ -47,7 +48,9 @@ public class MainForm extends JPanel {
 			String lastName = (String) usersTable.getModel().getValueAt(rowIndex, 7);
 
 			//Send the modifications!
-			String[] result = new Client().modifyUser(
+			Client client = new Client();
+			client.setURL(url);
+			String[] result = client.modifyUser(
 					creds,
 					Integer.parseInt(uid),
 					username,
@@ -91,7 +94,9 @@ public class MainForm extends JPanel {
 		int confirmation = JOptionPane.showConfirmDialog(frame1, "CONFIRM? TODO: MAKE THIS SHOW THE INFO");
 
 		if(confirmation==0) {
-			String[] result = new Client().addUser(creds, username, password, isActive, isAdmin, employeeNumber, firstName, lastName);
+			Client client = new Client();
+			client.setURL(url);
+			String[] result = client.addUser(creds, username, password, isActive, isAdmin, employeeNumber, firstName, lastName);
 
 			if(!result[0].equals("1")) {
 				JOptionPane.showMessageDialog(frame1, "<html>Error!<br>Error Code: " + result[0] + "<br>Message: " + result[1] + "</html>");
@@ -1053,7 +1058,9 @@ public class MainForm extends JPanel {
 		model.addColumn("First Name");
 		model.addColumn("Last Name");
 
-		String[] result = new Client().getUsers(creds);
+		Client client = new Client();
+		client.setURL(url);
+		String[] result = client.getUsers(creds);
 		
 		if(!result[0].equals("1")) {
 			JOptionPane.showMessageDialog(frame1, "<html>Error!<br>Error Code: "+result[0]+"<br>Message: "+result[1]+"</html>");
@@ -1099,7 +1106,7 @@ public class MainForm extends JPanel {
 	}
 
 
-
-
-
+	public void setURL(String URL) {
+		url = URL;
+	}
 }

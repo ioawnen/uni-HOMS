@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94fa8122-064d-44cd-aa60-223ccad886d1" name="Default" comment="Adds method stubs, database work, etc intellij settings changes">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../terminal_generic/src/MainClass.java" afterPath="$PROJECT_DIR$/../../terminal_generic/src/MainClass.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../manager-generic/src/Client.java" afterPath="$PROJECT_DIR$/../../manager-generic/src/Client.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../terminal_generic/src/Client.java" afterPath="$PROJECT_DIR$/../../terminal_generic/src/Client.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../manager-generic/src/LoginForm.java" afterPath="$PROJECT_DIR$/../../manager-generic/src/LoginForm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../terminal_generic/src/LoginForm.java" afterPath="$PROJECT_DIR$/../../terminal_generic/src/LoginForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../manager-generic/src/MainForm.java" afterPath="$PROJECT_DIR$/../../manager-generic/src/MainForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../terminal_generic/src/MainForm.java" afterPath="$PROJECT_DIR$/../../terminal_generic/src/MainForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../manager-generic/src/MainForm.jfd" afterPath="$PROJECT_DIR$/../../manager-generic/src/MainForm.jfd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../manager-generic/src/mainform_strings.properties" afterPath="$PROJECT_DIR$/../../manager-generic/src/mainform_strings.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../manager-generic/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../manager-generic/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../terminal_generic/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../terminal_generic/.idea/workspace.xml" />
     </list>
     <ignored path="HOMS-server.iws" />
     <ignored path=".idea/workspace.xml" />

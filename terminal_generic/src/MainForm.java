@@ -19,6 +19,7 @@ public class MainForm extends JPanel {
 
 	String[] creds;
 	String[][] items;
+	String url;
 	public MainForm() {
 		initComponents();
 	}
@@ -303,6 +304,7 @@ public class MainForm extends JPanel {
 					System.out.println("UPDATING");
 
 					Client client = new Client();
+					client.setURL(url);
 					String[] result = client.getActiveOrderItems(creds, 40);
 
 					if (result[0].equals("1")) {
@@ -338,6 +340,7 @@ public class MainForm extends JPanel {
 	public void updateItems() {
 
 		Client client = new Client();
+		client.setURL(url);
 		String[] result = client.getItems(creds);
 		System.out.println("1");
 		if(result[0].equals("1")) {
@@ -455,11 +458,14 @@ public class MainForm extends JPanel {
 	public void setCreds(String username, String password) {
 		creds = new String[] {username, password};
 	}
-
+	public void setURL(String URL) {
+		url = URL;
+	}
 
 	public void setClockTime() {
 	//TODO: Implement real time clock
 	}
+
 	public void setVisibility(boolean vis) {
 		frame1.setVisible(vis);
 	}

@@ -9,11 +9,13 @@ import java.util.Vector;
 
 public class Client {
 
+	String url;
+
 
 	private XmlRpcClient createConnection() { //Simple centralised method for standardising server connections. CALL THIS.
 			XmlRpcClient server = null;
 			try {
-				server = new XmlRpcClient("http://localhost:38575/RPC2"); //TODO: MAKE THIS CONFIGURABLE
+				server = new XmlRpcClient(url); //TODO: MAKE THIS CONFIGURABLE
 
 			}
 			catch (Exception ex) {
@@ -21,6 +23,10 @@ public class Client {
 				return null;
 		}
 		return server;
+	}
+
+	public void setURL(String URL) {
+		url = URL;
 	}
 
 	private String[] strToArray(String str) {

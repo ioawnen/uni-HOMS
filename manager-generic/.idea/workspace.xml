@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="349d2620-7fe6-4ba8-bc9a-b2e05dccc006" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../terminal_generic/src/MainClass.java" afterPath="$PROJECT_DIR$/../terminal_generic/src/MainClass.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Client.java" afterPath="$PROJECT_DIR$/src/Client.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../terminal_generic/src/Client.java" afterPath="$PROJECT_DIR$/../terminal_generic/src/Client.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LoginForm.java" afterPath="$PROJECT_DIR$/src/LoginForm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../terminal_generic/src/LoginForm.java" afterPath="$PROJECT_DIR$/../terminal_generic/src/LoginForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainForm.java" afterPath="$PROJECT_DIR$/src/MainForm.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../terminal_generic/src/MainForm.java" afterPath="$PROJECT_DIR$/../terminal_generic/src/MainForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainForm.jfd" afterPath="$PROJECT_DIR$/src/MainForm.jfd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mainform_strings.properties" afterPath="$PROJECT_DIR$/src/mainform_strings.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server_generic/HOMS-server/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../server_generic/HOMS-server/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../terminal_generic/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../terminal_generic/.idea/workspace.xml" />
     </list>
     <ignored path="HOMS-manager.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -31,10 +29,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="MainClass.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainClass.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.25400212">
+            <state vertical-scroll-proportion="0.0">
               <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
               <folding />
             </state>
@@ -69,47 +67,25 @@
         <entry file="file://$PROJECT_DIR$/src/LoginForm.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="34" column="45" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
+              <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#315#316#0" expanded="false" />
-                <element signature="e#338#339#0" expanded="false" />
-                <element signature="e#2132#2133#0" expanded="false" />
-                <element signature="e#2194#2195#0" expanded="false" />
-                <element signature="e#3139#3140#0" expanded="false" />
-                <element signature="e#3179#3180#0" expanded="false" />
-                <element signature="e#4856#4857#0" expanded="false" />
-                <element signature="e#4896#4897#0" expanded="false" />
-                <element signature="e#5559#5560#0" expanded="false" />
-                <element signature="e#5601#5602#0" expanded="false" />
-                <element signature="e#6266#6267#0" expanded="false" />
-                <element signature="e#6308#6309#0" expanded="false" />
-                <element signature="e#6713#6714#0" expanded="false" />
-                <element signature="e#6758#6759#0" expanded="false" />
-                <element signature="e#9076#9077#0" expanded="false" />
-                <element signature="e#9106#9107#0" expanded="false" />
-                <marker date="1430007219143" expanded="true" signature="2233:7829" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1430007219143" expanded="false" signature="7835:8379" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <marker date="1431025549988" expanded="true" signature="2298:7894" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1431025549988" expanded="false" signature="7900:8444" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainForm.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainForm.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="1049" column="34" selection-start-line="1049" selection-start-column="34" selection-end-line="1049" selection-end-column="34" />
+            <state vertical-scroll-proportion="0.03842049">
+              <caret line="1057" column="38" selection-start-line="1057" selection-start-column="38" selection-end-line="1057" selection-end-column="38" />
               <folding>
-                <element signature="imports" expanded="false" />
-                <element signature="e#473#474#0" expanded="false" />
-                <element signature="e#496#497#0" expanded="false" />
-                <element signature="e#3328#3329#0" expanded="false" />
-                <element signature="e#3352#3353#0" expanded="false" />
-                <element signature="e#54394#54395#0" expanded="false" />
-                <element signature="e#54423#54424#0" expanded="false" />
-                <marker date="1431022872609" expanded="false" signature="3390:48973" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1431022872609" expanded="false" signature="48979:52039" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <element signature="e#54620#54621#0" expanded="true" />
+                <element signature="e#54636#54637#0" expanded="true" />
+                <marker date="1431025701873" expanded="false" signature="3503:49086" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1431025701873" expanded="false" signature="49092:52152" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
@@ -119,10 +95,10 @@
         <entry file="file://$PROJECT_DIR$/src/Client.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="336" column="9" selection-start-line="336" selection-start-column="9" selection-end-line="336" selection-end-column="9" />
+              <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
               <folding>
-                <element signature="n#!!doc" expanded="false" />
-                <element signature="imports" expanded="false" />
+                <element signature="e#574#575#0" expanded="true" />
+                <element signature="e#590#591#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -151,11 +127,11 @@
         <option value="$PROJECT_DIR$/src/loginform_strings.properties" />
         <option value="$PROJECT_DIR$/src/mainform_strings.properties" />
         <option value="$PROJECT_DIR$/src/MainClass.java" />
-        <option value="$PROJECT_DIR$/src/Client.java" />
-        <option value="$PROJECT_DIR$/src/LoginForm.java" />
-        <option value="$PROJECT_DIR$/src/MainForm.java" />
         <option value="$PROJECT_DIR$/src/LoginForm.jfd" />
         <option value="$PROJECT_DIR$/src/MainForm.jfd" />
+        <option value="$PROJECT_DIR$/src/LoginForm.java" />
+        <option value="$PROJECT_DIR$/src/Client.java" />
+        <option value="$PROJECT_DIR$/src/MainForm.java" />
       </list>
     </option>
   </component>
@@ -390,7 +366,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1936" height="1096" extended-state="1" />
+    <frame x="0" y="0" width="1936" height="1096" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -404,7 +380,7 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -462,25 +438,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#315#316#0" expanded="false" />
-            <element signature="e#338#339#0" expanded="false" />
-            <element signature="e#2132#2133#0" expanded="false" />
-            <element signature="e#2194#2195#0" expanded="false" />
-            <element signature="e#3139#3140#0" expanded="false" />
-            <element signature="e#3179#3180#0" expanded="false" />
-            <element signature="e#4856#4857#0" expanded="false" />
-            <element signature="e#4896#4897#0" expanded="false" />
-            <element signature="e#5559#5560#0" expanded="false" />
-            <element signature="e#5601#5602#0" expanded="false" />
-            <element signature="e#6266#6267#0" expanded="false" />
-            <element signature="e#6308#6309#0" expanded="false" />
-            <element signature="e#6713#6714#0" expanded="false" />
-            <element signature="e#6758#6759#0" expanded="false" />
-            <element signature="e#9076#9077#0" expanded="false" />
-            <element signature="e#9106#9107#0" expanded="false" />
-            <marker date="1430007219143" expanded="true" signature="2233:7829" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1430007219143" expanded="false" signature="7835:8379" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1431025549988" expanded="true" signature="2298:7894" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1431025549988" expanded="false" signature="7900:8444" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -489,6 +448,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="729" column="0" selection-start-line="729" selection-start-column="0" selection-end-line="729" selection-end-column="0" />
+          <folding>
+            <element signature="e#27861#27862#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -497,15 +459,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="966" column="34" selection-start-line="966" selection-start-column="34" selection-end-line="966" selection-end-column="34" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#473#474#0" expanded="false" />
-            <element signature="e#496#497#0" expanded="false" />
-            <element signature="e#3328#3329#0" expanded="false" />
-            <element signature="e#3352#3353#0" expanded="false" />
-            <element signature="e#54394#54395#0" expanded="false" />
-            <element signature="e#54423#54424#0" expanded="false" />
-            <marker date="1431022872609" expanded="false" signature="3390:48973" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1431022872609" expanded="false" signature="48979:52039" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#54620#54621#0" expanded="true" />
+            <element signature="e#54636#54637#0" expanded="true" />
+            <marker date="1431025701873" expanded="false" signature="3503:49086" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1431025701873" expanded="false" signature="49092:52152" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -515,8 +472,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="336" column="9" selection-start-line="336" selection-start-column="9" selection-end-line="336" selection-end-column="9" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="imports" expanded="false" />
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#590#591#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -552,25 +509,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="47" column="39" selection-start-line="47" selection-start-column="39" selection-end-line="47" selection-end-column="39" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#315#316#0" expanded="false" />
-            <element signature="e#338#339#0" expanded="false" />
-            <element signature="e#2132#2133#0" expanded="false" />
-            <element signature="e#2194#2195#0" expanded="false" />
-            <element signature="e#3139#3140#0" expanded="false" />
-            <element signature="e#3179#3180#0" expanded="false" />
-            <element signature="e#4856#4857#0" expanded="false" />
-            <element signature="e#4896#4897#0" expanded="false" />
-            <element signature="e#5559#5560#0" expanded="false" />
-            <element signature="e#5601#5602#0" expanded="false" />
-            <element signature="e#6266#6267#0" expanded="false" />
-            <element signature="e#6308#6309#0" expanded="false" />
-            <element signature="e#6713#6714#0" expanded="false" />
-            <element signature="e#6758#6759#0" expanded="false" />
-            <element signature="e#9076#9077#0" expanded="false" />
-            <element signature="e#9106#9107#0" expanded="false" />
-            <marker date="1430007219143" expanded="true" signature="2233:7829" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1430007219143" expanded="false" signature="7835:8379" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1431025549988" expanded="true" signature="2298:7894" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1431025549988" expanded="false" signature="7900:8444" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -580,15 +520,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#473#474#0" expanded="false" />
-            <element signature="e#496#497#0" expanded="false" />
-            <element signature="e#3328#3329#0" expanded="false" />
-            <element signature="e#3352#3353#0" expanded="false" />
-            <element signature="e#54394#54395#0" expanded="false" />
-            <element signature="e#54423#54424#0" expanded="false" />
-            <marker date="1431022872609" expanded="false" signature="3390:48973" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1431022872609" expanded="false" signature="48979:52039" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#54620#54621#0" expanded="true" />
+            <element signature="e#54636#54637#0" expanded="true" />
+            <marker date="1431025701873" expanded="false" signature="3503:49086" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1431025701873" expanded="false" signature="49092:52152" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -598,8 +533,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="336" column="9" selection-start-line="336" selection-start-column="9" selection-end-line="336" selection-end-column="9" />
           <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="imports" expanded="false" />
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#590#591#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -642,25 +577,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#315#316#0" expanded="false" />
-            <element signature="e#338#339#0" expanded="false" />
-            <element signature="e#2132#2133#0" expanded="false" />
-            <element signature="e#2194#2195#0" expanded="false" />
-            <element signature="e#3139#3140#0" expanded="false" />
-            <element signature="e#3179#3180#0" expanded="false" />
-            <element signature="e#4856#4857#0" expanded="false" />
-            <element signature="e#4896#4897#0" expanded="false" />
-            <element signature="e#5559#5560#0" expanded="false" />
-            <element signature="e#5601#5602#0" expanded="false" />
-            <element signature="e#6266#6267#0" expanded="false" />
-            <element signature="e#6308#6309#0" expanded="false" />
-            <element signature="e#6713#6714#0" expanded="false" />
-            <element signature="e#6758#6759#0" expanded="false" />
-            <element signature="e#9076#9077#0" expanded="false" />
-            <element signature="e#9106#9107#0" expanded="false" />
-            <marker date="1430007219143" expanded="true" signature="2233:7829" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1430007219143" expanded="false" signature="7835:8379" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1431025549988" expanded="true" signature="2298:7894" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1431025549988" expanded="false" signature="7900:8444" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -670,15 +588,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="488" column="31" selection-start-line="488" selection-start-column="31" selection-end-line="488" selection-end-column="31" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#473#474#0" expanded="false" />
-            <element signature="e#496#497#0" expanded="false" />
-            <element signature="e#3328#3329#0" expanded="false" />
-            <element signature="e#3352#3353#0" expanded="false" />
-            <element signature="e#54394#54395#0" expanded="false" />
-            <element signature="e#54423#54424#0" expanded="false" />
-            <marker date="1431022872609" expanded="false" signature="3390:48973" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1431022872609" expanded="false" signature="48979:52039" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#54620#54621#0" expanded="true" />
+            <element signature="e#54636#54637#0" expanded="true" />
+            <marker date="1431025701873" expanded="false" signature="3503:49086" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1431025701873" expanded="false" signature="49092:52152" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -721,25 +634,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#315#316#0" expanded="false" />
-            <element signature="e#338#339#0" expanded="false" />
-            <element signature="e#2132#2133#0" expanded="false" />
-            <element signature="e#2194#2195#0" expanded="false" />
-            <element signature="e#3139#3140#0" expanded="false" />
-            <element signature="e#3179#3180#0" expanded="false" />
-            <element signature="e#4856#4857#0" expanded="false" />
-            <element signature="e#4896#4897#0" expanded="false" />
-            <element signature="e#5559#5560#0" expanded="false" />
-            <element signature="e#5601#5602#0" expanded="false" />
-            <element signature="e#6266#6267#0" expanded="false" />
-            <element signature="e#6308#6309#0" expanded="false" />
-            <element signature="e#6713#6714#0" expanded="false" />
-            <element signature="e#6758#6759#0" expanded="false" />
-            <element signature="e#9076#9077#0" expanded="false" />
-            <element signature="e#9106#9107#0" expanded="false" />
-            <marker date="1430007219143" expanded="true" signature="2233:7829" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1430007219143" expanded="false" signature="7835:8379" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1431025549988" expanded="true" signature="2298:7894" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1431025549988" expanded="false" signature="7900:8444" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -749,15 +645,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="438" column="31" selection-start-line="438" selection-start-column="31" selection-end-line="438" selection-end-column="31" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#473#474#0" expanded="false" />
-            <element signature="e#496#497#0" expanded="false" />
-            <element signature="e#3328#3329#0" expanded="false" />
-            <element signature="e#3352#3353#0" expanded="false" />
-            <element signature="e#54394#54395#0" expanded="false" />
-            <element signature="e#54423#54424#0" expanded="false" />
-            <marker date="1431022872609" expanded="false" signature="3390:48973" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1431022872609" expanded="false" signature="48979:52039" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#54620#54621#0" expanded="true" />
+            <element signature="e#54636#54637#0" expanded="true" />
+            <marker date="1431025701873" expanded="false" signature="3503:49086" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1431025701873" expanded="false" signature="49092:52152" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -800,25 +691,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="26" column="40" selection-start-line="26" selection-start-column="40" selection-end-line="26" selection-end-column="40" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#315#316#0" expanded="false" />
-            <element signature="e#338#339#0" expanded="false" />
-            <element signature="e#2132#2133#0" expanded="false" />
-            <element signature="e#2194#2195#0" expanded="false" />
-            <element signature="e#3139#3140#0" expanded="false" />
-            <element signature="e#3179#3180#0" expanded="false" />
-            <element signature="e#4856#4857#0" expanded="false" />
-            <element signature="e#4896#4897#0" expanded="false" />
-            <element signature="e#5559#5560#0" expanded="false" />
-            <element signature="e#5601#5602#0" expanded="false" />
-            <element signature="e#6266#6267#0" expanded="false" />
-            <element signature="e#6308#6309#0" expanded="false" />
-            <element signature="e#6713#6714#0" expanded="false" />
-            <element signature="e#6758#6759#0" expanded="false" />
-            <element signature="e#9076#9077#0" expanded="false" />
-            <element signature="e#9106#9107#0" expanded="false" />
-            <marker date="1430007219143" expanded="true" signature="2233:7829" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1430007219143" expanded="false" signature="7835:8379" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1431025549988" expanded="true" signature="2298:7894" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1431025549988" expanded="false" signature="7900:8444" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -828,15 +702,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="438" column="31" selection-start-line="438" selection-start-column="31" selection-end-line="438" selection-end-column="31" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#473#474#0" expanded="false" />
-            <element signature="e#496#497#0" expanded="false" />
-            <element signature="e#3328#3329#0" expanded="false" />
-            <element signature="e#3352#3353#0" expanded="false" />
-            <element signature="e#54394#54395#0" expanded="false" />
-            <element signature="e#54423#54424#0" expanded="false" />
-            <marker date="1431022872609" expanded="false" signature="3390:48973" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1431022872609" expanded="false" signature="48979:52039" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#54620#54621#0" expanded="true" />
+            <element signature="e#54636#54637#0" expanded="true" />
+            <marker date="1431025701873" expanded="false" signature="3503:49086" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1431025701873" expanded="false" signature="49092:52152" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -879,25 +748,8 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="40" column="62" selection-start-line="40" selection-start-column="62" selection-end-line="40" selection-end-column="62" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#315#316#0" expanded="false" />
-            <element signature="e#338#339#0" expanded="false" />
-            <element signature="e#2132#2133#0" expanded="false" />
-            <element signature="e#2194#2195#0" expanded="false" />
-            <element signature="e#3139#3140#0" expanded="false" />
-            <element signature="e#3179#3180#0" expanded="false" />
-            <element signature="e#4856#4857#0" expanded="false" />
-            <element signature="e#4896#4897#0" expanded="false" />
-            <element signature="e#5559#5560#0" expanded="false" />
-            <element signature="e#5601#5602#0" expanded="false" />
-            <element signature="e#6266#6267#0" expanded="false" />
-            <element signature="e#6308#6309#0" expanded="false" />
-            <element signature="e#6713#6714#0" expanded="false" />
-            <element signature="e#6758#6759#0" expanded="false" />
-            <element signature="e#9076#9077#0" expanded="false" />
-            <element signature="e#9106#9107#0" expanded="false" />
-            <marker date="1430007219143" expanded="true" signature="2233:7829" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1430007219143" expanded="false" signature="7835:8379" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <marker date="1431025549988" expanded="true" signature="2298:7894" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1431025549988" expanded="false" signature="7900:8444" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -907,15 +759,10 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#473#474#0" expanded="false" />
-            <element signature="e#496#497#0" expanded="false" />
-            <element signature="e#3328#3329#0" expanded="false" />
-            <element signature="e#3352#3353#0" expanded="false" />
-            <element signature="e#54394#54395#0" expanded="false" />
-            <element signature="e#54423#54424#0" expanded="false" />
-            <marker date="1431022872609" expanded="false" signature="3390:48973" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1431022872609" expanded="false" signature="48979:52039" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#54620#54621#0" expanded="true" />
+            <element signature="e#54636#54637#0" expanded="true" />
+            <marker date="1431025701873" expanded="false" signature="3503:49086" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1431025701873" expanded="false" signature="49092:52152" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -934,66 +781,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="336" column="9" selection-start-line="336" selection-start-column="9" selection-end-line="336" selection-end-column="9" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-            <element signature="imports" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://C:/Program Files/Java/jdk1.7.0_71/src.zip!/java/util/Vector.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="729" column="0" selection-start-line="729" selection-start-column="0" selection-end-line="729" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/LoginForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="34" column="45" selection-start-line="34" selection-start-column="45" selection-end-line="34" selection-end-column="45" />
           <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#315#316#0" expanded="false" />
-            <element signature="e#338#339#0" expanded="false" />
-            <element signature="e#2132#2133#0" expanded="false" />
-            <element signature="e#2194#2195#0" expanded="false" />
-            <element signature="e#3139#3140#0" expanded="false" />
-            <element signature="e#3179#3180#0" expanded="false" />
-            <element signature="e#4856#4857#0" expanded="false" />
-            <element signature="e#4896#4897#0" expanded="false" />
-            <element signature="e#5559#5560#0" expanded="false" />
-            <element signature="e#5601#5602#0" expanded="false" />
-            <element signature="e#6266#6267#0" expanded="false" />
-            <element signature="e#6308#6309#0" expanded="false" />
-            <element signature="e#6713#6714#0" expanded="false" />
-            <element signature="e#6758#6759#0" expanded="false" />
-            <element signature="e#9076#9077#0" expanded="false" />
-            <element signature="e#9106#9107#0" expanded="false" />
-            <marker date="1430007219143" expanded="true" signature="2233:7829" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1430007219143" expanded="false" signature="7835:8379" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainForm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="1049" column="34" selection-start-line="1049" selection-start-column="34" selection-end-line="1049" selection-end-column="34" />
-          <folding>
-            <element signature="imports" expanded="false" />
-            <element signature="e#473#474#0" expanded="false" />
-            <element signature="e#496#497#0" expanded="false" />
-            <element signature="e#3328#3329#0" expanded="false" />
-            <element signature="e#3352#3353#0" expanded="false" />
-            <element signature="e#54394#54395#0" expanded="false" />
-            <element signature="e#54423#54424#0" expanded="false" />
-            <marker date="1431022872609" expanded="false" signature="3390:48973" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1431022872609" expanded="false" signature="48979:52039" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#27861#27862#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1018,9 +811,44 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.25400212">
+        <state vertical-scroll-proportion="0.0">
           <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="32" column="47" selection-start-line="32" selection-start-column="47" selection-end-line="32" selection-end-column="47" />
+          <folding>
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#590#591#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/LoginForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="34" column="30" selection-start-line="34" selection-start-column="30" selection-end-line="34" selection-end-column="30" />
+          <folding>
+            <marker date="1431025549988" expanded="true" signature="2298:7894" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1431025549988" expanded="false" signature="7900:8444" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03842049">
+          <caret line="1057" column="38" selection-start-line="1057" selection-start-column="38" selection-end-line="1057" selection-end-column="38" />
+          <folding>
+            <element signature="e#54620#54621#0" expanded="true" />
+            <element signature="e#54636#54637#0" expanded="true" />
+            <marker date="1431025701873" expanded="false" signature="3503:49086" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1431025701873" expanded="false" signature="49092:52152" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
         </state>
       </provider>
     </entry>

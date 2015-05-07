@@ -23,6 +23,7 @@ public class LoginForm extends JPanel {
 		if(validateFields()) {
 			String username = usernameField.getText();
 			String password = new String(passwordField.getPassword());
+			String url = serverField.getText();
 
 			String[] results = new Client().authenticate(new String[] {username, password});
 			if(results[0].equals("1")) {
@@ -30,6 +31,7 @@ public class LoginForm extends JPanel {
 
 				MainForm mainForm = new MainForm();
 				mainForm.setCreds(username, password);
+				mainForm.setURL(url);
 				mainForm.updateItems();
 				mainForm.setVisibility(true);
 				dialog1.setVisible(false);
