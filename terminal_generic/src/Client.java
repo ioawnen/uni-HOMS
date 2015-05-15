@@ -9,7 +9,7 @@ import java.util.Vector;
 
 public class Client {
 
-	String url;
+	public String url = null;
 
 
 	private XmlRpcClient createConnection() { //Simple centralised method for standardising server connections. CALL THIS.
@@ -27,6 +27,9 @@ public class Client {
 
 	public void setURL(String URL) {
 		url = URL;
+	}
+	public String getURL() {
+		return url;
 	}
 
 	private String[] strToArray(String str) {

@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "5.2.1.0.138" Java: "1.8.0_40" encoding: "UTF-8"
+JFDML JFormDesigner: "5.2.1.0.138" Java: "1.8.0_31" encoding: "UTF-8"
 
 new FormModel {
 	"i18n.autoExternalize": true
@@ -15,7 +15,7 @@ new FormModel {
 				name: "tabbedPane1"
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 					"$horizontalGroup": "par l {seq {space :::p, par l {seq {comp ordersInProgPanel:::p:190:p, space :0:678:x}, seq t {par l {comp income24hPanel::l:p:190:p, comp ordersTodayPanel::l:p:190:p}, space :p:39:p, par l {comp income7dPanel:::p:190:p, comp ordersInProgPanel2:::p:190:p}, space ::42:x, par l {seq {comp ordersInProgPanel3:::p:190:p, space :p:27:p, comp ordersInProgPanel4:::p:190:p}, seq {comp income28dPanel:::p:190:p, space :p:27:p, comp income28dPanel2:::p:190:p}}}}, space :::p}}"
-					"$verticalGroup": "par l {seq l {space :::p, par t {comp income24hPanel:::p:95:p, comp income28dPanel2::t:p:95:p, comp income28dPanel::t:p:95:p, comp income7dPanel::t:p:95:p}, space s:::p, par l {comp ordersTodayPanel:::p:95:p, comp ordersInProgPanel4::l:p:95:p, comp ordersInProgPanel3::l:p:95:p, comp ordersInProgPanel2::l:p:95:p}, space u:::p, comp ordersInProgPanel:::p:95:p, space ::224:x}}"
+					"$verticalGroup": "par l {seq l {space :::p, par t {comp income24hPanel:::p:95:p, comp income28dPanel2::t:p:95:p, comp income28dPanel::t:p:95:p, comp income7dPanel::t:p:95:p}, space s:::p, par l {comp ordersTodayPanel:::p:95:p, comp ordersInProgPanel4::l:p:95:p, comp ordersInProgPanel3::l:p:95:p, comp ordersInProgPanel2::l:p:95:p}, space u:::p, comp ordersInProgPanel:::p:95:p, space ::222:x}}"
 				} ) {
 					name: "overviewPanel"
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class java.awt.GridBagLayout ) {
@@ -194,7 +194,7 @@ new FormModel {
 				} )
 				add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 					"$horizontalGroup": "par l {comp userInputPanel::l:::x, comp usersScrollPane::l::880:x}"
-					"$verticalGroup": "par l {seq l {comp usersScrollPane::::389:x, space :::x, comp userInputPanel:::p:150:p}}"
+					"$verticalGroup": "par l {seq l {comp usersScrollPane::::387:x, space :::x, comp userInputPanel:::p:150:p}}"
 				} ) {
 					name: "manageUsersPanel"
 					add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
@@ -302,7 +302,7 @@ new FormModel {
 					} )
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 						"$horizontalGroup": "par l {seq {space :::p, par l {seq {par l {seq {par l {comp userInputUsernameLabel2:::p:75:p, comp userInputPasswordLabel2::l:p:75:p}, space :::p, par l:::p {comp userInputUsernameField2::::200:x, comp userInputPasswordField2:::::x}}, seq l {comp userInputUserIdLabel2:::p:75:p, space :::p, comp userInputUserIdField2:::p:200:p}}, space ::284:x, comp userInputEmployeeNoLabel2:::p:75:p, space :::p, comp userInputEmployeeNoField2:::p:200:p}, seq t {space :0:640:x, comp userInputClearButton2:::p:100:p, space :::p, comp userInputAddNewButton2:::p:100:p}}, space :::p}}"
-						"$verticalGroup": "par l {seq {space :4:4:p, par l {seq l {par b {comp userInputUserIdLabel2::b:p::p, comp userInputUserIdField2::b:p::p}, space :p:6:p, par b {comp userInputUsernameLabel2::b:p::p, comp userInputUsernameField2::b:p::p}, space :::p, par b {comp userInputPasswordLabel2::b:p::p, comp userInputPasswordField2::b:p::p}, space :44:67:x}, seq l {par b {comp userInputEmployeeNoField2::b:p::p, comp userInputEmployeeNoLabel2::b:p::p}, space ::88:x, par b {comp userInputAddNewButton2::b:p::p, comp userInputClearButton2::b:p::p}, space :::p}}}}"
+						"$verticalGroup": "par l {seq {space :4:4:p, par l {seq l {par b {comp userInputUserIdLabel2::b:p::p, comp userInputUserIdField2::b:p::p}, space :p:6:p, par b {comp userInputUsernameLabel2::b:p::p, comp userInputUsernameField2::b:p::p}, space :::p, par b {comp userInputPasswordLabel2::b:p::p, comp userInputPasswordField2::b:p::p}, space :44:65:x}, seq l {par b {comp userInputEmployeeNoField2::b:p::p, comp userInputEmployeeNoLabel2::b:p::p}, space ::86:x, par b {comp userInputAddNewButton2::b:p::p, comp userInputClearButton2::b:p::p}, space :::p}}}}"
 					} ) {
 						name: "userInputPanel2"
 						"border": new javax.swing.border.TitledBorder( "i18nKey=MainForm.userInputPanel2.border" )
@@ -367,7 +367,7 @@ new FormModel {
 					} )
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 						"$horizontalGroup": "par l {seq {space :::p, par l {seq {comp userInputUserIdLabel3:::p:75:p, space :::p, comp userInputUserIdField3:::p:200:p, space :::p, comp userInputActiveCheckBox2:::p:100:p, space :::x, comp userInputEmployeeNoLabel3:::p:75:p, space :::p, comp userInputEmployeeNoField3:::p:200:p}, seq {par l {comp userInputUsernameLabel3:::p:75:p, comp userInputPasswordLabel3::l:p:75:p}, space :::p, par l:::p {comp userInputUsernameField3::::200:x, comp userInputPasswordField3:::::x}, space :::p, par l {comp userInputAdminCheckBox2:::p:100:p, comp userInputAdminCheckBox3:::p:100:p}, space :0:0:x}, seq l {space :0:0:x, comp userInputClearButton3:::p:100:p, space :::p, comp userInputAddNewButton3:::p:100:p}}, space :::p}}"
-						"$verticalGroup": "par l {seq {space :4:4:p, par l {seq l {par b {comp userInputUserIdLabel3::b:p::p, comp userInputUserIdField3::b:p::p, comp userInputActiveCheckBox2::b:p::p}, space :p:6:p, par b {comp userInputUsernameLabel3::b:p::p, comp userInputUsernameField3::b:p::p, comp userInputAdminCheckBox2::b:p::p}, space :::p, par b {comp userInputPasswordLabel3::b:p::p, comp userInputPasswordField3::b:p::p, comp userInputAdminCheckBox3::b:p::p}, space :44:66:x}, seq l {par b {comp userInputEmployeeNoField3::b:p::p, comp userInputEmployeeNoLabel3::b:p::p}, space ::88:x, par b {comp userInputAddNewButton3::b:p::p, comp userInputClearButton3::b:p::p}, space :::p}}}}"
+						"$verticalGroup": "par l {seq {space :4:4:p, par l {seq l {par b {comp userInputUserIdLabel3::b:p::p, comp userInputUserIdField3::b:p::p, comp userInputActiveCheckBox2::b:p::p}, space :p:6:p, par b {comp userInputUsernameLabel3::b:p::p, comp userInputUsernameField3::b:p::p, comp userInputAdminCheckBox2::b:p::p}, space :::p, par b {comp userInputPasswordLabel3::b:p::p, comp userInputPasswordField3::b:p::p, comp userInputAdminCheckBox3::b:p::p}, space :44:64:x}, seq l {par b {comp userInputEmployeeNoField3::b:p::p, comp userInputEmployeeNoLabel3::b:p::p}, space ::86:x, par b {comp userInputAddNewButton3::b:p::p, comp userInputClearButton3::b:p::p}, space :::p}}}}"
 					} ) {
 						name: "userInputPanel3"
 						"border": new javax.swing.border.TitledBorder( "i18nKey=MainForm.userInputPanel3.border" )
@@ -447,8 +447,9 @@ new FormModel {
 					name: "menu1"
 					"text": new FormMessage( null, "MainForm.menu1.text" )
 					add( new FormComponent( "javax.swing.JMenuItem" ) {
-						name: "menuItem2"
-						"text": new FormMessage( null, "MainForm.menuItem2.text" )
+						name: "refreshButton"
+						"text": new FormMessage( null, "MainForm.refreshButton.text" )
+						addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "refreshButtonActionPerformed", true ) )
 					} )
 				} )
 			}

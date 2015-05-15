@@ -3,7 +3,6 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
-import com.jgoodies.forms.factories.*;
 /*
  * Created by JFormDesigner on Tue Apr 14 16:08:05 BST 2015
  */
@@ -26,7 +25,12 @@ public class LoginForm extends JPanel {
 			String password = new String(passwordField.getPassword());
 			String url = serverField.getText();
 
-			String[] results = new Client().authenticate(new String[] {username, password});
+			Client client = new Client();
+			client.setURL(url);
+			String[] results = client.authenticate(new String[] {username, password});
+
+
+
 			if(results[0].equals("1")) {
 				//CONTINUE ONWARDS
 
