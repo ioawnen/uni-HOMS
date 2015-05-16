@@ -3,6 +3,7 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
+import java.util.Date;
 /*
  * Created by JFormDesigner on Tue Apr 14 16:08:05 BST 2015
  */
@@ -37,7 +38,7 @@ public class LoginForm extends JPanel {
 
 				MainForm mainForm = new MainForm();
 				mainForm.setCreds(username, password);
-				mainForm.url = url;
+				mainForm.setURL(url);
 				mainForm.updateItems();
 				mainForm.setVisibility(true);
 				dialog1.setVisible(false);

@@ -3,14 +3,11 @@ import java.awt.event.*;
 import java.util.*;
 import javax.swing.*;
 import javax.swing.GroupLayout;
-import javax.swing.border.*;
 import javax.swing.event.*;
 import java.lang.Thread;
 /*
  * Created by JFormDesigner on Tue Apr 14 14:56:34 BST 2015
  */
-
-
 
 /**
  * @author unknown
@@ -62,11 +59,12 @@ public class MainForm extends JPanel {
 			if(n==0) {
 				//DO THE UPDATE
 				Client client = new Client();
+				client.setURL(url);
 				String[] result = client.modifyOrderItem(creds, Integer.parseInt(order_id), Integer.parseInt(item_id), 0); //Set the order as inactive (completed)
 				autoUpdateList();
 
 				if(!result[0].equals("1")) {
-					JOptionPane.showMessageDialog(frame1, "Error!");
+					JOptionPane.showMessageDialog(frame1, "<html>Error! errno: "+result[0]+"<br>"+result[1]+"</html>");
 				}
 			}
 		}
@@ -297,19 +295,21 @@ public class MainForm extends JPanel {
 
 		new Thread(new Runnable() {
 			public void run() {
-
 				while(autoUpdateCheckBox.getState()) {
 
 					System.out.println("REFRESH STATE " + autoUpdateCheckBox.getState());
 					System.out.println("UPDATING");
 
+					Date date = new Date();
+					statusLabel.setText("Last Updated: "+date);
+
 					Client client = new Client();
 					client.setURL(url);
+
 					String[] result = client.getActiveOrderItems(creds, 40);
 
 					if (result[0].equals("1")) {
 						String[] trimmedResult = Arrays.copyOfRange(result, 1, result.length);
-
 
 						String[][] orderItems = new String[trimmedResult.length + 1][4];
 						int x = 0;
@@ -321,7 +321,6 @@ public class MainForm extends JPanel {
 							x++;
 						}
 
-						//setTableItems(orderItems);
 						setTableItems(trimmedResult);
 					} else { //Error case
 						System.err.println("ERROR!: " + result[0] + result[1]);
@@ -463,7 +462,8 @@ public class MainForm extends JPanel {
 	}
 
 	public void setClockTime() {
-	//TODO: Implement real time clock
+	//TODO: Implement real time clock (maybe)
+
 	}
 
 	public void setVisibility(boolean vis) {
