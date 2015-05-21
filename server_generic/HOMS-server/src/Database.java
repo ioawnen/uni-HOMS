@@ -173,7 +173,7 @@ public class Database {
         else { return new DbGenericReturn("-99", "Server Error!"); }
     }
 
-    public DbGenericReturn modifyUser(String[] creds, int U_Id, String username, String password, int isActive, int isAdmin, int EmployeeNumber, String firstName, String lastName) { //TODO: CHECK IF USER EXISTS BEFORE ACTION
+    public DbGenericReturn modifyUser(String[] creds, int U_Id, String username,  int isActive, int isAdmin, int EmployeeNumber, String firstName, String lastName) { //TODO: CHECK IF USER EXISTS BEFORE ACTION
 
         //Authenticate user
         DbGenericReturn auth = authenticate(creds);
@@ -182,12 +182,39 @@ public class Database {
                 stmt = conn.createStatement();
                 stmt.executeUpdate("UPDATE users SET " +
                         "Username='" +          username + "', " +
-                        "Password='" +          password + "', " +
                         "Is_Active=" +          isActive + ", " +
                         "Is_Admin=" +           isAdmin + ", " +
                         "Employee_Number=" +    EmployeeNumber + ", " +
                         "First_Name='" +         firstName + "', " +
                         "Last_Name='" +          lastName + "' " +
+                        "WHERE U_Id=" +         U_Id + ";");
+
+                stmt.close();
+                return new DbGenericReturn("1", "");
+            }
+            catch(SQLException ex) {
+                System.out.println("SQLException: " + ex.getMessage());
+                System.out.println("SQLState: " + ex.getSQLState());
+                System.out.println("VendorError: " + ex.getErrorCode());
+
+                return new DbGenericReturn("-1", ex.getMessage() + " " + ex.getSQLState() + " " + ex.getErrorCode());
+            }
+        }
+        else if (auth.getReturn_code().equals("0")){ return new DbGenericReturn("-50", auth.getReturn_string()); }
+        else if (auth.getReturn_code().equals("-1")) { return new DbGenericReturn("-51", auth.getReturn_string()); }
+        else if (isAdmin(creds[0])) { return new DbGenericReturn("-52", R.getString("err-52") ); }
+        else if (isActive(creds[0])) { return new DbGenericReturn("-53", R.getString("err-53") ); }
+        else { return new DbGenericReturn("-99", "Server Error!"); }
+    }
+    public DbGenericReturn modifyUserPassword(String[] creds, int U_Id, String password) { //TODO: CHECK IF USER EXISTS BEFORE ACTION
+
+        //Authenticate user
+        DbGenericReturn auth = authenticate(creds);
+        if (auth.getReturn_code().equals("1") && isAdmin(creds[0]) && isActive(creds[0])) {
+            try {
+                stmt = conn.createStatement();
+                stmt.executeUpdate("UPDATE users SET " +
+                        "Password='" +          password + "' " +
                         "WHERE U_Id=" +         U_Id + ";");
 
                 stmt.close();

@@ -26,7 +26,9 @@ public class LoginForm extends JPanel {
 			String password = new String(passwordField.getPassword());
 			String url = serverField.getText();
 
-			String[] results = new Client().authenticate(new String[] {username, password});
+			Client client = new Client();
+			client.setURL(url);
+			String[] results = client.authenticate(new String[] {username, password});
 			if(results[0].equals("1")) {
 				//CONTINUE ONWARDS
 

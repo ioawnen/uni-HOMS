@@ -28,7 +28,7 @@ public class MainForm extends JPanel {
 
 	private void usersTableMouseClicked(MouseEvent e) {
 		// TODO add your code here
-
+		System.out.println("usersTableMouseClicked");
 	}
 
 	private void usersTablePropertyChange(PropertyChangeEvent e) {
@@ -54,7 +54,6 @@ public class MainForm extends JPanel {
 					creds,
 					Integer.parseInt(uid),
 					username,
-					password,
 					Integer.parseInt(isActive),
 					Integer.parseInt(isAdmin),
 					Integer.parseInt(employeeNumber),
@@ -68,6 +67,24 @@ public class MainForm extends JPanel {
 				//Everything was great case. Generally do nothing.
 				System.out.println("USER MODIFY SUCCESS!");
 			}
+
+			if (!password.equals("********")) {
+				//Send the modifications!
+				Client client2 = new Client();
+				client.setURL(url);
+				String[] result2 = client.modifyUserPassword(
+						creds,
+						Integer.parseInt(uid),
+						password);
+
+				if (!result2[0].equals("1")) {
+					JOptionPane.showMessageDialog(frame1, "<html>Error!<br>Error Code: " + result[0] + "<br>Message: " + result[1] + "</html>");
+					return;
+				} else if (result2[0].equals("1")) {
+					//Everything was great case. Generally do nothing.
+					System.out.println("USER MODIFY SUCCESS!");
+				}
+			}
 		}
 		catch (ArrayIndexOutOfBoundsException ex){
 			System.err.println("THIS SEEMS BAD IF IT KEEPS HAPPENING");
@@ -78,6 +95,7 @@ public class MainForm extends JPanel {
 
 
 	}
+
 
 	private void userInputAddNewButtonActionPerformed(ActionEvent e) {
 		// TODO add your code here
@@ -113,6 +131,12 @@ public class MainForm extends JPanel {
 		clearUserFields();
 	}
 
+	private void refreshButtonActionPerformed(ActionEvent e) {
+		// TODO add your code here
+		updateItemTable();
+		updateUserTable();
+	}
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
 		// Generated using JFormDesigner Evaluation license - Ian Owen
@@ -120,7 +144,7 @@ public class MainForm extends JPanel {
 		frame1 = new JFrame();
 		menuBar1 = new JMenuBar();
 		menu1 = new JMenu();
-		menuItem2 = new JMenuItem();
+		refreshButton = new JMenuItem();
 		tabbedPane1 = new JTabbedPane();
 		overviewPanel = new JPanel();
 		income24hPanel = new JPanel();
@@ -204,9 +228,15 @@ public class MainForm extends JPanel {
 				{
 					menu1.setText(bundle.getString("MainForm.menu1.text"));
 
-					//---- menuItem2 ----
-					menuItem2.setText(bundle.getString("MainForm.menuItem2.text"));
-					menu1.add(menuItem2);
+					//---- refreshButton ----
+					refreshButton.setText(bundle.getString("MainForm.refreshButton.text"));
+					refreshButton.addActionListener(new ActionListener() {
+						@Override
+						public void actionPerformed(ActionEvent e) {
+							refreshButtonActionPerformed(e);
+						}
+					});
+					menu1.add(refreshButton);
 				}
 				menuBar1.add(menu1);
 			}
@@ -715,12 +745,12 @@ public class MainForm extends JPanel {
 											.addGroup(userInputPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 												.addComponent(userInputPasswordLabel2)
 												.addComponent(userInputPasswordField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-											.addGap(44, 67, Short.MAX_VALUE))
+											.addGap(44, 59, Short.MAX_VALUE))
 										.addGroup(userInputPanel2Layout.createSequentialGroup()
 											.addGroup(userInputPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 												.addComponent(userInputEmployeeNoField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
 												.addComponent(userInputEmployeeNoLabel2))
-											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 88, Short.MAX_VALUE)
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 80, Short.MAX_VALUE)
 											.addGroup(userInputPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
 												.addComponent(userInputAddNewButton2)
 												.addComponent(userInputClearButton2))
@@ -732,18 +762,16 @@ public class MainForm extends JPanel {
 					manageTablesPanel.setLayout(manageTablesPanelLayout);
 					manageTablesPanelLayout.setHorizontalGroup(
 						manageTablesPanelLayout.createParallelGroup()
-							.addGroup(manageTablesPanelLayout.createSequentialGroup()
+							.addGroup(GroupLayout.Alignment.TRAILING, manageTablesPanelLayout.createSequentialGroup()
 								.addContainerGap()
-								.addGroup(manageTablesPanelLayout.createParallelGroup()
-									.addComponent(tablesScrollPane)
-									.addComponent(userInputPanel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+								.addComponent(userInputPanel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addContainerGap())
+							.addComponent(tablesScrollPane, GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
 					);
 					manageTablesPanelLayout.setVerticalGroup(
 						manageTablesPanelLayout.createParallelGroup()
 							.addGroup(manageTablesPanelLayout.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(tablesScrollPane, GroupLayout.PREFERRED_SIZE, 350, GroupLayout.PREFERRED_SIZE)
+								.addComponent(tablesScrollPane, GroupLayout.PREFERRED_SIZE, 364, GroupLayout.PREFERRED_SIZE)
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 								.addComponent(userInputPanel2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addContainerGap())
@@ -832,7 +860,7 @@ public class MainForm extends JPanel {
 											.addComponent(userInputUserIdField3, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
 											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 											.addComponent(userInputActiveCheckBox2, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
 											.addComponent(userInputEmployeeNoLabel3, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
 											.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 											.addComponent(userInputEmployeeNoField3, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE))
@@ -893,20 +921,16 @@ public class MainForm extends JPanel {
 					manageItemsPanel.setLayout(manageItemsPanelLayout);
 					manageItemsPanelLayout.setHorizontalGroup(
 						manageItemsPanelLayout.createParallelGroup()
-							.addGroup(manageItemsPanelLayout.createSequentialGroup()
+							.addGroup(GroupLayout.Alignment.TRAILING, manageItemsPanelLayout.createSequentialGroup()
 								.addContainerGap()
-								.addGroup(manageItemsPanelLayout.createParallelGroup()
-									.addGroup(GroupLayout.Alignment.TRAILING, manageItemsPanelLayout.createSequentialGroup()
-										.addGap(0, 0, Short.MAX_VALUE)
-										.addComponent(itemsScrollPane, GroupLayout.PREFERRED_SIZE, 868, GroupLayout.PREFERRED_SIZE))
-									.addComponent(userInputPanel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+								.addComponent(userInputPanel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addContainerGap())
+							.addComponent(itemsScrollPane, GroupLayout.DEFAULT_SIZE, 880, Short.MAX_VALUE)
 					);
 					manageItemsPanelLayout.setVerticalGroup(
 						manageItemsPanelLayout.createParallelGroup()
 							.addGroup(manageItemsPanelLayout.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(itemsScrollPane, GroupLayout.PREFERRED_SIZE, 350, GroupLayout.PREFERRED_SIZE)
+								.addComponent(itemsScrollPane, GroupLayout.PREFERRED_SIZE, 356, GroupLayout.PREFERRED_SIZE)
 								.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
 								.addComponent(userInputPanel3, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 								.addContainerGap())
@@ -942,7 +966,7 @@ public class MainForm extends JPanel {
 	private JFrame frame1;
 	private JMenuBar menuBar1;
 	private JMenu menu1;
-	private JMenuItem menuItem2;
+	private JMenuItem refreshButton;
 	private JTabbedPane tabbedPane1;
 	private JPanel overviewPanel;
 	private JPanel income24hPanel;
@@ -1040,9 +1064,71 @@ public class MainForm extends JPanel {
 		userInputLastNameField.setText("");
 	}
 
+	public void updateItemTable() {
+
+		DefaultTableModel model = (DefaultTableModel) itemsTable.getModel();
+		//Clear before each refresh
+		model.setRowCount(0);
+		model.setColumnCount(0);
+		itemsTable.revalidate();
+
+		model.addColumn("I_Id");
+		model.addColumn("Item Name");
+		model.addColumn("Description");
+		model.addColumn("Price");
+		model.addColumn("Is Available");
+		model.addColumn("Is Vegetarian");
+		model.addColumn("Is Vegan");
+		model.addColumn("Is Spicy");
+
+		Client client = new Client();
+		client.setURL(url);
+		String[] result = client.getItems(creds);
+		
+		if(!result[0].equals("1")) {
+			JOptionPane.showMessageDialog(frame1, "<html>Error!<br>Error Code: "+result[0]+"<br>Message: "+result[1]+"</html>");
+			return;
+		}
+
+		String[] trimmedResult = Arrays.copyOfRange(result, 1, result.length);
+
+		String[][] items = new String[trimmedResult.length/8][8];
+		System.out.println("length = "+trimmedResult.length);
+
+		int x = 0;
+		for(int i = 0; trimmedResult.length>i; i = i + 8) {
+			String[] item = new String[] {
+					trimmedResult[i+0], //IID
+					trimmedResult[i+1], //Name
+					trimmedResult[i+2], //Desc
+					trimmedResult[i+3], //Price
+					trimmedResult[i+4], //Avail
+					trimmedResult[i+5], //Veg
+					trimmedResult[i+6],  //Vegan
+					trimmedResult[i+7]  //Spicy
+
+			};
+			items[x] = item;
+			x++;
+		}
+
+		for(String[] item : items) {
+			String iid = item[0];
+			String name = item[1];
+			String description = item[2];
+			String price = item[3];
+			String available = item[4];
+			String vegetarian = item[5];
+			String vegan = item[6];
+			String spicy = item[7];
+
+			Object[] row = { iid, name, description, price, available, vegetarian, vegan, spicy};
+			model.addRow(row);
+		}
+	}
+
 	public void updateUserTable() {
 
-		//Object[] row = { "f", "g", "gg", "gthj" };
 		DefaultTableModel model = (DefaultTableModel) usersTable.getModel();
 		//Clear before each refresh
 		model.setRowCount(0);
@@ -1061,7 +1147,7 @@ public class MainForm extends JPanel {
 		Client client = new Client();
 		client.setURL(url);
 		String[] result = client.getUsers(creds);
-		
+
 		if(!result[0].equals("1")) {
 			JOptionPane.showMessageDialog(frame1, "<html>Error!<br>Error Code: "+result[0]+"<br>Message: "+result[1]+"</html>");
 			return;
@@ -1100,6 +1186,7 @@ public class MainForm extends JPanel {
 			model.addRow(row);
 		}
 	}
+
 
 	public void setVisibility(boolean vis) {
 		frame1.setVisible(vis);

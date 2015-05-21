@@ -117,9 +117,9 @@ public class Server {
         return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
     }
 
-    public String[] modifyUser(String Uname, String Pword, int U_Id, String username, String password, int isActive, int isAdmin, int EmployeeNumber, String firstName, String lastName) { //TODO: CHECK IF USER EXISTS BEFORE ACTION
+    public String[] modifyUser(String Uname, String Pword, int U_Id, String username, int isActive, int isAdmin, int EmployeeNumber, String firstName, String lastName) { //TODO: CHECK IF USER EXISTS BEFORE ACTION
 
-        DbGenericReturn dbResult = database_conn.modifyUser(new String[]{Uname, Pword}, U_Id, username, password, isActive, isAdmin, EmployeeNumber, firstName, lastName);
+        DbGenericReturn dbResult = database_conn.modifyUser(new String[]{Uname, Pword}, U_Id, username, isActive, isAdmin, EmployeeNumber, firstName, lastName);
         return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
     }
 

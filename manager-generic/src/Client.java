@@ -89,7 +89,7 @@ public class Client {
 		catch (Exception ex) { System.err.println(ex.getMessage()); return new String[] {"-20","Connection Error!"}; }
 	}
 
-	public String[] modifyUser(String creds[], int U_Id, String username, String password, int isActive, int isAdmin, int EmployeeNumber, String FirstName, String LastName) {
+	public String[] modifyUser(String creds[], int U_Id, String username, int isActive, int isAdmin, int EmployeeNumber, String FirstName, String LastName) {
 		XmlRpcClient server = createConnection();
 
 		Vector params = new Vector();
@@ -97,7 +97,6 @@ public class Client {
 		params.add(creds[1]);
 		params.add(U_Id);
 		params.add(username);
-		params.add(password);
 		params.add(isActive);
 		params.add(isAdmin);
 		params.add(EmployeeNumber);
@@ -111,6 +110,24 @@ public class Client {
 		}
 		catch (Exception ex) { System.err.println(ex.getMessage()); return new String[] {"-20","Connection Error!"}; }
 	}
+	public String[] modifyUserPassword(String creds[], int U_Id, String password) {
+		XmlRpcClient server = createConnection();
+
+		Vector params = new Vector();
+		params.add(creds[0]);
+		params.add(creds[1]);
+		params.add(U_Id);
+		params.add(password);
+
+
+		try {
+			Object result = server.execute("server.modifyUserPassword", params);
+			String res = result.toString();
+			return strToArray(res);
+		}
+		catch (Exception ex) { System.err.println(ex.getMessage()); return new String[] {"-20","Connection Error!"}; }
+	}
+
 
 	public String[] removeUser(String creds[], int U_Id) {
 		XmlRpcClient server = createConnection();
