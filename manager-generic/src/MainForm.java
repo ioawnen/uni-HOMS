@@ -90,8 +90,10 @@ public class MainForm extends JPanel {
 
     private void updateChangesMenuItemActionPerformed(ActionEvent e) {
         // TODO add your code here
-		System.out.println("UODATE CHANGES BUTTON PRESS");
+		System.out.println("UPDATE CHANGES BUTTON PRESS");
 		modifyUser();
+		modifyItem();
+		modifyTable();
     }
 
     private void frame1WindowActivated(WindowEvent e) {
@@ -198,11 +200,11 @@ public class MainForm extends JPanel {
                 //---- updateChangesMenuItem ----
                 updateChangesMenuItem.setText(bundle.getString("MainForm.updateChangesMenuItem.text"));
                 updateChangesMenuItem.addActionListener(new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        updateChangesMenuItemActionPerformed(e);
-                    }
-                });
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						updateChangesMenuItemActionPerformed(e);
+					}
+				});
                 menuBar1.add(updateChangesMenuItem);
 
                 //---- refreshButton ----
@@ -1041,9 +1043,9 @@ public class MainForm extends JPanel {
 	}
 
 	public void modifyUser() {
-		System.out.println("modifyUser ROWS = "+itemsTable.getRowCount());
+		System.out.println("modifyUser ROWS = " + usersTable.getRowCount());
 		try {
-			for (int rowIndex = 0; rowIndex<=itemsTable.getRowCount(); rowIndex++) {
+			for (int rowIndex = 0; rowIndex<=usersTable.getRowCount(); rowIndex++) {
 				//Get the row that was changed.
 				System.out.println("\tLOOP! "+rowIndex);
 
@@ -1104,58 +1106,86 @@ public class MainForm extends JPanel {
 		}
 	}
 
-	public void modifyTable() {
-		System.out.println("modifyTable");
+	public void modifyItem() {
+		System.out.println("modifyItem ROWS = "+itemsTable.getRowCount());
 		try {
+			for (int rowIndex = 0; rowIndex<=itemsTable.getRowCount(); rowIndex++) {
+				//Get the row that was changed.
+				System.out.println("\tLOOP! "+rowIndex);
 
-			//Get the row that was changed.
-			int rowIndex = tablesTable.getSelectedRow();
-			String uid = (String) usersTable.getModel().getValueAt(rowIndex, 0);
-			String username = (String) usersTable.getModel().getValueAt(rowIndex, 1);
-			String password = (String) usersTable.getModel().getValueAt(rowIndex, 2);
-			String isActive = (String) usersTable.getModel().getValueAt(rowIndex, 3);
-			String isAdmin = (String) usersTable.getModel().getValueAt(rowIndex, 4);
-			String employeeNumber = (String) usersTable.getModel().getValueAt(rowIndex, 5);
-			String firstName = (String) usersTable.getModel().getValueAt(rowIndex, 6);
-			String lastName = (String) usersTable.getModel().getValueAt(rowIndex, 7);
+				String iid = (String) itemsTable.getModel().getValueAt(rowIndex, 0);
+				String itemName = (String) itemsTable.getModel().getValueAt(rowIndex, 1);
+				String itemDesc = (String) itemsTable.getModel().getValueAt(rowIndex, 2);
+				String itemPrice = (String) itemsTable.getModel().getValueAt(rowIndex, 3);
+				String itemAvail = (String) itemsTable.getModel().getValueAt(rowIndex, 4);
+				String itemVeget = (String) itemsTable.getModel().getValueAt(rowIndex, 5);
+				String itemVegan = (String) itemsTable.getModel().getValueAt(rowIndex, 6);
+				String itemSpicy = (String) itemsTable.getModel().getValueAt(rowIndex, 7);
 
-			//Send the modifications!
-			Client client = new Client();
-			client.setURL(url);
-			String[] result = client.modifyUser(
-					creds,
-					Integer.parseInt(uid),
-					username,
-					Integer.parseInt(isActive),
-					Integer.parseInt(isAdmin),
-					Integer.parseInt(employeeNumber),
-					firstName,
-					lastName);
-
-			if (!result[0].equals("1")) {
-				JOptionPane.showMessageDialog(frame1, "<html>Error!<br>Error Code: " + result[0] + "<br>Message: " + result[1] + "</html>");
-				return;
-			} else if (result[0].equals("1")) {
-				//Everything was great case. Generally do nothing.
-				System.out.println("USER MODIFY SUCCESS!");
-			}
-
-			if (!password.equals("********")) {
 				//Send the modifications!
-				Client client2 = new Client();
+				Client client = new Client();
 				client.setURL(url);
-				String[] result2 = client.modifyUserPassword(
+				String[] result = client.modifyItem(
 						creds,
-						Integer.parseInt(uid),
-						password);
+						Integer.parseInt(iid),
+						itemName,
+						itemDesc,
+						Integer.parseInt(itemPrice),
+						Integer.parseInt(itemAvail),
+						Integer.parseInt(itemVeget),
+						Integer.parseInt(itemVegan),
+						Integer.parseInt(itemSpicy));
 
-				if (!result2[0].equals("1")) {
+				if (!result[0].equals("1")) {
 					JOptionPane.showMessageDialog(frame1, "<html>Error!<br>Error Code: " + result[0] + "<br>Message: " + result[1] + "</html>");
 					return;
-				} else if (result2[0].equals("1")) {
+				} else if (result[0].equals("1")) {
 					//Everything was great case. Generally do nothing.
-					System.out.println("USER MODIFY SUCCESS!");
+					System.out.println("ITEM MODIFY SUCCESS!");
 				}
+
+			}
+		}
+		catch (ArrayIndexOutOfBoundsException ex){
+			System.err.println("THIS SEEMS BAD IF IT KEEPS HAPPENING");
+		}
+		finally {
+			updateUserTable();
+		}
+	}
+
+	public void modifyTable() {
+		System.out.println("modifyTable ROWS = "+tablesTable.getRowCount());
+		try {
+			for (int rowIndex = 0; rowIndex<=tablesTable.getRowCount(); rowIndex++) {
+				//Get the row that was changed.
+				System.out.println("\tLOOP! "+rowIndex);
+
+				String tid = (String) tablesTable.getModel().getValueAt(rowIndex, 0);
+				String tableNo = (String) tablesTable.getModel().getValueAt(rowIndex, 1);
+				String tableDesc = (String) tablesTable.getModel().getValueAt(rowIndex, 2);
+				String tableAvail = (String) tablesTable.getModel().getValueAt(rowIndex, 3);
+				String tableSeats = (String) tablesTable.getModel().getValueAt(rowIndex, 4);
+
+				//Send the modifications!
+				Client client = new Client();
+				client.setURL(url);
+				String[] result = client.modifyTable(
+						creds,
+						Integer.parseInt(tid),
+						Integer.parseInt(tableNo),
+						tableDesc,
+						Integer.parseInt(tableAvail),
+						Integer.parseInt(tableSeats));
+
+				if (!result[0].equals("1")) {
+					JOptionPane.showMessageDialog(frame1, "<html>Error!<br>Error Code: " + result[0] + "<br>Message: " + result[1] + "</html>");
+					return;
+				} else if (result[0].equals("1")) {
+					//Everything was great case. Generally do nothing.
+					System.out.println("TABLE MODIFY SUCCESS!");
+				}
+
 			}
 		}
 		catch (ArrayIndexOutOfBoundsException ex){

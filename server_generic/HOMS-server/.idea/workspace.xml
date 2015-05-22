@@ -2,23 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="94fa8122-064d-44cd-aa60-223ccad886d1" name="Default" comment="Adds method stubs, database work, etc intellij settings changes">
-      <change type="MOVED" beforePath="C:\Users\Ian\Documents\GitHub\uni-HOMS\server_generic\HOMS-server\src\server.java" afterPath="$PROJECT_DIR$/src/Server.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../manager-generic/src/Client.java" afterPath="$PROJECT_DIR$/../../manager-generic/src/Client.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Database.java" afterPath="$PROJECT_DIR$/src/Database.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../manager-generic/src/LoginForm.java" afterPath="$PROJECT_DIR$/../../manager-generic/src/LoginForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../terminal_generic/src/LoginForm.java" afterPath="$PROJECT_DIR$/../../terminal_generic/src/LoginForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../manager-generic/src/LoginForm.jfd" afterPath="$PROJECT_DIR$/../../manager-generic/src/LoginForm.jfd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../terminal_generic/src/LoginForm.jfd" afterPath="$PROJECT_DIR$/../../terminal_generic/src/LoginForm.jfd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../manager-generic/src/MainForm.java" afterPath="$PROJECT_DIR$/../../manager-generic/src/MainForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../terminal_generic/src/MainForm.java" afterPath="$PROJECT_DIR$/../../terminal_generic/src/MainForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../manager-generic/out/production/manager-generic/MainForm.jfd" afterPath="$PROJECT_DIR$/../../manager-generic/out/production/manager-generic/MainForm.jfd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../manager-generic/src/MainForm.jfd" afterPath="$PROJECT_DIR$/../../manager-generic/src/MainForm.jfd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/.idea/codeStyleSettings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../manager-generic/src/loginform_strings.properties" afterPath="$PROJECT_DIR$/../../manager-generic/src/loginform_strings.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../terminal_generic/src/loginform_strings.properties" afterPath="$PROJECT_DIR$/../../terminal_generic/src/loginform_strings.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../manager-generic/src/mainform_strings.properties" afterPath="$PROJECT_DIR$/../../manager-generic/src/mainform_strings.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../../manager-generic/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../../manager-generic/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="HOMS-server.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,58 +34,12 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="Database.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Database.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Database.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.2912">
-              <caret line="787" column="32" selection-start-line="787" selection-start-column="32" selection-end-line="787" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="1000" column="67" selection-start-line="1000" selection-start-column="67" selection-end-line="1000" selection-end-column="67" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Item.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Item.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
-              <folding>
-                <element signature="e#872#873#0" expanded="false" />
-                <element signature="e#899#900#0" expanded="false" />
-                <element signature="e#927#928#0" expanded="false" />
-                <element signature="e#945#946#0" expanded="false" />
-                <element signature="e#978#979#0" expanded="false" />
-                <element signature="e#1001#1002#0" expanded="false" />
-                <element signature="e#1041#1042#0" expanded="false" />
-                <element signature="e#1071#1072#0" expanded="false" />
-                <element signature="e#1105#1106#0" expanded="false" />
-                <element signature="e#1129#1130#0" expanded="false" />
-                <element signature="e#1167#1168#0" expanded="false" />
-                <element signature="e#1195#1196#0" expanded="false" />
-                <element signature="e#1237#1238#0" expanded="false" />
-                <element signature="e#1269#1270#0" expanded="false" />
-                <element signature="e#1306#1307#0" expanded="false" />
-                <element signature="e#1333#1334#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="OrderItem.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/OrderItem.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-              <folding>
-                <element signature="e#470#471#0" expanded="false" />
-                <element signature="e#488#489#0" expanded="false" />
-                <element signature="e#516#517#0" expanded="false" />
-                <element signature="e#534#535#0" expanded="false" />
-                <element signature="e#562#563#0" expanded="false" />
-                <element signature="e#580#581#0" expanded="false" />
-                <element signature="e#613#614#0" expanded="false" />
-                <element signature="e#636#637#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -134,11 +74,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Server.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Server.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.8096">
+              <caret line="299" column="4" selection-start-line="299" selection-start-column="4" selection-end-line="299" selection-end-column="4" />
               <folding>
                 <element signature="e#4137#4138#0" expanded="true" />
                 <element signature="e#4199#4200#0" expanded="true" />
@@ -594,8 +534,8 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="54" y="-8" width="1320" height="784" extended-state="7" />
-    <editor active="false" />
+    <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32746115" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
@@ -644,7 +584,7 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="19" />
+      <option name="time" value="20" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -690,16 +630,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-          <folding>
-            <element signature="e#470#471#0" expanded="false" />
-            <element signature="e#488#489#0" expanded="false" />
-            <element signature="e#516#517#0" expanded="false" />
-            <element signature="e#534#535#0" expanded="false" />
-            <element signature="e#562#563#0" expanded="false" />
-            <element signature="e#580#581#0" expanded="false" />
-            <element signature="e#613#614#0" expanded="false" />
-            <element signature="e#636#637#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -757,16 +688,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="e#470#471#0" expanded="false" />
-            <element signature="e#488#489#0" expanded="false" />
-            <element signature="e#516#517#0" expanded="false" />
-            <element signature="e#534#535#0" expanded="false" />
-            <element signature="e#562#563#0" expanded="false" />
-            <element signature="e#580#581#0" expanded="false" />
-            <element signature="e#613#614#0" expanded="false" />
-            <element signature="e#636#637#0" expanded="false" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1058,23 +980,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/OrderItem.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
-          <folding>
-            <element signature="e#470#471#0" expanded="false" />
-            <element signature="e#488#489#0" expanded="false" />
-            <element signature="e#516#517#0" expanded="false" />
-            <element signature="e#534#535#0" expanded="false" />
-            <element signature="e#562#563#0" expanded="false" />
-            <element signature="e#580#581#0" expanded="false" />
-            <element signature="e#613#614#0" expanded="false" />
-            <element signature="e#636#637#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/DbDataReturn.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1086,28 +991,30 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Item.java">
+    <entry file="file://$PROJECT_DIR$/src/MainClass.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
+          <caret line="16" column="84" selection-start-line="16" selection-start-column="84" selection-end-line="16" selection-end-column="84" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Item.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-19.92">
           <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
           <folding>
             <element signature="e#872#873#0" expanded="false" />
             <element signature="e#899#900#0" expanded="false" />
-            <element signature="e#927#928#0" expanded="false" />
-            <element signature="e#945#946#0" expanded="false" />
-            <element signature="e#978#979#0" expanded="false" />
-            <element signature="e#1001#1002#0" expanded="false" />
-            <element signature="e#1041#1042#0" expanded="false" />
-            <element signature="e#1071#1072#0" expanded="false" />
-            <element signature="e#1105#1106#0" expanded="false" />
-            <element signature="e#1129#1130#0" expanded="false" />
-            <element signature="e#1167#1168#0" expanded="false" />
-            <element signature="e#1195#1196#0" expanded="false" />
-            <element signature="e#1237#1238#0" expanded="false" />
-            <element signature="e#1269#1270#0" expanded="false" />
-            <element signature="e#1306#1307#0" expanded="false" />
-            <element signature="e#1333#1334#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/OrderItem.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.425">
+          <caret line="15" column="24" selection-start-line="15" selection-start-column="24" selection-end-line="15" selection-end-column="24" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1119,30 +1026,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainClass.java">
+    <entry file="file://$PROJECT_DIR$/src/Database.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="16" column="84" selection-start-line="16" selection-start-column="84" selection-end-line="16" selection-end-column="84" />
+          <caret line="1000" column="67" selection-start-line="1000" selection-start-column="67" selection-end-line="1000" selection-end-column="67" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="142" column="0" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.8096">
+          <caret line="299" column="4" selection-start-line="299" selection-start-column="4" selection-end-line="299" selection-end-column="4" />
           <folding>
             <element signature="e#4137#4138#0" expanded="true" />
             <element signature="e#4199#4200#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Database.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.2912">
-          <caret line="787" column="32" selection-start-line="787" selection-start-column="32" selection-end-line="787" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>

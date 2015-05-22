@@ -110,6 +110,7 @@ public class Client {
 		}
 		catch (Exception ex) { System.err.println(ex.getMessage()); return new String[] {"-20","Connection Error!"}; }
 	}
+
 	public String[] modifyUserPassword(String creds[], int U_Id, String password) {
 		XmlRpcClient server = createConnection();
 
@@ -392,7 +393,48 @@ public class Client {
 		catch (Exception ex) { System.err.println(ex.getMessage()); return new String[] {"-20","Connection Error!"}; }
 	}
 
+	public String[] modifyItem(String creds[], int I_Id, String itemName, String itemDesc, int itemPrice, int itemAvail, int itemVeget, int itemVegan, int itemSpicy) {
+		XmlRpcClient server = createConnection();
 
+		Vector params = new Vector();
+		params.add(creds[0]);
+		params.add(creds[1]);
+		params.add(I_Id);
+		params.add(itemName);
+		params.add(itemDesc);
+		params.add(itemPrice);
+		params.add(itemAvail);
+		params.add(itemVeget);
+		params.add(itemVegan);
+		params.add(itemSpicy);
+
+		try {
+			Object result = server.execute("server.modifyItem", params);
+			String res = result.toString();
+			return strToArray(res);
+		}
+		catch (Exception ex) { System.err.println(ex.getMessage()); return new String[] {"-20","Connection Error!"}; }
+	}
+
+	public String[] modifyTable(String creds[], int T_Id, int tableNo, String tableDesc, int tableAvail, int tableSeats) {
+		XmlRpcClient server = createConnection();
+
+		Vector params = new Vector();
+		params.add(creds[0]);
+		params.add(creds[1]);
+		params.add(T_Id);
+		params.add(tableNo);
+		params.add(tableDesc);
+		params.add(tableAvail);
+		params.add(tableSeats);
+
+		try {
+			Object result = server.execute("server.modifyItem", params);
+			String res = result.toString();
+			return strToArray(res);
+		}
+		catch (Exception ex) { System.err.println(ex.getMessage()); return new String[] {"-20","Connection Error!"}; }
+	}
 
 
 	public String[] drop_table_users() { //gg moron

@@ -2,24 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="39704237-4015-4639-898c-7e39bc2b41a8" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Users\Ian\Documents\GitHub\uni-HOMS\server_generic\HOMS-server\src\server.java" afterPath="$PROJECT_DIR$/../server_generic/HOMS-server/src/Server.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../manager-generic/src/Client.java" afterPath="$PROJECT_DIR$/../manager-generic/src/Client.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server_generic/HOMS-server/src/Database.java" afterPath="$PROJECT_DIR$/../server_generic/HOMS-server/src/Database.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../manager-generic/src/LoginForm.java" afterPath="$PROJECT_DIR$/../manager-generic/src/LoginForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LoginForm.java" afterPath="$PROJECT_DIR$/src/LoginForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../manager-generic/src/LoginForm.jfd" afterPath="$PROJECT_DIR$/../manager-generic/src/LoginForm.jfd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LoginForm.jfd" afterPath="$PROJECT_DIR$/src/LoginForm.jfd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../manager-generic/src/MainForm.java" afterPath="$PROJECT_DIR$/../manager-generic/src/MainForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainForm.java" afterPath="$PROJECT_DIR$/src/MainForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../manager-generic/out/production/manager-generic/MainForm.jfd" afterPath="$PROJECT_DIR$/../manager-generic/out/production/manager-generic/MainForm.jfd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../manager-generic/src/MainForm.jfd" afterPath="$PROJECT_DIR$/../manager-generic/src/MainForm.jfd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server_generic/HOMS-server/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/../server_generic/HOMS-server/.idea/codeStyleSettings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../manager-generic/src/loginform_strings.properties" afterPath="$PROJECT_DIR$/../manager-generic/src/loginform_strings.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/loginform_strings.properties" afterPath="$PROJECT_DIR$/src/loginform_strings.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../manager-generic/out/production/manager-generic/mainform_strings.properties" afterPath="$PROJECT_DIR$/../manager-generic/out/production/manager-generic/mainform_strings.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../manager-generic/src/mainform_strings.properties" afterPath="$PROJECT_DIR$/../manager-generic/src/mainform_strings.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server_generic/HOMS-server/src/Server.java" afterPath="$PROJECT_DIR$/../server_generic/HOMS-server/src/Server.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../manager-generic/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../manager-generic/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server_generic/HOMS-server/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../server_generic/HOMS-server/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="HOMS-terminal.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -98,7 +87,11 @@
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
               <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-              <folding />
+              <folding>
+                <element signature="n#!!doc" expanded="false" />
+                <element signature="imports" expanded="false" />
+                <element signature="e#591#592#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -370,7 +363,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -426,7 +419,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="40" column="0" selection-start-line="40" selection-start-column="0" selection-end-line="40" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#591#592#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -476,7 +473,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#591#592#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -510,7 +511,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#591#592#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -544,7 +549,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#591#592#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -578,7 +587,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#591#592#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -612,7 +625,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="89" column="37" selection-start-line="89" selection-start-column="37" selection-end-line="89" selection-end-column="37" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#591#592#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -646,7 +663,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="320" column="35" selection-start-line="320" selection-start-column="35" selection-end-line="320" selection-end-column="35" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#591#592#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -680,7 +701,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#591#592#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -714,7 +739,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="297" column="28" selection-start-line="297" selection-start-column="28" selection-end-line="297" selection-end-column="28" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#591#592#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -812,7 +841,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="37" column="0" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
-          <folding />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+            <element signature="imports" expanded="false" />
+            <element signature="e#591#592#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

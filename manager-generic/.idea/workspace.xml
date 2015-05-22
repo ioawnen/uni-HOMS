@@ -2,23 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="349d2620-7fe6-4ba8-bc9a-b2e05dccc006" name="Default" comment="">
-      <change type="MOVED" beforePath="C:\Users\Ian\Documents\GitHub\uni-HOMS\server_generic\HOMS-server\src\server.java" afterPath="$PROJECT_DIR$/../server_generic/HOMS-server/src/Server.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Client.java" afterPath="$PROJECT_DIR$/src/Client.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server_generic/HOMS-server/src/Database.java" afterPath="$PROJECT_DIR$/../server_generic/HOMS-server/src/Database.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LoginForm.java" afterPath="$PROJECT_DIR$/src/LoginForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../terminal_generic/src/LoginForm.java" afterPath="$PROJECT_DIR$/../terminal_generic/src/LoginForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/LoginForm.jfd" afterPath="$PROJECT_DIR$/src/LoginForm.jfd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../terminal_generic/src/LoginForm.jfd" afterPath="$PROJECT_DIR$/../terminal_generic/src/LoginForm.jfd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainForm.java" afterPath="$PROJECT_DIR$/src/MainForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../terminal_generic/src/MainForm.java" afterPath="$PROJECT_DIR$/../terminal_generic/src/MainForm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/manager-generic/MainForm.jfd" afterPath="$PROJECT_DIR$/out/production/manager-generic/MainForm.jfd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainForm.jfd" afterPath="$PROJECT_DIR$/src/MainForm.jfd" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server_generic/HOMS-server/.idea/codeStyleSettings.xml" afterPath="$PROJECT_DIR$/../server_generic/HOMS-server/.idea/codeStyleSettings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/loginform_strings.properties" afterPath="$PROJECT_DIR$/src/loginform_strings.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../terminal_generic/src/loginform_strings.properties" afterPath="$PROJECT_DIR$/../terminal_generic/src/loginform_strings.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/mainform_strings.properties" afterPath="$PROJECT_DIR$/src/mainform_strings.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server_generic/HOMS-server/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../server_generic/HOMS-server/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../server_generic/HOMS-server/src/Server.java" afterPath="$PROJECT_DIR$/../server_generic/HOMS-server/src/Server.java" />
     </list>
     <ignored path="HOMS-manager.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -50,11 +37,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainForm.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainForm.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainForm.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="101" column="21" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
+            <state vertical-scroll-proportion="-7.2144">
+              <caret line="95" column="8" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#499#500#0" expanded="true" />
@@ -62,32 +49,38 @@
                 <element signature="e#2255#2256#0" expanded="true" />
                 <element signature="e#2279#2280#0" expanded="true" />
                 <element signature="method#initComponents#0;class#MainForm#0" expanded="false" />
-                <element signature="e#8631#8803#0" expanded="true" />
-                <element signature="e#8802#8803#0" expanded="true" />
-                <element signature="e#25117#25359#0" expanded="true" />
-                <element signature="e#25358#25359#0" expanded="true" />
-                <element signature="e#25423#25688#0" expanded="true" />
-                <element signature="e#25687#25688#0" expanded="true" />
-                <element signature="e#27577#27839#0" expanded="true" />
-                <element signature="e#27838#27839#0" expanded="true" />
-                <element signature="e#29334#29668#0" expanded="true" />
-                <element signature="e#29667#29668#0" expanded="true" />
-                <element signature="e#41583#41845#0" expanded="true" />
-                <element signature="e#41844#41845#0" expanded="true" />
-                <element signature="e#42474#42808#0" expanded="true" />
-                <element signature="e#42807#42808#0" expanded="true" />
-                <element signature="e#52208#52470#0" expanded="true" />
-                <element signature="e#52469#52470#0" expanded="true" />
-                <element signature="e#53987#54321#0" expanded="true" />
-                <element signature="e#54320#54321#0" expanded="true" />
-                <marker date="1432288818867" expanded="true" signature="2852:64428" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-                <marker date="1432288818867" expanded="false" signature="64434:67722" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+                <element signature="e#6577#6763#0" expanded="true" />
+                <element signature="e#6762#6763#0" expanded="true" />
+                <element signature="e#7100#7247#0" expanded="true" />
+                <element signature="e#7246#7247#0" expanded="true" />
+                <element signature="e#7563#7777#0" expanded="true" />
+                <element signature="e#7776#7777#0" expanded="true" />
+                <element signature="e#8589#8761#0" expanded="true" />
+                <element signature="e#8760#8761#0" expanded="true" />
+                <element signature="e#25075#25317#0" expanded="true" />
+                <element signature="e#25316#25317#0" expanded="true" />
+                <element signature="e#25381#25646#0" expanded="true" />
+                <element signature="e#25645#25646#0" expanded="true" />
+                <element signature="e#27535#27797#0" expanded="true" />
+                <element signature="e#27796#27797#0" expanded="true" />
+                <element signature="e#29292#29626#0" expanded="true" />
+                <element signature="e#29625#29626#0" expanded="true" />
+                <element signature="e#41541#41803#0" expanded="true" />
+                <element signature="e#41802#41803#0" expanded="true" />
+                <element signature="e#42432#42766#0" expanded="true" />
+                <element signature="e#42765#42766#0" expanded="true" />
+                <element signature="e#52166#52428#0" expanded="true" />
+                <element signature="e#52427#52428#0" expanded="true" />
+                <element signature="e#53945#54279#0" expanded="true" />
+                <element signature="e#54278#54279#0" expanded="true" />
+                <marker date="1432292011504" expanded="true" signature="2885:64386" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+                <marker date="1432292011504" expanded="false" signature="64392:67680" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainForm.jfd" pinned="false" current-in-tab="true">
+      <file leaf-file-name="MainForm.jfd" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainForm.jfd">
           <provider selected="true" editor-type-id="JFormDesigner">
             <state propertiesWidth="282" />
@@ -139,7 +132,7 @@
         <entry file="file://$PROJECT_DIR$/src/Client.java">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="393" column="0" selection-start-line="393" selection-start-column="0" selection-end-line="393" selection-end-column="0" />
+              <caret line="430" column="13" selection-start-line="430" selection-start-column="13" selection-end-line="430" selection-end-column="13" />
               <folding>
                 <element signature="e#574#575#0" expanded="true" />
                 <element signature="e#590#591#0" expanded="true" />
@@ -173,9 +166,9 @@
         <option value="$PROJECT_DIR$/src/MainClass.java" />
         <option value="$PROJECT_DIR$/src/LoginForm.java" />
         <option value="$PROJECT_DIR$/src/LoginForm.jfd" />
+        <option value="$PROJECT_DIR$/src/MainForm.jfd" />
         <option value="$PROJECT_DIR$/src/Client.java" />
         <option value="$PROJECT_DIR$/src/MainForm.java" />
-        <option value="$PROJECT_DIR$/src/MainForm.jfd" />
       </list>
     </option>
   </component>
@@ -454,7 +447,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="54" y="-8" width="1320" height="784" extended-state="6" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -465,7 +458,7 @@
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34762633" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.15620214" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.11031746" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
@@ -574,26 +567,32 @@
             <element signature="e#2255#2256#0" expanded="true" />
             <element signature="e#2279#2280#0" expanded="true" />
             <element signature="method#initComponents#0;class#MainForm#0" expanded="false" />
-            <element signature="e#8631#8803#0" expanded="true" />
-            <element signature="e#8802#8803#0" expanded="true" />
-            <element signature="e#25117#25359#0" expanded="true" />
-            <element signature="e#25358#25359#0" expanded="true" />
-            <element signature="e#25423#25688#0" expanded="true" />
-            <element signature="e#25687#25688#0" expanded="true" />
-            <element signature="e#27577#27839#0" expanded="true" />
-            <element signature="e#27838#27839#0" expanded="true" />
-            <element signature="e#29334#29668#0" expanded="true" />
-            <element signature="e#29667#29668#0" expanded="true" />
-            <element signature="e#41583#41845#0" expanded="true" />
-            <element signature="e#41844#41845#0" expanded="true" />
-            <element signature="e#42474#42808#0" expanded="true" />
-            <element signature="e#42807#42808#0" expanded="true" />
-            <element signature="e#52208#52470#0" expanded="true" />
-            <element signature="e#52469#52470#0" expanded="true" />
-            <element signature="e#53987#54321#0" expanded="true" />
-            <element signature="e#54320#54321#0" expanded="true" />
-            <marker date="1432288818867" expanded="true" signature="2852:64428" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1432288818867" expanded="false" signature="64434:67722" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#6577#6763#0" expanded="true" />
+            <element signature="e#6762#6763#0" expanded="true" />
+            <element signature="e#7100#7247#0" expanded="true" />
+            <element signature="e#7246#7247#0" expanded="true" />
+            <element signature="e#7563#7777#0" expanded="true" />
+            <element signature="e#7776#7777#0" expanded="true" />
+            <element signature="e#8589#8761#0" expanded="true" />
+            <element signature="e#8760#8761#0" expanded="true" />
+            <element signature="e#25075#25317#0" expanded="true" />
+            <element signature="e#25316#25317#0" expanded="true" />
+            <element signature="e#25381#25646#0" expanded="true" />
+            <element signature="e#25645#25646#0" expanded="true" />
+            <element signature="e#27535#27797#0" expanded="true" />
+            <element signature="e#27796#27797#0" expanded="true" />
+            <element signature="e#29292#29626#0" expanded="true" />
+            <element signature="e#29625#29626#0" expanded="true" />
+            <element signature="e#41541#41803#0" expanded="true" />
+            <element signature="e#41802#41803#0" expanded="true" />
+            <element signature="e#42432#42766#0" expanded="true" />
+            <element signature="e#42765#42766#0" expanded="true" />
+            <element signature="e#52166#52428#0" expanded="true" />
+            <element signature="e#52427#52428#0" expanded="true" />
+            <element signature="e#53945#54279#0" expanded="true" />
+            <element signature="e#54278#54279#0" expanded="true" />
+            <marker date="1432292011504" expanded="true" signature="2885:64386" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1432292011504" expanded="false" signature="64392:67680" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -658,26 +657,32 @@
             <element signature="e#2255#2256#0" expanded="true" />
             <element signature="e#2279#2280#0" expanded="true" />
             <element signature="method#initComponents#0;class#MainForm#0" expanded="false" />
-            <element signature="e#8631#8803#0" expanded="true" />
-            <element signature="e#8802#8803#0" expanded="true" />
-            <element signature="e#25117#25359#0" expanded="true" />
-            <element signature="e#25358#25359#0" expanded="true" />
-            <element signature="e#25423#25688#0" expanded="true" />
-            <element signature="e#25687#25688#0" expanded="true" />
-            <element signature="e#27577#27839#0" expanded="true" />
-            <element signature="e#27838#27839#0" expanded="true" />
-            <element signature="e#29334#29668#0" expanded="true" />
-            <element signature="e#29667#29668#0" expanded="true" />
-            <element signature="e#41583#41845#0" expanded="true" />
-            <element signature="e#41844#41845#0" expanded="true" />
-            <element signature="e#42474#42808#0" expanded="true" />
-            <element signature="e#42807#42808#0" expanded="true" />
-            <element signature="e#52208#52470#0" expanded="true" />
-            <element signature="e#52469#52470#0" expanded="true" />
-            <element signature="e#53987#54321#0" expanded="true" />
-            <element signature="e#54320#54321#0" expanded="true" />
-            <marker date="1432288818867" expanded="true" signature="2852:64428" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1432288818867" expanded="false" signature="64434:67722" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#6577#6763#0" expanded="true" />
+            <element signature="e#6762#6763#0" expanded="true" />
+            <element signature="e#7100#7247#0" expanded="true" />
+            <element signature="e#7246#7247#0" expanded="true" />
+            <element signature="e#7563#7777#0" expanded="true" />
+            <element signature="e#7776#7777#0" expanded="true" />
+            <element signature="e#8589#8761#0" expanded="true" />
+            <element signature="e#8760#8761#0" expanded="true" />
+            <element signature="e#25075#25317#0" expanded="true" />
+            <element signature="e#25316#25317#0" expanded="true" />
+            <element signature="e#25381#25646#0" expanded="true" />
+            <element signature="e#25645#25646#0" expanded="true" />
+            <element signature="e#27535#27797#0" expanded="true" />
+            <element signature="e#27796#27797#0" expanded="true" />
+            <element signature="e#29292#29626#0" expanded="true" />
+            <element signature="e#29625#29626#0" expanded="true" />
+            <element signature="e#41541#41803#0" expanded="true" />
+            <element signature="e#41802#41803#0" expanded="true" />
+            <element signature="e#42432#42766#0" expanded="true" />
+            <element signature="e#42765#42766#0" expanded="true" />
+            <element signature="e#52166#52428#0" expanded="true" />
+            <element signature="e#52427#52428#0" expanded="true" />
+            <element signature="e#53945#54279#0" expanded="true" />
+            <element signature="e#54278#54279#0" expanded="true" />
+            <marker date="1432292011504" expanded="true" signature="2885:64386" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1432292011504" expanded="false" signature="64392:67680" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -749,26 +754,32 @@
             <element signature="e#2255#2256#0" expanded="true" />
             <element signature="e#2279#2280#0" expanded="true" />
             <element signature="method#initComponents#0;class#MainForm#0" expanded="false" />
-            <element signature="e#8631#8803#0" expanded="true" />
-            <element signature="e#8802#8803#0" expanded="true" />
-            <element signature="e#25117#25359#0" expanded="true" />
-            <element signature="e#25358#25359#0" expanded="true" />
-            <element signature="e#25423#25688#0" expanded="true" />
-            <element signature="e#25687#25688#0" expanded="true" />
-            <element signature="e#27577#27839#0" expanded="true" />
-            <element signature="e#27838#27839#0" expanded="true" />
-            <element signature="e#29334#29668#0" expanded="true" />
-            <element signature="e#29667#29668#0" expanded="true" />
-            <element signature="e#41583#41845#0" expanded="true" />
-            <element signature="e#41844#41845#0" expanded="true" />
-            <element signature="e#42474#42808#0" expanded="true" />
-            <element signature="e#42807#42808#0" expanded="true" />
-            <element signature="e#52208#52470#0" expanded="true" />
-            <element signature="e#52469#52470#0" expanded="true" />
-            <element signature="e#53987#54321#0" expanded="true" />
-            <element signature="e#54320#54321#0" expanded="true" />
-            <marker date="1432288818867" expanded="true" signature="2852:64428" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1432288818867" expanded="false" signature="64434:67722" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#6577#6763#0" expanded="true" />
+            <element signature="e#6762#6763#0" expanded="true" />
+            <element signature="e#7100#7247#0" expanded="true" />
+            <element signature="e#7246#7247#0" expanded="true" />
+            <element signature="e#7563#7777#0" expanded="true" />
+            <element signature="e#7776#7777#0" expanded="true" />
+            <element signature="e#8589#8761#0" expanded="true" />
+            <element signature="e#8760#8761#0" expanded="true" />
+            <element signature="e#25075#25317#0" expanded="true" />
+            <element signature="e#25316#25317#0" expanded="true" />
+            <element signature="e#25381#25646#0" expanded="true" />
+            <element signature="e#25645#25646#0" expanded="true" />
+            <element signature="e#27535#27797#0" expanded="true" />
+            <element signature="e#27796#27797#0" expanded="true" />
+            <element signature="e#29292#29626#0" expanded="true" />
+            <element signature="e#29625#29626#0" expanded="true" />
+            <element signature="e#41541#41803#0" expanded="true" />
+            <element signature="e#41802#41803#0" expanded="true" />
+            <element signature="e#42432#42766#0" expanded="true" />
+            <element signature="e#42765#42766#0" expanded="true" />
+            <element signature="e#52166#52428#0" expanded="true" />
+            <element signature="e#52427#52428#0" expanded="true" />
+            <element signature="e#53945#54279#0" expanded="true" />
+            <element signature="e#54278#54279#0" expanded="true" />
+            <marker date="1432292011504" expanded="true" signature="2885:64386" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1432292011504" expanded="false" signature="64392:67680" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -829,26 +840,32 @@
             <element signature="e#2255#2256#0" expanded="true" />
             <element signature="e#2279#2280#0" expanded="true" />
             <element signature="method#initComponents#0;class#MainForm#0" expanded="false" />
-            <element signature="e#8631#8803#0" expanded="true" />
-            <element signature="e#8802#8803#0" expanded="true" />
-            <element signature="e#25117#25359#0" expanded="true" />
-            <element signature="e#25358#25359#0" expanded="true" />
-            <element signature="e#25423#25688#0" expanded="true" />
-            <element signature="e#25687#25688#0" expanded="true" />
-            <element signature="e#27577#27839#0" expanded="true" />
-            <element signature="e#27838#27839#0" expanded="true" />
-            <element signature="e#29334#29668#0" expanded="true" />
-            <element signature="e#29667#29668#0" expanded="true" />
-            <element signature="e#41583#41845#0" expanded="true" />
-            <element signature="e#41844#41845#0" expanded="true" />
-            <element signature="e#42474#42808#0" expanded="true" />
-            <element signature="e#42807#42808#0" expanded="true" />
-            <element signature="e#52208#52470#0" expanded="true" />
-            <element signature="e#52469#52470#0" expanded="true" />
-            <element signature="e#53987#54321#0" expanded="true" />
-            <element signature="e#54320#54321#0" expanded="true" />
-            <marker date="1432288818867" expanded="true" signature="2852:64428" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1432288818867" expanded="false" signature="64434:67722" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#6577#6763#0" expanded="true" />
+            <element signature="e#6762#6763#0" expanded="true" />
+            <element signature="e#7100#7247#0" expanded="true" />
+            <element signature="e#7246#7247#0" expanded="true" />
+            <element signature="e#7563#7777#0" expanded="true" />
+            <element signature="e#7776#7777#0" expanded="true" />
+            <element signature="e#8589#8761#0" expanded="true" />
+            <element signature="e#8760#8761#0" expanded="true" />
+            <element signature="e#25075#25317#0" expanded="true" />
+            <element signature="e#25316#25317#0" expanded="true" />
+            <element signature="e#25381#25646#0" expanded="true" />
+            <element signature="e#25645#25646#0" expanded="true" />
+            <element signature="e#27535#27797#0" expanded="true" />
+            <element signature="e#27796#27797#0" expanded="true" />
+            <element signature="e#29292#29626#0" expanded="true" />
+            <element signature="e#29625#29626#0" expanded="true" />
+            <element signature="e#41541#41803#0" expanded="true" />
+            <element signature="e#41802#41803#0" expanded="true" />
+            <element signature="e#42432#42766#0" expanded="true" />
+            <element signature="e#42765#42766#0" expanded="true" />
+            <element signature="e#52166#52428#0" expanded="true" />
+            <element signature="e#52427#52428#0" expanded="true" />
+            <element signature="e#53945#54279#0" expanded="true" />
+            <element signature="e#54278#54279#0" expanded="true" />
+            <marker date="1432292011504" expanded="true" signature="2885:64386" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1432292011504" expanded="false" signature="64392:67680" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -909,26 +926,32 @@
             <element signature="e#2255#2256#0" expanded="true" />
             <element signature="e#2279#2280#0" expanded="true" />
             <element signature="method#initComponents#0;class#MainForm#0" expanded="false" />
-            <element signature="e#8631#8803#0" expanded="true" />
-            <element signature="e#8802#8803#0" expanded="true" />
-            <element signature="e#25117#25359#0" expanded="true" />
-            <element signature="e#25358#25359#0" expanded="true" />
-            <element signature="e#25423#25688#0" expanded="true" />
-            <element signature="e#25687#25688#0" expanded="true" />
-            <element signature="e#27577#27839#0" expanded="true" />
-            <element signature="e#27838#27839#0" expanded="true" />
-            <element signature="e#29334#29668#0" expanded="true" />
-            <element signature="e#29667#29668#0" expanded="true" />
-            <element signature="e#41583#41845#0" expanded="true" />
-            <element signature="e#41844#41845#0" expanded="true" />
-            <element signature="e#42474#42808#0" expanded="true" />
-            <element signature="e#42807#42808#0" expanded="true" />
-            <element signature="e#52208#52470#0" expanded="true" />
-            <element signature="e#52469#52470#0" expanded="true" />
-            <element signature="e#53987#54321#0" expanded="true" />
-            <element signature="e#54320#54321#0" expanded="true" />
-            <marker date="1432288818867" expanded="true" signature="2852:64428" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1432288818867" expanded="false" signature="64434:67722" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#6577#6763#0" expanded="true" />
+            <element signature="e#6762#6763#0" expanded="true" />
+            <element signature="e#7100#7247#0" expanded="true" />
+            <element signature="e#7246#7247#0" expanded="true" />
+            <element signature="e#7563#7777#0" expanded="true" />
+            <element signature="e#7776#7777#0" expanded="true" />
+            <element signature="e#8589#8761#0" expanded="true" />
+            <element signature="e#8760#8761#0" expanded="true" />
+            <element signature="e#25075#25317#0" expanded="true" />
+            <element signature="e#25316#25317#0" expanded="true" />
+            <element signature="e#25381#25646#0" expanded="true" />
+            <element signature="e#25645#25646#0" expanded="true" />
+            <element signature="e#27535#27797#0" expanded="true" />
+            <element signature="e#27796#27797#0" expanded="true" />
+            <element signature="e#29292#29626#0" expanded="true" />
+            <element signature="e#29625#29626#0" expanded="true" />
+            <element signature="e#41541#41803#0" expanded="true" />
+            <element signature="e#41802#41803#0" expanded="true" />
+            <element signature="e#42432#42766#0" expanded="true" />
+            <element signature="e#42765#42766#0" expanded="true" />
+            <element signature="e#52166#52428#0" expanded="true" />
+            <element signature="e#52427#52428#0" expanded="true" />
+            <element signature="e#53945#54279#0" expanded="true" />
+            <element signature="e#54278#54279#0" expanded="true" />
+            <marker date="1432292011504" expanded="true" signature="2885:64386" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1432292011504" expanded="false" signature="64392:67680" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -989,26 +1012,32 @@
             <element signature="e#2255#2256#0" expanded="true" />
             <element signature="e#2279#2280#0" expanded="true" />
             <element signature="method#initComponents#0;class#MainForm#0" expanded="false" />
-            <element signature="e#8631#8803#0" expanded="true" />
-            <element signature="e#8802#8803#0" expanded="true" />
-            <element signature="e#25117#25359#0" expanded="true" />
-            <element signature="e#25358#25359#0" expanded="true" />
-            <element signature="e#25423#25688#0" expanded="true" />
-            <element signature="e#25687#25688#0" expanded="true" />
-            <element signature="e#27577#27839#0" expanded="true" />
-            <element signature="e#27838#27839#0" expanded="true" />
-            <element signature="e#29334#29668#0" expanded="true" />
-            <element signature="e#29667#29668#0" expanded="true" />
-            <element signature="e#41583#41845#0" expanded="true" />
-            <element signature="e#41844#41845#0" expanded="true" />
-            <element signature="e#42474#42808#0" expanded="true" />
-            <element signature="e#42807#42808#0" expanded="true" />
-            <element signature="e#52208#52470#0" expanded="true" />
-            <element signature="e#52469#52470#0" expanded="true" />
-            <element signature="e#53987#54321#0" expanded="true" />
-            <element signature="e#54320#54321#0" expanded="true" />
-            <marker date="1432288818867" expanded="true" signature="2852:64428" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1432288818867" expanded="false" signature="64434:67722" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#6577#6763#0" expanded="true" />
+            <element signature="e#6762#6763#0" expanded="true" />
+            <element signature="e#7100#7247#0" expanded="true" />
+            <element signature="e#7246#7247#0" expanded="true" />
+            <element signature="e#7563#7777#0" expanded="true" />
+            <element signature="e#7776#7777#0" expanded="true" />
+            <element signature="e#8589#8761#0" expanded="true" />
+            <element signature="e#8760#8761#0" expanded="true" />
+            <element signature="e#25075#25317#0" expanded="true" />
+            <element signature="e#25316#25317#0" expanded="true" />
+            <element signature="e#25381#25646#0" expanded="true" />
+            <element signature="e#25645#25646#0" expanded="true" />
+            <element signature="e#27535#27797#0" expanded="true" />
+            <element signature="e#27796#27797#0" expanded="true" />
+            <element signature="e#29292#29626#0" expanded="true" />
+            <element signature="e#29625#29626#0" expanded="true" />
+            <element signature="e#41541#41803#0" expanded="true" />
+            <element signature="e#41802#41803#0" expanded="true" />
+            <element signature="e#42432#42766#0" expanded="true" />
+            <element signature="e#42765#42766#0" expanded="true" />
+            <element signature="e#52166#52428#0" expanded="true" />
+            <element signature="e#52427#52428#0" expanded="true" />
+            <element signature="e#53945#54279#0" expanded="true" />
+            <element signature="e#54278#54279#0" expanded="true" />
+            <marker date="1432292011504" expanded="true" signature="2885:64386" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1432292011504" expanded="false" signature="64392:67680" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
       </provider>
@@ -1034,17 +1063,6 @@
         <state />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Client.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="393" column="0" selection-start-line="393" selection-start-column="0" selection-end-line="393" selection-end-column="0" />
-          <folding>
-            <element signature="e#574#575#0" expanded="true" />
-            <element signature="e#590#591#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/LoginForm.java">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1053,6 +1071,22 @@
             <element signature="imports" expanded="true" />
             <marker date="1432283773492" expanded="false" signature="2309:9405" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
             <marker date="1432283773492" expanded="false" signature="9411:9991" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/MainForm.jfd">
+      <provider selected="true" editor-type-id="JFormDesigner">
+        <state propertiesWidth="282" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="430" column="13" selection-start-line="430" selection-start-column="13" selection-end-line="430" selection-end-column="13" />
+          <folding>
+            <element signature="e#574#575#0" expanded="true" />
+            <element signature="e#590#591#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1067,8 +1101,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/MainForm.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="101" column="21" selection-start-line="101" selection-start-column="21" selection-end-line="101" selection-end-column="21" />
+        <state vertical-scroll-proportion="-7.2144">
+          <caret line="95" column="8" selection-start-line="95" selection-start-column="8" selection-end-line="95" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#499#500#0" expanded="true" />
@@ -1076,33 +1110,34 @@
             <element signature="e#2255#2256#0" expanded="true" />
             <element signature="e#2279#2280#0" expanded="true" />
             <element signature="method#initComponents#0;class#MainForm#0" expanded="false" />
-            <element signature="e#8631#8803#0" expanded="true" />
-            <element signature="e#8802#8803#0" expanded="true" />
-            <element signature="e#25117#25359#0" expanded="true" />
-            <element signature="e#25358#25359#0" expanded="true" />
-            <element signature="e#25423#25688#0" expanded="true" />
-            <element signature="e#25687#25688#0" expanded="true" />
-            <element signature="e#27577#27839#0" expanded="true" />
-            <element signature="e#27838#27839#0" expanded="true" />
-            <element signature="e#29334#29668#0" expanded="true" />
-            <element signature="e#29667#29668#0" expanded="true" />
-            <element signature="e#41583#41845#0" expanded="true" />
-            <element signature="e#41844#41845#0" expanded="true" />
-            <element signature="e#42474#42808#0" expanded="true" />
-            <element signature="e#42807#42808#0" expanded="true" />
-            <element signature="e#52208#52470#0" expanded="true" />
-            <element signature="e#52469#52470#0" expanded="true" />
-            <element signature="e#53987#54321#0" expanded="true" />
-            <element signature="e#54320#54321#0" expanded="true" />
-            <marker date="1432288818867" expanded="true" signature="2852:64428" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
-            <marker date="1432288818867" expanded="false" signature="64434:67722" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
+            <element signature="e#6577#6763#0" expanded="true" />
+            <element signature="e#6762#6763#0" expanded="true" />
+            <element signature="e#7100#7247#0" expanded="true" />
+            <element signature="e#7246#7247#0" expanded="true" />
+            <element signature="e#7563#7777#0" expanded="true" />
+            <element signature="e#7776#7777#0" expanded="true" />
+            <element signature="e#8589#8761#0" expanded="true" />
+            <element signature="e#8760#8761#0" expanded="true" />
+            <element signature="e#25075#25317#0" expanded="true" />
+            <element signature="e#25316#25317#0" expanded="true" />
+            <element signature="e#25381#25646#0" expanded="true" />
+            <element signature="e#25645#25646#0" expanded="true" />
+            <element signature="e#27535#27797#0" expanded="true" />
+            <element signature="e#27796#27797#0" expanded="true" />
+            <element signature="e#29292#29626#0" expanded="true" />
+            <element signature="e#29625#29626#0" expanded="true" />
+            <element signature="e#41541#41803#0" expanded="true" />
+            <element signature="e#41802#41803#0" expanded="true" />
+            <element signature="e#42432#42766#0" expanded="true" />
+            <element signature="e#42765#42766#0" expanded="true" />
+            <element signature="e#52166#52428#0" expanded="true" />
+            <element signature="e#52427#52428#0" expanded="true" />
+            <element signature="e#53945#54279#0" expanded="true" />
+            <element signature="e#54278#54279#0" expanded="true" />
+            <marker date="1432292011504" expanded="true" signature="2885:64386" placeholder="// JFormDesigner - Component initialization - DO NOT MODIFY" />
+            <marker date="1432292011504" expanded="false" signature="64392:67680" placeholder="// JFormDesigner - Variables declaration - DO NOT MODIFY" />
           </folding>
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/MainForm.jfd">
-      <provider selected="true" editor-type-id="JFormDesigner">
-        <state propertiesWidth="282" />
       </provider>
     </entry>
   </component>

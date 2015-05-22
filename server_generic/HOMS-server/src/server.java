@@ -215,8 +215,9 @@ public class Server {
         return new String[] {"-98", "Not yet implemented."};
     }
     public String[] modifyItem(String Uname, String Pword, int I_Id, String itemName, String itemDesc, int itemPrice, int itemAvail, int itemVeget, int itemVegan, int itemSpicy) {
+        DbGenericReturn dbResult = database_conn.modifyItem(new String[]{Uname, Pword}, I_Id, itemName, itemDesc, itemPrice, itemAvail, itemVeget, itemVegan, itemSpicy);
+        return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
 
-        return new String[] {"-98", "Not yet implemented."};
     }
     public String[] removeItem(String Uname, String Pword, int I_Id) {
 
@@ -287,10 +288,14 @@ public class Server {
 
     }
 
-    public String[] drop_table_users() {
-        return new String[] {"1", resourceBundle.getString("drop_table_users_string")};
+    public String[] modifyTable(String Uname, String Pword, int T_Id, int tableNo, String tableDesc, int tableAvail, int tableSeats) {
+        DbGenericReturn dbResult = database_conn.modifyTable(new String[]{Uname, Pword}, T_Id, tableNo, tableDesc, tableAvail, tableSeats);
+        return new String[]{dbResult.getReturn_code(), dbResult.getReturn_string()};
     }
 
+    public String[] drop_table_users() {
+        return new String[] {"1", resourceBundle.getString("drop_table_users_string")};
 
+    }
 
 }
