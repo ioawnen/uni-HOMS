@@ -673,7 +673,7 @@ public class Database {
         if (auth.getReturn_code().equals("1") && isAdmin(creds[0]) && isActive(creds[0])) {
             try {
                 stmt = conn.createStatement();
-                stmt.executeUpdate("UPDATE users SET " +
+                stmt.executeUpdate("UPDATE items SET " +
                         "Item_Name='" +         itemName + "', " +
                         "Item_Description='" +  itemDesc + "', " +
                         "Item_Price=" +         itemPrice + ", " +
@@ -858,7 +858,7 @@ public class Database {
                     System.out.println("TIME OF ORDER "+orderTime.toString()+" TIME NOW "+now.toString());
                     System.out.println("HOURS SINCE ORDER "+minsSinceOrder);
 
-
+                    incomeTotal+=Integer.parseInt(item.getItem_Price());
                     if(minsSinceOrder<1440) { //If the order was placed in the last 24 hours
                         income24H += Integer.parseInt(item.getItem_Price());
                         orderItems24H++;

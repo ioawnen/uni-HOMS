@@ -1082,8 +1082,8 @@ public class MainForm extends JPanel {
 				if (!password.equals("********")) {
 					//Send the modifications!
 					Client client2 = new Client();
-					client.setURL(url);
-					String[] result2 = client.modifyUserPassword(
+					client2.setURL(url);
+					String[] result2 = client2.modifyUserPassword(
 							creds,
 							Integer.parseInt(uid),
 							password);
@@ -1150,7 +1150,7 @@ public class MainForm extends JPanel {
 			System.err.println("THIS SEEMS BAD IF IT KEEPS HAPPENING");
 		}
 		finally {
-			updateUserTable();
+			updateItemTable();
 		}
 	}
 
@@ -1192,7 +1192,7 @@ public class MainForm extends JPanel {
 			System.err.println("THIS SEEMS BAD IF IT KEEPS HAPPENING");
 		}
 		finally {
-			updateUserTable();
+			updateTablesTable();
 		}
 	}
 
@@ -1383,7 +1383,7 @@ public class MainForm extends JPanel {
 		income24hLabel.setText(currency.getSymbol(Locale.UK)+results[1]);
 		income7dLabel.setText(currency.getSymbol(Locale.UK)+results[2]);
 		income28dLabel.setText(currency.getSymbol(Locale.UK)+results[3]);
-		incomeTotalLabel.setText(currency.getSymbol(Locale.UK)+results[4]);
+		incomeTotalLabel.setText(currency.getSymbol(Locale.UK)+results[3]);
 		orders24HLabel.setText(results[5]);
 		orders7DLabel.setText(results[6]);
 		orders28DLabel.setText(results[7]);

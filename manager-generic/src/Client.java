@@ -429,7 +429,7 @@ public class Client {
 		params.add(tableSeats);
 
 		try {
-			Object result = server.execute("server.modifyItem", params);
+			Object result = server.execute("server.modifyTable", params);
 			String res = result.toString();
 			return strToArray(res);
 		}
