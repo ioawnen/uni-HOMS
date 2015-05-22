@@ -998,4 +998,36 @@ public class Database {
 
     }
 
+    public DbGenericReturn modifyTable(String[] creds, int T_Id, int tableNo, String tableDesc, int tableAvail, int tableSeats) {
+        //TODO: IMPLEMENT THIS! (modifies item based on ID)
+        //Authenticate user
+        DbGenericReturn auth = authenticate(creds);
+        if (auth.getReturn_code().equals("1") && isAdmin(creds[0]) && isActive(creds[0])) {
+            try {
+                stmt = conn.createStatement();
+                stmt.executeUpdate("UPDATE tables SET " +
+                        "Table_Number=" +           tableNo + ", " +
+                        "Table_Description='" +     tableDesc + "', " +
+                        "Table_Available=" +        tableAvail + ", " +
+                        "Table_Seats=" +            tableSeats +
+                        " WHERE T_Id=" +            T_Id + ";");
+
+                stmt.close();
+                return new DbGenericReturn("1", "Table Modified");
+            }
+            catch(SQLException ex) {
+                System.out.println("SQLException: " + ex.getMessage());
+                System.out.println("SQLState: " + ex.getSQLState());
+                System.out.println("VendorError: " + ex.getErrorCode());
+
+                return new DbGenericReturn("-1", ex.getMessage() + " " + ex.getSQLState() + " " + ex.getErrorCode());
+            }
+        }
+        else if (auth.getReturn_code().equals("0")){ return new DbGenericReturn("-50", auth.getReturn_string()); }
+        else if (auth.getReturn_code().equals("-1")) { return new DbGenericReturn("-51", auth.getReturn_string()); }
+        else if (isAdmin(creds[0])) { return new DbGenericReturn("-52", R.getString("err-52") ); }
+        else if (isActive(creds[0])) { return new DbGenericReturn("-53", R.getString("err-53") ); }
+        else { return new DbGenericReturn("-99", "Server Error!"); }
+    }
+
 }
