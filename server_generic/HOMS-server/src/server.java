@@ -298,4 +298,9 @@ public class Server {
 
     }
 
+    public String[] addTable(String Uname, String Pword, int tableNo, String tableDesc, int tableSeats) {
+
+        DbGenericReturn dbResult = database_conn.addTable(new String[] {Uname, Pword}, tableNo, tableDesc, tableSeats);
+        return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
+    }
 }

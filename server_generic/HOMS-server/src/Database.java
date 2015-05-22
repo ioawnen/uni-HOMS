@@ -1030,4 +1030,40 @@ public class Database {
         else { return new DbGenericReturn("-99", "Server Error!"); }
     }
 
+    public DbGenericReturn addTable(String[] creds, int tableNo, String tableDesc, int tableSeats) {
+        //TODO: IMPLEMENT THIS! (adds an table)
+        //Authenticate user
+        DbGenericReturn auth = authenticate(creds);
+        if (auth.getReturn_code().equals("1") && isAdmin(creds[0]) && isActive(creds[0])) {
+
+            try {
+                stmt = conn.createStatement();
+
+                stmt.executeUpdate("INSERT INTO tables (Table_Number, Table_Description, Table_Available, Table_Seats) " +
+                        "VALUES ("+ tableNo +" , '" + tableDesc + "', 1, " + tableSeats + ");"); //DO THE QUERY
+
+                stmt.close();
+                return new DbGenericReturn("1", "Table Added");
+            } catch (SQLException ex) {
+                System.out.println("SQLException: " + ex.getMessage());
+                System.out.println("SQLState: " + ex.getSQLState());
+                System.out.println("VendorError: " + ex.getErrorCode());
+
+                if (ex.getMessage().startsWith("Duplicate entry") && ex.getMessage().endsWith("for key 'Table_Number'")) {
+                    //This is what happens when there is a table with the same number
+                    return new DbGenericReturn("-2", ex.getMessage());
+                } else {
+                    //This is what happens when anything else happens. Handle the other stray errors better than this.
+                    return new DbGenericReturn("-1", ex.getMessage());
+                }
+            }
+        }
+        else if (auth.getReturn_code().equals("0")){ return new DbGenericReturn("-50", auth.getReturn_string()); }
+        else if (auth.getReturn_code().equals("-1")) { return new DbGenericReturn("-51", auth.getReturn_string()); }
+        else if (isAdmin(creds[0])) { return new DbGenericReturn("-52", R.getString("err-52") ); }
+        else if (isActive(creds[0])) { return new DbGenericReturn("-53", R.getString("err-53") ); }
+        else { return new DbGenericReturn("-99", "Server Error!"); }
+
+    }
+
 }

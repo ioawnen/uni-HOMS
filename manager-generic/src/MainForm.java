@@ -104,6 +104,36 @@ public class MainForm extends JPanel {
 		updateHome();
     }
 
+    private void tableInputAddNewButtonActionPerformed(ActionEvent e) {
+        // TODO add your code here
+        System.out.println("ADD TABLE BUTTON PRESS!");
+
+
+        int tableNo = Integer.parseInt(tableInputTableNumberField.getText());
+        String tableDesc = tableInputDescriptionField.getText();
+        int tableSeats = Integer.parseInt(tableInputSeatsField.getText());
+
+        int confirmation = JOptionPane.showConfirmDialog(frame1, "<html>CONFIRM?<br>" +
+                "NUMBER   = "+tableNo+"<br>" +
+                "DESC     = "+tableDesc+"<br>" +
+                "SEATS    = "+tableSeats+"</html>");
+
+        if(confirmation==0) {
+            Client client = new Client();
+            client.setURL(url);
+            String[] result = client.addTable(creds, tableNo, tableDesc, tableSeats);
+
+            if(!result[0].equals("1")) {
+                JOptionPane.showMessageDialog(frame1, "<html>Error!<br>Error Code: " + result[0] + "<br>Message: " + result[1] + "</html>");
+                return;
+            }
+
+            clearUserFields();
+            updateUserTable();
+
+        }
+    }
+
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - Ian Owen
@@ -159,13 +189,13 @@ public class MainForm extends JPanel {
         userInputUsernameLabel2 = new JLabel();
         userInputPasswordLabel2 = new JLabel();
         userInputEmployeeNoLabel2 = new JLabel();
-        userInputUsernameField2 = new JTextField();
-        userInputEmployeeNoField2 = new JTextField();
-        userInputAddNewButton2 = new JButton();
+        tableInputTableNumberField = new JTextField();
+        tableInputSeatsField = new JTextField();
+        tableInputAddNewButton = new JButton();
         userInputUserIdLabel2 = new JLabel();
-        userInputUserIdField2 = new JTextField();
-        userInputPasswordField2 = new JPasswordField();
-        userInputClearButton2 = new JButton();
+        tableInputTableIdField = new JTextField();
+        tableInputDescriptionField = new JTextField();
+        tableInputClearButton = new JButton();
         manageItemsPanel = new JPanel();
         itemsScrollPane = new JScrollPane();
         itemsTable = new JTable();
@@ -200,11 +230,11 @@ public class MainForm extends JPanel {
                 //---- updateChangesMenuItem ----
                 updateChangesMenuItem.setText(bundle.getString("MainForm.updateChangesMenuItem.text"));
                 updateChangesMenuItem.addActionListener(new ActionListener() {
-					@Override
-					public void actionPerformed(ActionEvent e) {
-						updateChangesMenuItemActionPerformed(e);
-					}
-				});
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        updateChangesMenuItemActionPerformed(e);
+                    }
+                });
                 menuBar1.add(updateChangesMenuItem);
 
                 //---- refreshButton ----
@@ -648,12 +678,12 @@ public class MainForm extends JPanel {
                         userInputEmployeeNoLabel2.setText(bundle.getString("MainForm.userInputEmployeeNoLabel2.text"));
                         userInputEmployeeNoLabel2.setHorizontalAlignment(SwingConstants.TRAILING);
 
-                        //---- userInputAddNewButton2 ----
-                        userInputAddNewButton2.setText(bundle.getString("MainForm.userInputAddNewButton2.text"));
-                        userInputAddNewButton2.addActionListener(new ActionListener() {
+                        //---- tableInputAddNewButton ----
+                        tableInputAddNewButton.setText(bundle.getString("MainForm.tableInputAddNewButton.text"));
+                        tableInputAddNewButton.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                userInputAddNewButtonActionPerformed(e);
+                                tableInputAddNewButtonActionPerformed(e);
                             }
                         });
 
@@ -661,12 +691,12 @@ public class MainForm extends JPanel {
                         userInputUserIdLabel2.setText(bundle.getString("MainForm.userInputUserIdLabel2.text"));
                         userInputUserIdLabel2.setHorizontalAlignment(SwingConstants.TRAILING);
 
-                        //---- userInputUserIdField2 ----
-                        userInputUserIdField2.setEditable(false);
+                        //---- tableInputTableIdField ----
+                        tableInputTableIdField.setEditable(false);
 
-                        //---- userInputClearButton2 ----
-                        userInputClearButton2.setText(bundle.getString("MainForm.userInputClearButton2.text"));
-                        userInputClearButton2.addActionListener(new ActionListener() {
+                        //---- tableInputClearButton ----
+                        tableInputClearButton.setText(bundle.getString("MainForm.tableInputClearButton.text"));
+                        tableInputClearButton.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
                                 userInputAddNewButtonActionPerformed(e);
@@ -689,21 +719,21 @@ public class MainForm extends JPanel {
                                                         .addComponent(userInputPasswordLabel2, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
                                                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                                     .addGroup(userInputPanel2Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(userInputUsernameField2, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                                        .addComponent(userInputPasswordField2)))
+                                                        .addComponent(tableInputTableNumberField, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                                        .addComponent(tableInputDescriptionField)))
                                                 .addGroup(userInputPanel2Layout.createSequentialGroup()
                                                     .addComponent(userInputUserIdLabel2, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
                                                     .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                                    .addComponent(userInputUserIdField2, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)))
+                                                    .addComponent(tableInputTableIdField, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)))
                                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 284, Short.MAX_VALUE)
                                             .addComponent(userInputEmployeeNoLabel2, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(userInputEmployeeNoField2, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(tableInputSeatsField, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE))
                                         .addGroup(GroupLayout.Alignment.TRAILING, userInputPanel2Layout.createSequentialGroup()
                                             .addGap(0, 640, Short.MAX_VALUE)
-                                            .addComponent(userInputClearButton2, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(tableInputClearButton, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(userInputAddNewButton2, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(tableInputAddNewButton, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)))
                                     .addContainerGap())
                         );
                         userInputPanel2Layout.setVerticalGroup(
@@ -714,24 +744,24 @@ public class MainForm extends JPanel {
                                         .addGroup(userInputPanel2Layout.createSequentialGroup()
                                             .addGroup(userInputPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                                 .addComponent(userInputUserIdLabel2)
-                                                .addComponent(userInputUserIdField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(tableInputTableIdField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                                             .addGap(6, 6, 6)
                                             .addGroup(userInputPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                                 .addComponent(userInputUsernameLabel2)
-                                                .addComponent(userInputUsernameField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(tableInputTableNumberField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
                                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                             .addGroup(userInputPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                                 .addComponent(userInputPasswordLabel2)
-                                                .addComponent(userInputPasswordField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                            .addGap(44, 57, Short.MAX_VALUE))
+                                                .addComponent(tableInputDescriptionField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+                                            .addGap(44, 56, Short.MAX_VALUE))
                                         .addGroup(userInputPanel2Layout.createSequentialGroup()
                                             .addGroup(userInputPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                                .addComponent(userInputEmployeeNoField2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(tableInputSeatsField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(userInputEmployeeNoLabel2))
                                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                                             .addGroup(userInputPanel2Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                                .addComponent(userInputAddNewButton2)
-                                                .addComponent(userInputClearButton2))
+                                                .addComponent(tableInputAddNewButton)
+                                                .addComponent(tableInputClearButton))
                                             .addContainerGap())))
                         );
                     }
@@ -930,7 +960,7 @@ public class MainForm extends JPanel {
                 frame1ContentPaneLayout.createParallelGroup()
                     .addGroup(frame1ContentPaneLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(tabbedPane1)
+                        .addComponent(tabbedPane1, GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
                         .addContainerGap())
             );
             frame1.pack();
@@ -992,13 +1022,13 @@ public class MainForm extends JPanel {
     private JLabel userInputUsernameLabel2;
     private JLabel userInputPasswordLabel2;
     private JLabel userInputEmployeeNoLabel2;
-    private JTextField userInputUsernameField2;
-    private JTextField userInputEmployeeNoField2;
-    private JButton userInputAddNewButton2;
+    private JTextField tableInputTableNumberField;
+    private JTextField tableInputSeatsField;
+    private JButton tableInputAddNewButton;
     private JLabel userInputUserIdLabel2;
-    private JTextField userInputUserIdField2;
-    private JPasswordField userInputPasswordField2;
-    private JButton userInputClearButton2;
+    private JTextField tableInputTableIdField;
+    private JTextField tableInputDescriptionField;
+    private JButton tableInputClearButton;
     private JPanel manageItemsPanel;
     private JScrollPane itemsScrollPane;
     private JTable itemsTable;

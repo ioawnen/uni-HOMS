@@ -447,4 +447,21 @@ public class Client {
 		}
 		catch (Exception ex) { System.err.println(ex.getMessage()); return new String[] {"-20","Connection Error!"}; }
 	}
+	public String[] addTable (String creds[], int tableNo, String tableDesc, int tableSeats) {
+		XmlRpcClient server = createConnection();
+
+		Vector params = new Vector();
+		params.add(creds[0]);
+		params.add(creds[1]);
+		params.add(tableNo);
+		params.add(tableDesc);
+		params.add(tableSeats);
+
+		try {
+			Object result = server.execute("server.addTable", params);
+			String res = result.toString();
+			return strToArray(res);
+		}
+		catch (Exception ex) { System.err.println(ex.getMessage()); return new String[] {"-20","Connection Error!"}; }
+	}
 }
