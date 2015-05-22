@@ -62,11 +62,12 @@ public class MainForm extends JPanel {
 			if(n==0) {
 				//DO THE UPDATE
 				Client client = new Client();
+				client.setURL(url);
 				String[] result = client.modifyOrderItem(creds, Integer.parseInt(order_id), Integer.parseInt(item_id), 0); //Set the order as inactive (completed)
 				autoUpdateList();
 
 				if(!result[0].equals("1")) {
-					JOptionPane.showMessageDialog(frame1, "Error!");
+					JOptionPane.showMessageDialog(frame1, "<http>Error!<br>"+result[1]+"</html>");
 				}
 			}
 		}
@@ -74,210 +75,210 @@ public class MainForm extends JPanel {
 
 	private void initComponents() {
 		// JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
-		// Generated using JFormDesigner Evaluation license - Ian Owen
-		ResourceBundle bundle = ResourceBundle.getBundle("mainform_strings");
-		frame1 = new JFrame();
-		menuBar1 = new JMenuBar();
-		menu1 = new JMenu();
-		autoUpdateCheckBox = new JCheckBoxMenuItem();
-		menu2 = new JMenu();
-		update1sRadioButton = new JRadioButtonMenuItem();
-		update2sRadioButton = new JRadioButtonMenuItem();
-		update5sRadioButton = new JRadioButtonMenuItem();
-		update10sRadioButton = new JRadioButtonMenuItem();
-		update30sRadioButton = new JRadioButtonMenuItem();
-		update1mRadioButton = new JRadioButtonMenuItem();
-		darkModeCheckBox = new JCheckBoxMenuItem();
-		scrollPane2 = new JScrollPane();
-		list1 = new JList();
-		tabbedPane1 = new JTabbedPane();
-		panel1 = new JPanel();
-		infoLabel = new JLabel();
-		menuBar2 = new JMenuBar();
-		statusLabel = new JLabel();
+        // Generated using JFormDesigner Evaluation license - Ian Owen
+        ResourceBundle bundle = ResourceBundle.getBundle("mainform_strings");
+        frame1 = new JFrame();
+        menuBar1 = new JMenuBar();
+        menu1 = new JMenu();
+        autoUpdateCheckBox = new JCheckBoxMenuItem();
+        menu2 = new JMenu();
+        update1sRadioButton = new JRadioButtonMenuItem();
+        update2sRadioButton = new JRadioButtonMenuItem();
+        update5sRadioButton = new JRadioButtonMenuItem();
+        update10sRadioButton = new JRadioButtonMenuItem();
+        update30sRadioButton = new JRadioButtonMenuItem();
+        update1mRadioButton = new JRadioButtonMenuItem();
+        darkModeCheckBox = new JCheckBoxMenuItem();
+        scrollPane2 = new JScrollPane();
+        list1 = new JList();
+        tabbedPane1 = new JTabbedPane();
+        panel1 = new JPanel();
+        infoLabel = new JLabel();
+        menuBar2 = new JMenuBar();
+        statusLabel = new JLabel();
 
-		//======== frame1 ========
-		{
-			Container frame1ContentPane = frame1.getContentPane();
+        //======== frame1 ========
+        {
+            Container frame1ContentPane = frame1.getContentPane();
 
-			//======== menuBar1 ========
-			{
+            //======== menuBar1 ========
+            {
 
-				//======== menu1 ========
-				{
-					menu1.setText(bundle.getString("MainForm.menu1.text"));
+                //======== menu1 ========
+                {
+                    menu1.setText(bundle.getString("MainForm.menu1.text"));
 
-					//---- autoUpdateCheckBox ----
-					autoUpdateCheckBox.setText(bundle.getString("MainForm.autoUpdateCheckBox.text"));
-					autoUpdateCheckBox.addActionListener(new ActionListener() {
-						@Override
-						public void actionPerformed(ActionEvent e) {
-							autoUpdateCheckBoxActionPerformed(e);
-						}
-					});
-					menu1.add(autoUpdateCheckBox);
+                    //---- autoUpdateCheckBox ----
+                    autoUpdateCheckBox.setText(bundle.getString("MainForm.autoUpdateCheckBox.text"));
+                    autoUpdateCheckBox.addActionListener(new ActionListener() {
+                        @Override
+                        public void actionPerformed(ActionEvent e) {
+                            autoUpdateCheckBoxActionPerformed(e);
+                        }
+                    });
+                    menu1.add(autoUpdateCheckBox);
 
-					//======== menu2 ========
-					{
-						menu2.setText(bundle.getString("MainForm.menu2.text"));
+                    //======== menu2 ========
+                    {
+                        menu2.setText(bundle.getString("MainForm.menu2.text"));
 
-						//---- update1sRadioButton ----
-						update1sRadioButton.setText(bundle.getString("MainForm.update1sRadioButton.text"));
-						menu2.add(update1sRadioButton);
+                        //---- update1sRadioButton ----
+                        update1sRadioButton.setText(bundle.getString("MainForm.update1sRadioButton.text"));
+                        menu2.add(update1sRadioButton);
 
-						//---- update2sRadioButton ----
-						update2sRadioButton.setText(bundle.getString("MainForm.update2sRadioButton.text"));
-						menu2.add(update2sRadioButton);
+                        //---- update2sRadioButton ----
+                        update2sRadioButton.setText(bundle.getString("MainForm.update2sRadioButton.text"));
+                        menu2.add(update2sRadioButton);
 
-						//---- update5sRadioButton ----
-						update5sRadioButton.setText(bundle.getString("MainForm.update5sRadioButton.text"));
-						menu2.add(update5sRadioButton);
+                        //---- update5sRadioButton ----
+                        update5sRadioButton.setText(bundle.getString("MainForm.update5sRadioButton.text"));
+                        menu2.add(update5sRadioButton);
 
-						//---- update10sRadioButton ----
-						update10sRadioButton.setText(bundle.getString("MainForm.update10sRadioButton.text"));
-						menu2.add(update10sRadioButton);
+                        //---- update10sRadioButton ----
+                        update10sRadioButton.setText(bundle.getString("MainForm.update10sRadioButton.text"));
+                        menu2.add(update10sRadioButton);
 
-						//---- update30sRadioButton ----
-						update30sRadioButton.setText(bundle.getString("MainForm.update30sRadioButton.text"));
-						menu2.add(update30sRadioButton);
+                        //---- update30sRadioButton ----
+                        update30sRadioButton.setText(bundle.getString("MainForm.update30sRadioButton.text"));
+                        menu2.add(update30sRadioButton);
 
-						//---- update1mRadioButton ----
-						update1mRadioButton.setText(bundle.getString("MainForm.update1mRadioButton.text"));
-						menu2.add(update1mRadioButton);
-					}
-					menu1.add(menu2);
+                        //---- update1mRadioButton ----
+                        update1mRadioButton.setText(bundle.getString("MainForm.update1mRadioButton.text"));
+                        menu2.add(update1mRadioButton);
+                    }
+                    menu1.add(menu2);
 
-					//---- darkModeCheckBox ----
-					darkModeCheckBox.setText(bundle.getString("MainForm.darkModeCheckBox.text"));
-					menu1.add(darkModeCheckBox);
-				}
-				menuBar1.add(menu1);
-			}
-			frame1.setJMenuBar(menuBar1);
+                    //---- darkModeCheckBox ----
+                    darkModeCheckBox.setText(bundle.getString("MainForm.darkModeCheckBox.text"));
+                    menu1.add(darkModeCheckBox);
+                }
+                menuBar1.add(menu1);
+            }
+            frame1.setJMenuBar(menuBar1);
 
-			//======== scrollPane2 ========
-			{
+            //======== scrollPane2 ========
+            {
 
-				//---- list1 ----
-				list1.addListSelectionListener(new ListSelectionListener() {
-					@Override
-					public void valueChanged(ListSelectionEvent e) {
-						list1ValueChanged(e);
-					}
-				});
-				list1.addMouseListener(new MouseAdapter() {
-					@Override
-					public void mouseClicked(MouseEvent e) {
-						onListMouseClicked(e);
-					}
-				});
-				scrollPane2.setViewportView(list1);
-			}
+                //---- list1 ----
+                list1.addListSelectionListener(new ListSelectionListener() {
+                    @Override
+                    public void valueChanged(ListSelectionEvent e) {
+                        list1ValueChanged(e);
+                    }
+                });
+                list1.addMouseListener(new MouseAdapter() {
+                    @Override
+                    public void mouseClicked(MouseEvent e) {
+                        onListMouseClicked(e);
+                    }
+                });
+                scrollPane2.setViewportView(list1);
+            }
 
-			//======== tabbedPane1 ========
-			{
+            //======== tabbedPane1 ========
+            {
 
-				//======== panel1 ========
-				{
+                //======== panel1 ========
+                {
 
-					// JFormDesigner evaluation mark
-					panel1.setBorder(new javax.swing.border.CompoundBorder(
-						new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
-							"JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
-							javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
-							java.awt.Color.red), panel1.getBorder())); panel1.addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
+                    // JFormDesigner evaluation mark
+                    panel1.setBorder(new javax.swing.border.CompoundBorder(
+                        new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(0, 0, 0, 0),
+                            "JFormDesigner Evaluation", javax.swing.border.TitledBorder.CENTER,
+                            javax.swing.border.TitledBorder.BOTTOM, new java.awt.Font("Dialog", java.awt.Font.BOLD, 12),
+                            java.awt.Color.red), panel1.getBorder())); panel1.addPropertyChangeListener(new java.beans.PropertyChangeListener(){public void propertyChange(java.beans.PropertyChangeEvent e){if("border".equals(e.getPropertyName()))throw new RuntimeException();}});
 
 
-					//---- infoLabel ----
-					infoLabel.setText(bundle.getString("MainForm.infoLabel.text"));
+                    //---- infoLabel ----
+                    infoLabel.setText(bundle.getString("MainForm.infoLabel.text"));
 
-					GroupLayout panel1Layout = new GroupLayout(panel1);
-					panel1.setLayout(panel1Layout);
-					panel1Layout.setHorizontalGroup(
-						panel1Layout.createParallelGroup()
-							.addGroup(panel1Layout.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(infoLabel, GroupLayout.PREFERRED_SIZE, 232, GroupLayout.PREFERRED_SIZE)
-								.addContainerGap(377, Short.MAX_VALUE))
-					);
-					panel1Layout.setVerticalGroup(
-						panel1Layout.createParallelGroup()
-							.addGroup(panel1Layout.createSequentialGroup()
-								.addContainerGap()
-								.addComponent(infoLabel, GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
-								.addContainerGap())
-					);
-				}
-				tabbedPane1.addTab(bundle.getString("MainForm.panel1.tab.title"), panel1);
-			}
+                    GroupLayout panel1Layout = new GroupLayout(panel1);
+                    panel1.setLayout(panel1Layout);
+                    panel1Layout.setHorizontalGroup(
+                        panel1Layout.createParallelGroup()
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(infoLabel, GroupLayout.PREFERRED_SIZE, 232, GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(377, Short.MAX_VALUE))
+                    );
+                    panel1Layout.setVerticalGroup(
+                        panel1Layout.createParallelGroup()
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(infoLabel, GroupLayout.DEFAULT_SIZE, 88, Short.MAX_VALUE)
+                                .addContainerGap())
+                    );
+                }
+                tabbedPane1.addTab(bundle.getString("MainForm.panel1.tab.title"), panel1);
+            }
 
-			//======== menuBar2 ========
-			{
+            //======== menuBar2 ========
+            {
 
-				//---- statusLabel ----
-				statusLabel.setText(bundle.getString("MainForm.statusLabel.text"));
-				statusLabel.setForeground(Color.gray);
-				menuBar2.add(statusLabel);
-			}
+                //---- statusLabel ----
+                statusLabel.setText(bundle.getString("MainForm.statusLabel.text"));
+                statusLabel.setForeground(Color.gray);
+                menuBar2.add(statusLabel);
+            }
 
-			GroupLayout frame1ContentPaneLayout = new GroupLayout(frame1ContentPane);
-			frame1ContentPane.setLayout(frame1ContentPaneLayout);
-			frame1ContentPaneLayout.setHorizontalGroup(
-				frame1ContentPaneLayout.createParallelGroup()
-					.addComponent(menuBar2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-					.addGroup(frame1ContentPaneLayout.createSequentialGroup()
-						.addContainerGap()
-						.addGroup(frame1ContentPaneLayout.createParallelGroup()
-							.addComponent(tabbedPane1)
-							.addComponent(scrollPane2))
-						.addContainerGap())
-			);
-			frame1ContentPaneLayout.setVerticalGroup(
-				frame1ContentPaneLayout.createParallelGroup()
-					.addGroup(frame1ContentPaneLayout.createSequentialGroup()
-						.addContainerGap()
-						.addComponent(scrollPane2, GroupLayout.DEFAULT_SIZE, 646, Short.MAX_VALUE)
-						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(tabbedPane1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-						.addComponent(menuBar2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-			);
-			frame1.pack();
-			frame1.setLocationRelativeTo(frame1.getOwner());
-		}
+            GroupLayout frame1ContentPaneLayout = new GroupLayout(frame1ContentPane);
+            frame1ContentPane.setLayout(frame1ContentPaneLayout);
+            frame1ContentPaneLayout.setHorizontalGroup(
+                frame1ContentPaneLayout.createParallelGroup()
+                    .addComponent(menuBar2, GroupLayout.DEFAULT_SIZE, GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(frame1ContentPaneLayout.createParallelGroup()
+                            .addComponent(tabbedPane1)
+                            .addComponent(scrollPane2))
+                        .addContainerGap())
+            );
+            frame1ContentPaneLayout.setVerticalGroup(
+                frame1ContentPaneLayout.createParallelGroup()
+                    .addGroup(frame1ContentPaneLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(scrollPane2, GroupLayout.DEFAULT_SIZE, 646, Short.MAX_VALUE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(tabbedPane1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(menuBar2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+            );
+            frame1.pack();
+            frame1.setLocationRelativeTo(frame1.getOwner());
+        }
 
-		//---- updateRateButtonGroup ----
-		ButtonGroup updateRateButtonGroup = new ButtonGroup();
-		updateRateButtonGroup.add(update1sRadioButton);
-		updateRateButtonGroup.add(update2sRadioButton);
-		updateRateButtonGroup.add(update5sRadioButton);
-		updateRateButtonGroup.add(update10sRadioButton);
-		updateRateButtonGroup.add(update30sRadioButton);
-		updateRateButtonGroup.add(update1mRadioButton);
+        //---- updateRateButtonGroup ----
+        ButtonGroup updateRateButtonGroup = new ButtonGroup();
+        updateRateButtonGroup.add(update1sRadioButton);
+        updateRateButtonGroup.add(update2sRadioButton);
+        updateRateButtonGroup.add(update5sRadioButton);
+        updateRateButtonGroup.add(update10sRadioButton);
+        updateRateButtonGroup.add(update30sRadioButton);
+        updateRateButtonGroup.add(update1mRadioButton);
 		// JFormDesigner - End of component initialization  //GEN-END:initComponents
 	}
 
 	// JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
-	// Generated using JFormDesigner Evaluation license - Ian Owen
-	private JFrame frame1;
-	private JMenuBar menuBar1;
-	private JMenu menu1;
-	private JCheckBoxMenuItem autoUpdateCheckBox;
-	private JMenu menu2;
-	private JRadioButtonMenuItem update1sRadioButton;
-	private JRadioButtonMenuItem update2sRadioButton;
-	private JRadioButtonMenuItem update5sRadioButton;
-	private JRadioButtonMenuItem update10sRadioButton;
-	private JRadioButtonMenuItem update30sRadioButton;
-	private JRadioButtonMenuItem update1mRadioButton;
-	private JCheckBoxMenuItem darkModeCheckBox;
-	private JScrollPane scrollPane2;
-	private JList list1;
-	private JTabbedPane tabbedPane1;
-	private JPanel panel1;
-	private JLabel infoLabel;
-	private JMenuBar menuBar2;
-	private JLabel statusLabel;
+    // Generated using JFormDesigner Evaluation license - Ian Owen
+    private JFrame frame1;
+    private JMenuBar menuBar1;
+    private JMenu menu1;
+    private JCheckBoxMenuItem autoUpdateCheckBox;
+    private JMenu menu2;
+    private JRadioButtonMenuItem update1sRadioButton;
+    private JRadioButtonMenuItem update2sRadioButton;
+    private JRadioButtonMenuItem update5sRadioButton;
+    private JRadioButtonMenuItem update10sRadioButton;
+    private JRadioButtonMenuItem update30sRadioButton;
+    private JRadioButtonMenuItem update1mRadioButton;
+    private JCheckBoxMenuItem darkModeCheckBox;
+    private JScrollPane scrollPane2;
+    private JList list1;
+    private JTabbedPane tabbedPane1;
+    private JPanel panel1;
+    private JLabel infoLabel;
+    private JMenuBar menuBar2;
+    private JLabel statusLabel;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 
 	public void setCreds(String[] credentials) {

@@ -953,4 +953,49 @@ public class Database {
 
     }
 
+    public DbDataReturn getTables(String[] creds) {
+        //TODO: IMPLEMENT THIS! (returns all tables)
+        DbGenericReturn auth = authenticate(creds);
+        if (auth.getReturn_code().equals("1")) {
+
+            try {
+                stmt = conn.createStatement();
+                rs = stmt.executeQuery("SELECT * FROM tables;"); //DO THE QUERY
+
+                List<String> items = new ArrayList<>();
+
+                while(rs.next()) { //Iterate through orders,
+
+                    String tid = rs.getString("T_Id");
+                    String tableNo = rs.getString("Table_Number");
+                    String tableDesc = rs.getString("Table_Description");
+                    String tableAvail = rs.getString("Table_Available");
+                    String tableSeats = rs.getString("Table_Seats");
+
+
+                    items.add(tid);
+                    items.add(tableNo);
+                    items.add(tableDesc);
+                    items.add(tableAvail);
+                    items.add(tableSeats);
+                }
+                String[] results = items.toArray(new String[items.size()]);
+                for(int i = 0; results.length<i; i++) {
+                    System.out.println(results[i]);
+                }
+                return new DbDataReturn("1", items.toArray(new String[items.size()]));
+
+            } catch (SQLException ex) {
+                System.out.println("SQLException: " + ex.getMessage());
+                System.out.println("SQLState: " + ex.getSQLState());
+                System.out.println("VendorError: " + ex.getErrorCode());
+                return new DbDataReturn("-1", new String[]{"Sql Error!: " + ex});
+            }
+        }
+        else if (auth.getReturn_code().equals("0")){ return new DbDataReturn("-50", new String[] {auth.getReturn_string()}); }
+        else if (auth.getReturn_code().equals("-1")) { return new DbDataReturn("-51", new String[] {auth.getReturn_string()}); }
+        else { return new DbDataReturn("-99", new String[] {"Server Error!"}); }
+
+    }
+
 }

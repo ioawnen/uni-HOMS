@@ -243,7 +243,7 @@ public class Server {
 
     public String[] getUsers(String Uname, String Pword) {
         System.out.println("\ngetUsers Request");
-        DbDataReturn dbResult = database_conn.getUsers(new String[] {Uname, Pword});
+        DbDataReturn dbResult = database_conn.getUsers(new String[]{Uname, Pword});
 
 
         String[] results = new String[dbResult.getReturn_strings().length+1];
@@ -254,6 +254,37 @@ public class Server {
             System.out.println("RESULTS "+results[i]);
         }
         return results;
+    }
+
+    public String[] getTables(String Uname, String Pword) {
+        System.out.println("\ngetTables Request");
+        DbDataReturn dbResult = database_conn.getTables(new String[]{Uname, Pword});
+
+
+        String[] results = new String[dbResult.getReturn_strings().length+1];
+        results[0] = dbResult.getReturn_code();
+        System.arraycopy(dbResult.getReturn_strings(), 0, results, 1, dbResult.getReturn_strings().length);
+
+        for(int i = 0; results.length>i; i++) {
+            System.out.println("RESULTS "+results[i]);
+        }
+        return results;
+    }
+
+    public String[] getManagementData(String Uname, String Pword) {
+        System.out.println("\ngetManagementData Request");
+
+        DbDataReturn dbResult = database_conn.getManagementData(new String[]{Uname, Pword});
+
+        String[] results = new String[dbResult.getReturn_strings().length+1];
+        results[0] = dbResult.getReturn_code();
+        System.arraycopy(dbResult.getReturn_strings(), 0, results, 1, dbResult.getReturn_strings().length);
+
+        for(int i = 0; results.length>i; i++) {
+            System.out.println("RESULTS "+results[i]);
+        }
+        return results;
+
     }
 
     public String[] drop_table_users() {
