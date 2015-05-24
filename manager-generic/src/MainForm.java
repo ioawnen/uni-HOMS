@@ -129,9 +129,45 @@ public class MainForm extends JPanel {
             }
 
             clearUserFields();
-            updateUserTable();
+            updateTablesTable();
 
         }
+    }
+
+    private void itemInputAddNewButtonActionPerformed(ActionEvent e) {
+        // TODO add your code here
+        System.out.println("ADD ITEM BUTTON PRESS!");
+
+        String itemName = itemInputNameField.getText();
+        String itemDesc = itemInputDescriptionField.getText();
+        int itemVeget = boolToInt(itemInputVegetarianCheckBox.isSelected());
+        int itemVegan = boolToInt(itemInputVeganCheckBox.isSelected());
+        int itemSpicy = boolToInt(itemInputSpicyCheckBox.isSelected());
+        int itemPrice = Integer.parseInt(itemInputPriceField.getText());
+
+        int confirmation = JOptionPane.showConfirmDialog(frame1, "<html>CONFIRM?<br>" +
+                "NAME   = "+itemName+"<br>" +
+                "DESC     = "+itemDesc+"<br>" +
+                "VEGET    = "+itemVeget+"<br>" +
+                "VEGAN    = "+itemVegan+"<br>" +
+                "SPICY    = "+itemSpicy+"<br>" +
+                "PRICE    = "+itemPrice+"</html>");
+
+        if(confirmation==0) {
+            Client client = new Client();
+            client.setURL(url);
+            String[] result = client.addItem(creds, itemName, itemDesc, itemPrice,itemVeget, itemVegan, itemSpicy);
+
+            if(!result[0].equals("1")) {
+                JOptionPane.showMessageDialog(frame1, "<html>Error!<br>Error Code: " + result[0] + "<br>Message: " + result[1] + "</html>");
+                return;
+            }
+
+            clearUserFields();
+            updateItemTable();
+
+        }
+
     }
 
 	private void initComponents() {
@@ -203,16 +239,16 @@ public class MainForm extends JPanel {
         userInputUsernameLabel3 = new JLabel();
         userInputPasswordLabel3 = new JLabel();
         userInputEmployeeNoLabel3 = new JLabel();
-        userInputUsernameField3 = new JTextField();
-        userInputEmployeeNoField3 = new JTextField();
-        userInputAddNewButton3 = new JButton();
+        itemInputNameField = new JTextField();
+        itemInputPriceField = new JTextField();
+        itemInputAddNewButton = new JButton();
         userInputUserIdLabel3 = new JLabel();
-        userInputUserIdField3 = new JTextField();
-        userInputActiveCheckBox2 = new JCheckBox();
-        userInputAdminCheckBox2 = new JCheckBox();
-        userInputPasswordField3 = new JPasswordField();
-        userInputClearButton3 = new JButton();
-        userInputAdminCheckBox3 = new JCheckBox();
+        itemInputIdField = new JTextField();
+        itemInputVegetarianCheckBox = new JCheckBox();
+        itemInputVeganCheckBox = new JCheckBox();
+        itemInputDescriptionField = new JTextField();
+        itemInputClearButton = new JButton();
+        itemInputSpicyCheckBox = new JCheckBox();
 
         //======== frame1 ========
         {
@@ -811,12 +847,12 @@ public class MainForm extends JPanel {
                         userInputEmployeeNoLabel3.setText(bundle.getString("MainForm.userInputEmployeeNoLabel3.text"));
                         userInputEmployeeNoLabel3.setHorizontalAlignment(SwingConstants.TRAILING);
 
-                        //---- userInputAddNewButton3 ----
-                        userInputAddNewButton3.setText(bundle.getString("MainForm.userInputAddNewButton3.text"));
-                        userInputAddNewButton3.addActionListener(new ActionListener() {
+                        //---- itemInputAddNewButton ----
+                        itemInputAddNewButton.setText(bundle.getString("MainForm.itemInputAddNewButton.text"));
+                        itemInputAddNewButton.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
-                                userInputAddNewButtonActionPerformed(e);
+                                itemInputAddNewButtonActionPerformed(e);
                             }
                         });
 
@@ -824,24 +860,24 @@ public class MainForm extends JPanel {
                         userInputUserIdLabel3.setText(bundle.getString("MainForm.userInputUserIdLabel3.text"));
                         userInputUserIdLabel3.setHorizontalAlignment(SwingConstants.TRAILING);
 
-                        //---- userInputUserIdField3 ----
-                        userInputUserIdField3.setEditable(false);
+                        //---- itemInputIdField ----
+                        itemInputIdField.setEditable(false);
 
-                        //---- userInputActiveCheckBox2 ----
-                        userInputActiveCheckBox2.setText(bundle.getString("MainForm.userInputActiveCheckBox2.text"));
-                        userInputActiveCheckBox2.setHorizontalTextPosition(SwingConstants.LEADING);
-                        userInputActiveCheckBox2.setIconTextGap(10);
-                        userInputActiveCheckBox2.setHorizontalAlignment(SwingConstants.TRAILING);
+                        //---- itemInputVegetarianCheckBox ----
+                        itemInputVegetarianCheckBox.setText(bundle.getString("MainForm.itemInputVegetarianCheckBox.text"));
+                        itemInputVegetarianCheckBox.setHorizontalTextPosition(SwingConstants.LEADING);
+                        itemInputVegetarianCheckBox.setIconTextGap(10);
+                        itemInputVegetarianCheckBox.setHorizontalAlignment(SwingConstants.TRAILING);
 
-                        //---- userInputAdminCheckBox2 ----
-                        userInputAdminCheckBox2.setText(bundle.getString("MainForm.userInputAdminCheckBox2.text"));
-                        userInputAdminCheckBox2.setHorizontalTextPosition(SwingConstants.LEADING);
-                        userInputAdminCheckBox2.setIconTextGap(10);
-                        userInputAdminCheckBox2.setHorizontalAlignment(SwingConstants.TRAILING);
+                        //---- itemInputVeganCheckBox ----
+                        itemInputVeganCheckBox.setText(bundle.getString("MainForm.itemInputVeganCheckBox.text"));
+                        itemInputVeganCheckBox.setHorizontalTextPosition(SwingConstants.LEADING);
+                        itemInputVeganCheckBox.setIconTextGap(10);
+                        itemInputVeganCheckBox.setHorizontalAlignment(SwingConstants.TRAILING);
 
-                        //---- userInputClearButton3 ----
-                        userInputClearButton3.setText(bundle.getString("MainForm.userInputClearButton3.text"));
-                        userInputClearButton3.addActionListener(new ActionListener() {
+                        //---- itemInputClearButton ----
+                        itemInputClearButton.setText(bundle.getString("MainForm.itemInputClearButton.text"));
+                        itemInputClearButton.addActionListener(new ActionListener() {
                             @Override
                             public void actionPerformed(ActionEvent e) {
                                 userInputAddNewButtonActionPerformed(e);
@@ -849,11 +885,11 @@ public class MainForm extends JPanel {
                             }
                         });
 
-                        //---- userInputAdminCheckBox3 ----
-                        userInputAdminCheckBox3.setText(bundle.getString("MainForm.userInputAdminCheckBox3.text"));
-                        userInputAdminCheckBox3.setHorizontalTextPosition(SwingConstants.LEADING);
-                        userInputAdminCheckBox3.setIconTextGap(10);
-                        userInputAdminCheckBox3.setHorizontalAlignment(SwingConstants.TRAILING);
+                        //---- itemInputSpicyCheckBox ----
+                        itemInputSpicyCheckBox.setText(bundle.getString("MainForm.itemInputSpicyCheckBox.text"));
+                        itemInputSpicyCheckBox.setHorizontalTextPosition(SwingConstants.LEADING);
+                        itemInputSpicyCheckBox.setIconTextGap(10);
+                        itemInputSpicyCheckBox.setHorizontalAlignment(SwingConstants.TRAILING);
 
                         GroupLayout userInputPanel3Layout = new GroupLayout(userInputPanel3);
                         userInputPanel3.setLayout(userInputPanel3Layout);
@@ -865,31 +901,31 @@ public class MainForm extends JPanel {
                                         .addGroup(userInputPanel3Layout.createSequentialGroup()
                                             .addComponent(userInputUserIdLabel3, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(userInputUserIdField3, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(itemInputIdField, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(userInputActiveCheckBox2, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(itemInputVegetarianCheckBox, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 178, Short.MAX_VALUE)
                                             .addComponent(userInputEmployeeNoLabel3, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(userInputEmployeeNoField3, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE))
+                                            .addComponent(itemInputPriceField, GroupLayout.PREFERRED_SIZE, 200, GroupLayout.PREFERRED_SIZE))
                                         .addGroup(userInputPanel3Layout.createSequentialGroup()
                                             .addGroup(userInputPanel3Layout.createParallelGroup()
                                                 .addComponent(userInputUsernameLabel3, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(userInputPasswordLabel3, GroupLayout.PREFERRED_SIZE, 75, GroupLayout.PREFERRED_SIZE))
                                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                             .addGroup(userInputPanel3Layout.createParallelGroup(GroupLayout.Alignment.LEADING, false)
-                                                .addComponent(userInputUsernameField3, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
-                                                .addComponent(userInputPasswordField3))
+                                                .addComponent(itemInputNameField, GroupLayout.DEFAULT_SIZE, 200, Short.MAX_VALUE)
+                                                .addComponent(itemInputDescriptionField))
                                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                             .addGroup(userInputPanel3Layout.createParallelGroup()
-                                                .addComponent(userInputAdminCheckBox2, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(userInputAdminCheckBox3, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE))
+                                                .addComponent(itemInputVeganCheckBox, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(itemInputSpicyCheckBox, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE))
                                             .addGap(0, 0, Short.MAX_VALUE))
                                         .addGroup(userInputPanel3Layout.createSequentialGroup()
                                             .addGap(0, 0, Short.MAX_VALUE)
-                                            .addComponent(userInputClearButton3, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(itemInputClearButton, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)
                                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
-                                            .addComponent(userInputAddNewButton3, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)))
+                                            .addComponent(itemInputAddNewButton, GroupLayout.PREFERRED_SIZE, 100, GroupLayout.PREFERRED_SIZE)))
                                     .addContainerGap())
                         );
                         userInputPanel3Layout.setVerticalGroup(
@@ -900,27 +936,27 @@ public class MainForm extends JPanel {
                                         .addGroup(userInputPanel3Layout.createSequentialGroup()
                                             .addGroup(userInputPanel3Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                                 .addComponent(userInputUserIdLabel3)
-                                                .addComponent(userInputUserIdField3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(userInputActiveCheckBox2))
+                                                .addComponent(itemInputIdField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(itemInputVegetarianCheckBox))
                                             .addGap(6, 6, 6)
                                             .addGroup(userInputPanel3Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                                 .addComponent(userInputUsernameLabel3)
-                                                .addComponent(userInputUsernameField3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(userInputAdminCheckBox2))
+                                                .addComponent(itemInputNameField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(itemInputVeganCheckBox))
                                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
                                             .addGroup(userInputPanel3Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
                                                 .addComponent(userInputPasswordLabel3)
-                                                .addComponent(userInputPasswordField3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                                .addComponent(userInputAdminCheckBox3))
+                                                .addComponent(itemInputDescriptionField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(itemInputSpicyCheckBox))
                                             .addGap(44, 64, Short.MAX_VALUE))
                                         .addGroup(userInputPanel3Layout.createSequentialGroup()
                                             .addGroup(userInputPanel3Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                                .addComponent(userInputEmployeeNoField3, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(itemInputPriceField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
                                                 .addComponent(userInputEmployeeNoLabel3))
                                             .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED, 86, Short.MAX_VALUE)
                                             .addGroup(userInputPanel3Layout.createParallelGroup(GroupLayout.Alignment.BASELINE)
-                                                .addComponent(userInputAddNewButton3)
-                                                .addComponent(userInputClearButton3))
+                                                .addComponent(itemInputAddNewButton)
+                                                .addComponent(itemInputClearButton))
                                             .addContainerGap())))
                         );
                     }
@@ -960,7 +996,7 @@ public class MainForm extends JPanel {
                 frame1ContentPaneLayout.createParallelGroup()
                     .addGroup(frame1ContentPaneLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(tabbedPane1, GroupLayout.DEFAULT_SIZE, 569, Short.MAX_VALUE)
+                        .addComponent(tabbedPane1)
                         .addContainerGap())
             );
             frame1.pack();
@@ -1036,16 +1072,16 @@ public class MainForm extends JPanel {
     private JLabel userInputUsernameLabel3;
     private JLabel userInputPasswordLabel3;
     private JLabel userInputEmployeeNoLabel3;
-    private JTextField userInputUsernameField3;
-    private JTextField userInputEmployeeNoField3;
-    private JButton userInputAddNewButton3;
+    private JTextField itemInputNameField;
+    private JTextField itemInputPriceField;
+    private JButton itemInputAddNewButton;
     private JLabel userInputUserIdLabel3;
-    private JTextField userInputUserIdField3;
-    private JCheckBox userInputActiveCheckBox2;
-    private JCheckBox userInputAdminCheckBox2;
-    private JPasswordField userInputPasswordField3;
-    private JButton userInputClearButton3;
-    private JCheckBox userInputAdminCheckBox3;
+    private JTextField itemInputIdField;
+    private JCheckBox itemInputVegetarianCheckBox;
+    private JCheckBox itemInputVeganCheckBox;
+    private JTextField itemInputDescriptionField;
+    private JButton itemInputClearButton;
+    private JCheckBox itemInputSpicyCheckBox;
 	// JFormDesigner - End of variables declaration  //GEN-END:variables
 
 	public void setCreds(String username, String password){

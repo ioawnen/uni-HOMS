@@ -21,9 +21,9 @@ public class Database {
 
     private static ResourceBundle R = ResourceBundle.getBundle("strings", Locale.ENGLISH);
 
-    //THIS IS BAD. VERY BAD. THE WORST.
-    String dbUsername = "root";
-    String dbPassword = "8123993ba";
+
+    String dbUsername = R.getString("db_username");
+    String dbPassword = R.getString("db_password");
 
     //Initialises the connection to the MySQL database
     public boolean initialise() {
@@ -37,7 +37,7 @@ public class Database {
         }
 
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/homs_db?"+"user="+dbUsername+"&password="+dbPassword);
+            conn = DriverManager.getConnection(R.getString("db_url")+"?user="+dbUsername+"&password="+dbPassword);
             return true;
         } catch (SQLException ex) {
             // handle any errors

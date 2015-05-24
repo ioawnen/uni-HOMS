@@ -8,7 +8,7 @@ new FormModel {
 	root: new FormRoot {
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
 			"$horizontalGroup": "par l {seq l {space :::p, comp tabbedPane1:::::x, space :::p}}"
-			"$verticalGroup": "par l {seq l {space :::p, comp tabbedPane1::::569:x, space :::p}}"
+			"$verticalGroup": "par l {seq l {space :::p, comp tabbedPane1:::::x, space :::p}}"
 		} ) {
 			name: "frame1"
 			addEvent( new FormEvent( "java.awt.event.WindowListener", "windowActivated", "frame1WindowActivated", true ) )
@@ -367,8 +367,8 @@ new FormModel {
 						} )
 					} )
 					add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-						"$horizontalGroup": "par l {seq {space :::p, par l {seq {comp userInputUserIdLabel3:::p:75:p, space :::p, comp userInputUserIdField3:::p:200:p, space :::p, comp userInputActiveCheckBox2:::p:100:p, space ::178:x, comp userInputEmployeeNoLabel3:::p:75:p, space :::p, comp userInputEmployeeNoField3:::p:200:p}, seq {par l {comp userInputUsernameLabel3:::p:75:p, comp userInputPasswordLabel3::l:p:75:p}, space :::p, par l:::p {comp userInputUsernameField3::::200:x, comp userInputPasswordField3:::::x}, space :::p, par l {comp userInputAdminCheckBox2:::p:100:p, comp userInputAdminCheckBox3:::p:100:p}, space :0:0:x}, seq l {space :0:0:x, comp userInputClearButton3:::p:100:p, space :::p, comp userInputAddNewButton3:::p:100:p}}, space :::p}}"
-						"$verticalGroup": "par l {seq {space :4:4:p, par l {seq l {par b {comp userInputUserIdLabel3::b:p::p, comp userInputUserIdField3::b:p::p, comp userInputActiveCheckBox2::b:p::p}, space :p:6:p, par b {comp userInputUsernameLabel3::b:p::p, comp userInputUsernameField3::b:p::p, comp userInputAdminCheckBox2::b:p::p}, space :::p, par b {comp userInputPasswordLabel3::b:p::p, comp userInputPasswordField3::b:p::p, comp userInputAdminCheckBox3::b:p::p}, space :44:64:x}, seq l {par b {comp userInputEmployeeNoField3::b:p::p, comp userInputEmployeeNoLabel3::b:p::p}, space ::86:x, par b {comp userInputAddNewButton3::b:p::p, comp userInputClearButton3::b:p::p}, space :::p}}}}"
+						"$horizontalGroup": "par l {seq {space :::p, par l {seq {comp userInputUserIdLabel3:::p:75:p, space :::p, comp itemInputIdField:::p:200:p, space :::p, comp itemInputVegetarianCheckBox:::p:100:p, space ::178:x, comp userInputEmployeeNoLabel3:::p:75:p, space :::p, comp itemInputPriceField:::p:200:p}, seq {par l {comp userInputUsernameLabel3:::p:75:p, comp userInputPasswordLabel3::l:p:75:p}, space :::p, par l:::p {comp itemInputNameField::::200:x, comp itemInputDescriptionField:::::x}, space :::p, par l {comp itemInputVeganCheckBox:::p:100:p, comp itemInputSpicyCheckBox:::p:100:p}, space :0:0:x}, seq l {space :0:0:x, comp itemInputClearButton:::p:100:p, space :::p, comp itemInputAddNewButton:::p:100:p}}, space :::p}}"
+						"$verticalGroup": "par l {seq {space :4:4:p, par l {seq l {par b {comp userInputUserIdLabel3::b:p::p, comp itemInputIdField::b:p::p, comp itemInputVegetarianCheckBox::b:p::p}, space :p:6:p, par b {comp userInputUsernameLabel3::b:p::p, comp itemInputNameField::b:p::p, comp itemInputVeganCheckBox::b:p::p}, space :::p, par b {comp userInputPasswordLabel3::b:p::p, comp itemInputDescriptionField::b:p::p, comp itemInputSpicyCheckBox::b:p::p}, space :44:64:x}, seq l {par b {comp itemInputPriceField::b:p::p, comp userInputEmployeeNoLabel3::b:p::p}, space ::86:x, par b {comp itemInputAddNewButton::b:p::p, comp itemInputClearButton::b:p::p}, space :::p}}}}"
 					} ) {
 						name: "userInputPanel3"
 						"border": new javax.swing.border.TitledBorder( "i18nKey=MainForm.userInputPanel3.border" )
@@ -388,15 +388,15 @@ new FormModel {
 							"horizontalAlignment": 11
 						} )
 						add( new FormComponent( "javax.swing.JTextField" ) {
-							name: "userInputUsernameField3"
+							name: "itemInputNameField"
 						} )
 						add( new FormComponent( "javax.swing.JTextField" ) {
-							name: "userInputEmployeeNoField3"
+							name: "itemInputPriceField"
 						} )
 						add( new FormComponent( "javax.swing.JButton" ) {
-							name: "userInputAddNewButton3"
-							"text": new FormMessage( null, "MainForm.userInputAddNewButton3.text" )
-							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "userInputAddNewButtonActionPerformed", true ) )
+							name: "itemInputAddNewButton"
+							"text": new FormMessage( null, "MainForm.itemInputAddNewButton.text" )
+							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "itemInputAddNewButtonActionPerformed", true ) )
 						} )
 						add( new FormComponent( "javax.swing.JLabel" ) {
 							name: "userInputUserIdLabel3"
@@ -404,35 +404,35 @@ new FormModel {
 							"horizontalAlignment": 11
 						} )
 						add( new FormComponent( "javax.swing.JTextField" ) {
-							name: "userInputUserIdField3"
+							name: "itemInputIdField"
 							"editable": false
 						} )
 						add( new FormComponent( "javax.swing.JCheckBox" ) {
-							name: "userInputActiveCheckBox2"
-							"text": new FormMessage( null, "MainForm.userInputActiveCheckBox2.text" )
+							name: "itemInputVegetarianCheckBox"
+							"text": new FormMessage( null, "MainForm.itemInputVegetarianCheckBox.text" )
 							"horizontalTextPosition": 10
 							"iconTextGap": 10
 							"horizontalAlignment": 11
 						} )
 						add( new FormComponent( "javax.swing.JCheckBox" ) {
-							name: "userInputAdminCheckBox2"
-							"text": new FormMessage( null, "MainForm.userInputAdminCheckBox2.text" )
+							name: "itemInputVeganCheckBox"
+							"text": new FormMessage( null, "MainForm.itemInputVeganCheckBox.text" )
 							"horizontalTextPosition": 10
 							"iconTextGap": 10
 							"horizontalAlignment": 11
 						} )
-						add( new FormComponent( "javax.swing.JPasswordField" ) {
-							name: "userInputPasswordField3"
+						add( new FormComponent( "javax.swing.JTextField" ) {
+							name: "itemInputDescriptionField"
 						} )
 						add( new FormComponent( "javax.swing.JButton" ) {
-							name: "userInputClearButton3"
-							"text": new FormMessage( null, "MainForm.userInputClearButton3.text" )
+							name: "itemInputClearButton"
+							"text": new FormMessage( null, "MainForm.itemInputClearButton.text" )
 							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "userInputAddNewButtonActionPerformed", true ) )
 							addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "userInputClearButtonActionPerformed", true ) )
 						} )
 						add( new FormComponent( "javax.swing.JCheckBox" ) {
-							name: "userInputAdminCheckBox3"
-							"text": new FormMessage( null, "MainForm.userInputAdminCheckBox3.text" )
+							name: "itemInputSpicyCheckBox"
+							"text": new FormMessage( null, "MainForm.itemInputSpicyCheckBox.text" )
 							"horizontalTextPosition": 10
 							"iconTextGap": 10
 							"horizontalAlignment": 11

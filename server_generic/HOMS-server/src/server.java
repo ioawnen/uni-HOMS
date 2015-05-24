@@ -211,8 +211,8 @@ public class Server {
     }
 
     public String[] addItem(String Uname, String Pword, String itemName, String itemDesc, int itemPrice, int itemAvail, int itemVeget, int itemVegan, int itemSpicy) {
-
-        return new String[] {"-98", "Not yet implemented."};
+        DbGenericReturn dbResult = database_conn.addItem(new String[]{Uname, Pword}, itemName, itemDesc, itemPrice, itemAvail, itemVeget, itemVegan, itemSpicy);
+        return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
     }
     public String[] modifyItem(String Uname, String Pword, int I_Id, String itemName, String itemDesc, int itemPrice, int itemAvail, int itemVeget, int itemVegan, int itemSpicy) {
         DbGenericReturn dbResult = database_conn.modifyItem(new String[]{Uname, Pword}, I_Id, itemName, itemDesc, itemPrice, itemAvail, itemVeget, itemVegan, itemSpicy);
@@ -300,7 +300,7 @@ public class Server {
 
     public String[] addTable(String Uname, String Pword, int tableNo, String tableDesc, int tableSeats) {
 
-        DbGenericReturn dbResult = database_conn.addTable(new String[] {Uname, Pword}, tableNo, tableDesc, tableSeats);
+        DbGenericReturn dbResult = database_conn.addTable(new String[]{Uname, Pword}, tableNo, tableDesc, tableSeats);
         return new String[] {dbResult.getReturn_code(), dbResult.getReturn_string()};
     }
 }

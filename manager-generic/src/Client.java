@@ -464,4 +464,26 @@ public class Client {
 		}
 		catch (Exception ex) { System.err.println(ex.getMessage()); return new String[] {"-20","Connection Error!"}; }
 	}
+	public String[] addItem (String creds[], String itemName, String itemDesc, int itemPrice, int itemVeget, int itemVegan, int itemSpicy) {
+		XmlRpcClient server = createConnection();
+
+		Vector params = new Vector();
+		params.add(creds[0]);
+		params.add(creds[1]);
+		params.add(itemName);
+		params.add(itemDesc);
+		params.add(itemPrice);
+		params.add(1); //is available
+		params.add(itemVeget);
+		params.add(itemVegan);
+		params.add(itemSpicy);
+
+
+		try {
+			Object result = server.execute("server.addItem", params);
+			String res = result.toString();
+			return strToArray(res);
+		}
+		catch (Exception ex) { System.err.println(ex.getMessage()); return new String[] {"-20","Connection Error!"}; }
+	}
 }
