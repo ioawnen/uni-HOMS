@@ -2,7 +2,6 @@ import java.awt.*;
 import java.awt.event.*;
 import java.beans.*;
 import java.util.*;
-import java.util.List;
 import javax.swing.*;
 import javax.swing.GroupLayout;
 import javax.swing.border.*;
@@ -13,8 +12,6 @@ import java.util.Locale;
 /*
  * Created by JFormDesigner on Tue Apr 14 16:07:44 BST 2015
  */
-
-
 
 /**
  * @author Ian Owen
